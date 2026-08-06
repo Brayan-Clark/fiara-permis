@@ -18,11 +18,14 @@
     "@types/alpinejs": "^3.13.11",
     "@vite-pwa/astro": "^1.2.0",
     "alpinejs": "^3.15.12",
-    "astro": "^7.2.0",
+    "astro": "^5.18.2",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
     "typescript": "^6.0.3"
+  },
+  "overrides": {
+    "vite": "^6.4.3"
   }
 }
