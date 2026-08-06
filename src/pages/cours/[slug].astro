@@ -1,0 +1,92 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PkMarker from '../../components/PkMarker.astro';
+import SignGrid from '../../components/SignGrid.astro';
+import { getCollection, render } from 'astro:content';
+import { withBase } from '../../utils/url';
+
+export async function getStaticPaths() {
+  const modules = await getCollection('cours');
+  return modules.map((mod) => ({
+    params: { slug: mod.id },
+    props: { mod, all: modules },
+  }));
+}
+
+const { mod, all } = Astro.props;
+const { Content } = await render(mod);
+
+const sorted = [...all].sort((a, b) => a.data.order - b.data.order);
+const idx = sorted.findIndex((m) => m.id === mod.id);
+const prev = idx > 0 ? sorted[idx - 1] : null;
+const next = idx < sorted.length - 1 ? sorted[idx + 1] : null;
+
+const accentText: Record<string, string> = {
+  laterite: 'text-laterite',
+  ravinala: 'text-ravinala',
+  signal: 'text-signal',
+  sun: 'text-sun-ink',
+};
+---
+
+<Layout title={mod.data.title} description={mod.data.summary}>
+  <article class="mx-auto max-w-3xl px-4 sm:px-6 py-14 sm:py-20">
+    <div class="flex items-center gap-3">
+      <PkMarker pk={mod.data.pk} />
+      <span class:list={['text-xs font-semibold uppercase tracking-wide', accentText[mod.data.accent]]}>
+        <span x-text="t('cours.module')">Module</span> {mod.data.pk} / 6
+      </span>
+    </div>
+
+    <h1 class="mt-4 font-display text-3xl sm:text-4xl font-semibold text-route">{mod.data.title}</h1>
+    <p class="mt-3 text-lg text-ink-soft">{mod.data.summary}</p>
+
+    <button
+      type="button"
+      @click={`toggle('${mod.id}')`}
+      x-text={`isDone('${mod.id}') ? t('cours.done') : t('cours.markDone')`}
+      class="mt-6 rounded-full border-2 border-ravinala px-5 py-2.5 text-sm font-semibold text-ravinala transition hover:bg-ravinala hover:text-sisal"
+    >
+      Marquer ce module comme terminé
+    </button>
+
+    <div class="prose-route mt-10">
+      <Content />
+    </div>
+
+    {mod.id === 'panneaux-signalisation' && (
+      <div class="mt-12">
+        <h2 class="font-display text-xl font-semibold text-route mb-4" x-text="t('cours.signsTitle')">Les panneaux à connaître</h2>
+        <SignGrid />
+      </div>
+    )}
+
+    <div class="mt-12 rounded-xl border border-route/10 bg-white/60 p-5">
+      <h2 class="font-plate text-xs uppercase tracking-wide text-ink-soft" x-text="t('cours.sources')">Sources de ce module</h2>
+      <ul class="mt-2 space-y-1 text-sm">
+        {mod.data.sources.map((s) => (
+          <li>
+            <a href={s.url} target="_blank" rel="noopener noreferrer" class="text-signal underline underline-offset-2 hover:text-laterite">
+              {s.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <nav class="mt-10 grid gap-4 sm:grid-cols-2">
+      {prev ? (
+        <a href={withBase(`/cours/${prev.id}`)} class="rounded-xl border border-route/10 bg-white/60 p-4 hover:border-laterite/40">
+          <p class="text-xs text-ink-soft">← PK {prev.data.pk}</p>
+          <p class="font-display font-semibold text-route">{prev.data.title}</p>
+        </a>
+      ) : <div />}
+      {next ? (
+        <a href={withBase(`/cours/${next.id}`)} class="rounded-xl border border-route/10 bg-white/60 p-4 text-right hover:border-laterite/40">
+          <p class="text-xs text-ink-soft">PK {next.data.pk} →</p>
+          <p class="font-display font-semibold text-route">{next.data.title}</p>
+        </a>
+      ) : <div />}
+    </nav>
+  </article>
+</Layout>

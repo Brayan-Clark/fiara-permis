@@ -1,0 +1,36 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ModuleCard from '../../components/ModuleCard.astro';
+import { getCollection } from 'astro:content';
+import { withBase } from '../../utils/url';
+
+const modules = (await getCollection('cours')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Layout
+  title="Le cours en 6 modules"
+  description="Les 6 modules du code de la route à Madagascar : signalisation, priorités, vitesse, sécurité, stationnement et catégories de permis."
+>
+  <section class="mx-auto max-w-6xl px-4 sm:px-6 py-14 sm:py-20">
+    <span class="inline-flex items-center gap-2 rounded-full border border-signal/30 bg-signal/10 px-3 py-1 text-xs font-medium text-signal">
+      <span x-text="t('cours.badge')">Parcours complet</span>
+    </span>
+    <h1 class="mt-4 font-display text-3xl sm:text-4xl font-semibold text-route" x-text="t('cours.title')">Le cours, borne après borne</h1>
+    <p class="mt-3 max-w-2xl text-ink-soft" x-text="t('cours.intro')">
+      Chaque module est numéroté comme un point kilométrique sur une route nationale. Suis l'ordre pour une progression logique, ou saute directement au module qui te manque avant l'examen.
+    </p>
+
+    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {modules.map((mod) => (
+        <ModuleCard
+          href={withBase(`/cours/${mod.id}`)}
+          pk={mod.data.pk}
+          title={mod.data.title}
+          summary={mod.data.summary}
+          accent={mod.data.accent}
+          slug={mod.id}
+        />
+      ))}
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,76 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { quizModules } from '../../data/quiz';
+import { withBase } from '../../utils/url';
+
+const accentBg: Record<string, string> = {
+  laterite: 'bg-laterite',
+  ravinala: 'bg-ravinala',
+  signal: 'bg-signal',
+  sun: 'bg-sun',
+};
+---
+
+<Layout
+  title="Cartes de quiz"
+  description="Teste tes connaissances du code de la route malgache avec des cartes à retourner et un mode quiz noté, module par module."
+>
+  <section class="mx-auto max-w-6xl px-4 sm:px-6 py-14 sm:py-20">
+    <span class="inline-flex items-center gap-2 rounded-full border border-sun/40 bg-sun/15 px-3 py-1 text-xs font-medium text-route">
+      {quizModules.length} <span x-text="t('quiz.badge')">paquets de cartes</span>
+    </span>
+    <h1 class="mt-4 font-display text-3xl sm:text-4xl font-semibold text-route" x-text="t('quiz.title')">Choisis un paquet à réviser</h1>
+    <p class="mt-3 max-w-2xl text-ink-soft" x-text="t('quiz.intro')">
+      Deux façons de réviser dans chaque paquet : retourner les cartes à ton rythme, ou passer en mode quiz noté pour voir ton score.
+    </p>
+
+    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+      <a
+        href={withBase('/examen')}
+        class="flex flex-col justify-between gap-3 rounded-2xl border-2 border-route bg-route text-sisal p-6 hover:bg-route/90 transition"
+      >
+        <div>
+          <p class="font-plate text-xs uppercase tracking-widest text-sun" x-text="t('exam.mode')">Mode chronométré</p>
+          <h2 class="mt-1 font-display text-xl font-semibold" x-text="t('exam.title')">Examen blanc</h2>
+          <p class="mt-1 text-sm text-sisal/75" x-text="t('exam.desc')">20 questions des 6 modules, comme le jour de l'examen.</p>
+        </div>
+        <span class="self-start rounded-full bg-sun px-5 py-2.5 text-sm font-semibold text-route" x-text="t('action.start') + ' →'">Démarrer →</span>
+      </a>
+
+      <a
+        href={withBase('/quiz/erreurs')}
+        x-data="{ n: window.mistakeTracker.getIds().length }"
+        class="flex flex-col justify-between gap-3 rounded-2xl border-2 border-laterite bg-laterite/5 p-6 hover:bg-laterite/10 transition"
+      >
+        <div>
+          <p class="font-plate text-xs uppercase tracking-widest text-laterite" x-text="t('erreurs.badge')">Révision ciblée</p>
+          <h2 class="mt-1 font-display text-xl font-semibold text-route" x-text="t('erreurs.title')">Réviser mes erreurs</h2>
+          <p class="mt-1 text-sm text-ink-soft">
+            <span x-show="n > 0" x-cloak x-text="n + ' ' + t('erreurs.pending')"></span>
+            <span x-show="n === 0" x-cloak x-text="t('erreurs.emptyShort')"></span>
+          </p>
+        </div>
+        <span class="self-start rounded-full bg-laterite px-5 py-2.5 text-sm font-semibold text-sisal" x-text="t('erreurs.revise') + ' →'">Réviser →</span>
+      </a>
+    </div>
+
+    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {quizModules.map((mod) => (
+        <a
+          href={withBase(`/quiz/${mod.slug}`)}
+          class="group relative flex flex-col overflow-hidden rounded-2xl border border-route/10 bg-white/60 p-6 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-route/10"
+        >
+          <div class:list={['absolute inset-x-0 top-0 h-1.5', accentBg[mod.accent]]}></div>
+          <p class="font-plate text-xs uppercase tracking-widest text-ink-soft">{mod.questions.length} <span x-text="t('quiz.cards')">cartes</span></p>
+          <h2 class="mt-2 font-display text-lg font-semibold text-route">{mod.title}</h2>
+          <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-laterite group-hover:gap-2 transition-all">
+            <span x-text="t('quiz.deck')">Réviser ce paquet</span>
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Layout>

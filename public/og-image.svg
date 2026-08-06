@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#1b1b1f"/>
+  <rect y="590" width="1200" height="40" fill="#1b1b1f"/>
+  <g opacity="0.5">
+    <rect y="600" width="60" height="10" fill="#f3e7cf"/>
+    <rect x="120" y="600" width="60" height="10" fill="#f3e7cf"/>
+    <rect x="240" y="600" width="60" height="10" fill="#f3e7cf"/>
+    <rect x="360" y="600" width="60" height="10" fill="#f3e7cf"/>
+    <rect x="480" y="600" width="60" height="10" fill="#f3e7cf"/>
+    <rect x="600" y="600" width="60" height="10" fill="#f3e7cf"/>
+    <rect x="720" y="600" width="60" height="10" fill="#f3e7cf"/>
+    <rect x="840" y="600" width="60" height="10" fill="#f3e7cf"/>
+    <rect x="960" y="600" width="60" height="10" fill="#f3e7cf"/>
+    <rect x="1080" y="600" width="60" height="10" fill="#f3e7cf"/>
+  </g>
+
+  <g transform="translate(90,150)">
+    <line x1="70" y1="330" x2="70" y2="180" stroke="#e8a93b" stroke-width="7" stroke-linecap="round"/>
+    <g stroke="#e8a93b" stroke-width="7" stroke-linecap="round">
+      <path d="M70 180 L70 60"/>
+      <path d="M70 180 L15 90"/>
+      <path d="M70 180 L125 90"/>
+      <path d="M70 180 L-15 160"/>
+      <path d="M70 180 L155 160"/>
+    </g>
+    <g fill="#2f6b4f">
+      <ellipse cx="70" cy="60" rx="16" ry="28"/>
+      <ellipse cx="15" cy="90" rx="16" ry="28" transform="rotate(-35 15 90)"/>
+      <ellipse cx="125" cy="90" rx="16" ry="28" transform="rotate(35 125 90)"/>
+      <ellipse cx="-15" cy="160" rx="16" ry="28" transform="rotate(-70 -15 160)"/>
+      <ellipse cx="155" cy="160" rx="16" ry="28" transform="rotate(70 155 160)"/>
+    </g>
+  </g>
+
+  <text x="420" y="260" font-family="Arial, sans-serif" font-size="58" font-weight="700" fill="#f3e7cf">Fiara Permis</text>
+  <text x="420" y="320" font-family="Arial, sans-serif" font-size="30" fill="#c1440e" font-weight="700">Code de la route &#8212; Madagascar</text>
+  <text x="420" y="380" font-family="Arial, sans-serif" font-size="24" fill="#f3e7cf" opacity="0.85">Cours &#183; Cartes de quiz &#183; Exercices pratiques</text>
+  <text x="420" y="420" font-family="Arial, sans-serif" font-size="22" fill="#f3e7cf" opacity="0.6">Catégories A &#183; A&#8217; &#183; B</text>
+</svg>

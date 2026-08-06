@@ -1,0 +1,125 @@
+---
+import RavinalaMark from './RavinalaMark.astro';
+import { withBase } from '../utils/url';
+
+const links = [
+  { href: '/cours', label: 'Cours', key: 'nav.cours' },
+  { href: '/quiz', label: 'Quiz', key: 'nav.quiz' },
+  { href: '/exercices', label: 'Exercices', key: 'nav.exercices' },
+  { href: '/glossaire', label: 'Glossaire', key: 'nav.glossaire' },
+];
+
+const path = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-40 border-b border-route/10 bg-sisal/95 backdrop-blur">
+  <div
+    x-data="{ open: false, deferredPrompt: null, offline: !navigator.onLine }"
+    @beforeinstallprompt.window="$event.preventDefault(); deferredPrompt = $event"
+    @appinstalled.window="deferredPrompt = null"
+    @online.window="offline = false"
+    @offline.window="offline = true"
+    class="mx-auto max-w-6xl px-4 sm:px-6"
+  >
+    <p
+      x-show="offline"
+      x-cloak
+      class="flex items-center justify-center gap-1.5 py-1 text-center text-xs font-medium text-laterite-dark"
+    >
+      <span class="h-1.5 w-1.5 rounded-full bg-laterite"></span>
+      <span x-text="t('nav.offline')">Hors connexion — les pages déjà visitées restent disponibles</span>
+    </p>
+    <p
+      x-show="lang === 'mg'"
+      x-cloak
+      class="py-1 text-center text-xs font-medium text-signal"
+      x-text="t('lang.notice')"
+    ></p>
+
+    <div class="flex h-16 items-center justify-between">
+      <a href={withBase('/')} class="flex items-center gap-2 font-display text-lg font-semibold tracking-tight text-route">
+        <RavinalaMark class="h-8 w-8 text-ravinala" />
+        <span>Fiara Permis</span>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-1">
+        {links.map((link) => (
+          <a
+            href={withBase(link.href)}
+            class:list={[
+              'rounded-full px-4 py-2 text-sm font-medium transition-colors',
+              path.startsWith(withBase(link.href))
+                ? 'bg-laterite text-sisal'
+                : 'text-route hover:bg-route/5',
+            ]}
+          >
+            <span x-text={`t('${link.key}')`}>{link.label}</span>
+          </a>
+        ))}
+
+        <div class="ml-2 inline-flex overflow-hidden rounded-full border border-route/15 text-xs font-semibold">
+          <button type="button" @click="setLang('fr')" :class="lang === 'fr' ? 'bg-route text-sisal' : 'text-route hover:bg-route/5'" class="px-2.5 py-1.5">FR</button>
+          <button type="button" @click="setLang('mg')" :class="lang === 'mg' ? 'bg-route text-sisal' : 'text-route hover:bg-route/5'" class="px-2.5 py-1.5">MG</button>
+        </div>
+
+        <button
+          type="button"
+          x-show="deferredPrompt"
+          x-cloak
+          @click="deferredPrompt.prompt(); deferredPrompt.userChoice.then(() => (deferredPrompt = null))"
+          class="ml-2 inline-flex items-center gap-1.5 rounded-full border-2 border-ravinala px-4 py-1.5 text-sm font-semibold text-ravinala-dark transition hover:bg-ravinala hover:text-sisal"
+        >
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v13m0 0-4-4m4 4 4-4M5 21h14" />
+          </svg>
+          <span x-text="t('nav.install')">Installer</span>
+        </button>
+      </nav>
+
+      <button
+        @click="open = !open"
+        class="md:hidden rounded-md p-2 text-route hover:bg-route/5"
+        :aria-expanded="open"
+        :aria-label="t('nav.menu')"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="4" y1="7" x2="20" y2="7"></line>
+          <line x1="4" y1="12" x2="20" y2="12"></line>
+          <line x1="4" y1="17" x2="20" y2="17"></line>
+        </svg>
+      </button>
+    </div>
+
+    <nav x-show="open" x-cloak x-transition class="md:hidden pb-4 flex flex-col gap-1">
+      {links.map((link) => (
+        <a
+          href={withBase(link.href)}
+          class:list={[
+            'rounded-md px-4 py-2 text-sm font-medium',
+            path.startsWith(withBase(link.href)) ? 'bg-laterite text-sisal' : 'text-route hover:bg-route/5',
+          ]}
+        >
+          <span x-text={`t('${link.key}')`}>{link.label}</span>
+        </a>
+      ))}
+      <a href={withBase('/sources')} class="rounded-md px-4 py-2 text-sm font-medium text-route hover:bg-route/5">
+        <span x-text="t('nav.sources')">Sources</span>
+      </a>
+
+      <div class="mt-1 inline-flex overflow-hidden self-start rounded-full border border-route/15 text-xs font-semibold">
+        <button type="button" @click="setLang('fr')" :class="lang === 'fr' ? 'bg-route text-sisal' : 'text-route'" class="px-3 py-1.5">FR</button>
+        <button type="button" @click="setLang('mg')" :class="lang === 'mg' ? 'bg-route text-sisal' : 'text-route'" class="px-3 py-1.5">MG</button>
+      </div>
+
+      <button
+        type="button"
+        x-show="deferredPrompt"
+        x-cloak
+        @click="deferredPrompt.prompt(); deferredPrompt.userChoice.then(() => (deferredPrompt = null))"
+        class="mt-1 inline-flex items-center justify-center gap-1.5 rounded-md border-2 border-ravinala px-4 py-2 text-sm font-semibold text-ravinala-dark"
+      >
+        <span x-text="t('nav.install')">Installer l'application</span>
+      </button>
+    </nav>
+  </div>
+</header>

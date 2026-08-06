@@ -1,0 +1,17 @@
+---
+interface Props {
+  pk: number;
+  class?: string;
+}
+const { pk, class: className = '' } = Astro.props;
+---
+
+<span
+  class:list={[
+    'inline-flex items-center gap-1 rounded border-2 border-route bg-sun px-2 py-0.5 font-plate text-xs font-semibold tracking-wide text-route',
+    className,
+  ]}
+  title={`Point kilométrique ${pk} du parcours`}
+>
+  PK&nbsp;{pk}
+</span>

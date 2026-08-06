@@ -1,0 +1,115 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { quizModules } from '../../data/quiz';
+import { withBase } from '../../utils/url';
+
+const allQuestions = quizModules.flatMap((m) => m.questions);
+---
+
+<Layout
+  title="Réviser mes erreurs"
+  description="Repasse uniquement les questions que tu as déjà ratées dans les quiz et l'examen blanc, jusqu'à les maîtriser."
+>
+  <section
+    class="mx-auto max-w-2xl px-4 sm:px-6 py-14 sm:py-20"
+    x-data={`quizDeck(${JSON.stringify(allQuestions)})`}
+    x-init="mode = 'quiz'; questions = window.mistakeTracker.dueIds().map((id) => questions.find((q) => q.id === id)).filter((q) => q); snapshotBoxes()"
+  >
+    <a href={withBase('/quiz')} class="text-sm text-ink-soft hover:text-laterite"><span x-text="t('quiz.back')">← Tous les paquets</span></a>
+    <span class="mt-4 inline-flex items-center gap-2 rounded-full border border-laterite/30 bg-laterite/10 px-3 py-1 text-xs font-medium text-laterite">
+      <span x-text="t('erreurs.badge')">Révision ciblée</span>
+    </span>
+    <h1 class="mt-3 font-display text-2xl sm:text-3xl font-semibold text-route" x-text="t('erreurs.title')">Réviser mes erreurs</h1>
+    <p class="mt-2 text-sm text-ink-soft" x-text="t('erreurs.intro')">
+      Cette liste se construit toute seule : chaque question ratée en mode quiz ou en examen blanc atterrit ici, et en disparaît dès que tu la réussis.
+    </p>
+
+    <template x-if="questions.length === 0">
+      <div class="mt-8 rounded-2xl border-2 border-ravinala/30 bg-ravinala/5 p-8 text-center">
+        <p class="font-display text-lg font-semibold text-route" x-text="t('erreurs.empty')">Aucune erreur en attente 🎉</p>
+        <p class="mt-2 text-sm text-ink-soft" x-text="t('erreurs.emptySub')">Fais un quiz noté ou l'examen blanc — les questions ratées apparaîtront ici automatiquement.</p>
+        <a href={withBase('/quiz')} class="mt-5 inline-block rounded-full bg-ravinala px-5 py-2.5 text-sm font-semibold text-sisal hover:brightness-110" x-text="t('erreurs.goQuiz')">Aller aux quiz</a>
+      </div>
+    </template>
+
+    <template x-if="questions.length > 0">
+      <div>
+        <p class="mt-6 flex flex-wrap items-center gap-x-3 gap-y-1 font-plate text-xs text-ink-soft">
+          <span class="inline-flex items-center gap-1 rounded-full bg-ravinala/10 px-2.5 py-0.5 font-semibold text-ravinala-dark">
+            <span x-text="t('erreurs.retry')"></span>
+            <span x-text="`n°${repriseOf(current.id)}`"></span>
+          </span>
+          <span>
+            <span x-text="t('quiz.question')"></span>
+            <span x-text="index + 1"></span> / <span x-text="questions.length"></span>
+            &middot; <span x-text="t('quiz.score')"></span> : <span x-text="score"></span>
+          </span>
+        </p>
+
+        <template x-if="!finished">
+          <div class="mt-3 rounded-2xl border border-route/10 bg-white/70 p-6">
+            <p class="font-display text-lg font-semibold text-route" x-text="current.question"></p>
+            <div class="mt-5 space-y-2.5">
+              <template x-for="(choice, i) in current.choices" :key="i">
+                <button
+                  type="button"
+                  @click="choose(i)"
+                  :class="{ 'border-ravinala bg-ravinala/10 text-route': selected !== null && i === current.correctIndex, 'border-laterite bg-laterite/10 text-route': selected === i && i !== current.correctIndex, 'border-route/15 hover:border-signal/40': selected === null, 'border-route/10 opacity-60': selected !== null && i !== current.correctIndex && i !== selected }"
+                  class="w-full rounded-xl border-2 px-4 py-3 text-left text-sm font-medium transition"
+                >
+                  <span x-text="choice"></span>
+                </button>
+              </template>
+            </div>
+
+            <p x-show="selected !== null" x-cloak class="mt-4 rounded-lg bg-sun/15 p-3 text-sm text-route" x-text="current.explanation"></p>
+
+            <div class="mt-5 flex justify-end">
+              <button
+                type="button"
+                x-show="selected !== null"
+                x-cloak
+                @click="nextQuestion()"
+                class="rounded-full bg-route px-5 py-2 text-sm font-semibold text-sisal hover:bg-route/90"
+                x-text="isLast ? t('erreurs.finish') : t('action.nextQuestion')"
+              ></button>
+            </div>
+          </div>
+        </template>
+
+        <template x-if="finished">
+          <div class="mt-3 rounded-2xl border-2 border-route/10 bg-white/70 p-8 text-center">
+            <p class="font-plate text-xs uppercase tracking-widest text-ink-soft" x-text="t('quiz.result')">Résultat</p>
+            <p class="mt-2 font-display text-4xl font-semibold text-route"><span x-text="score"></span> / <span x-text="questions.length"></span></p>
+            <p class="mt-3 text-sm text-ink-soft">
+              <strong class="font-semibold text-ravinala" x-text="masteredCount"></strong>
+              <span x-text="` ${t('erreurs.mastered')}`">maîtrisée(s) — retirée(s) de la liste</span>
+              <span class="mx-1.5 text-ink-soft/50">·</span>
+              <strong class="font-semibold text-laterite" x-text="remainingCount"></strong>
+              <span x-text="` ${t('erreurs.remaining')}`">encore à revoir</span>
+            </p>
+            <div class="mt-6 flex flex-wrap justify-center gap-3">
+              <a
+                href={withBase('/quiz/erreurs')}
+                x-show="remainingCount > 0"
+                x-cloak
+                class="rounded-full bg-laterite px-5 py-2.5 text-sm font-semibold text-sisal hover:bg-laterite-dark"
+                x-text="t('erreurs.continue')"
+              >
+                Continuer les erreurs restantes
+              </a>
+              <button
+                type="button"
+                @click="window.mistakeTracker.clear(); location.reload()"
+                class="rounded-full border-2 border-route px-5 py-2.5 text-sm font-semibold text-route hover:bg-route hover:text-sisal"
+                x-text="t('erreurs.clear')"
+              >
+                Effacer ma liste d'erreurs
+              </button>
+            </div>
+          </div>
+        </template>
+      </div>
+    </template>
+  </section>
+</Layout>

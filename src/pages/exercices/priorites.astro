@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { scenarios } from '../../data/scenarios';
+import { withBase } from '../../utils/url';
+---
+
+<Layout
+  title="Cas pratiques : vrai ou faux"
+  description="Des situations concrètes de priorité, vitesse et sécurité routière à Madagascar, à trancher en vrai ou faux."
+>
+  <section
+    class="mx-auto max-w-xl px-4 sm:px-6 py-14 sm:py-20"
+    x-data={`trueFalseGame(${JSON.stringify(scenarios)})`}
+  >
+    <a href={withBase('/exercices')} class="text-sm text-ink-soft hover:text-laterite"><span x-text="t('exo.back')">← Tous les exercices</span></a>
+    <h1 class="mt-3 font-display text-2xl sm:text-3xl font-semibold text-route"><span x-text="t('exo.prioritiesTitle')">Cas pratiques : vrai ou faux</span></h1>
+
+    <template x-if="!finished">
+      <div>
+        <p class="mt-6 font-plate text-xs text-ink-soft">
+          <span x-text="t('exo.case')">Cas</span> <span x-text="index + 1"></span> / <span x-text="scenarios.length"></span>
+          &middot; <span x-text="t('quiz.score')">Score</span> : <span x-text="score"></span>
+        </p>
+
+        <div class="mt-4 rounded-2xl border-2 border-route/10 bg-white/70 p-6">
+          <p class="text-sm text-ink-soft" x-text="current.situation"></p>
+          <p class="mt-3 font-display text-lg font-semibold text-route" x-text="current.question"></p>
+
+          <div class="mt-5 grid grid-cols-2 gap-3">
+            <button
+              type="button"
+              @click="answer(true)"
+              :class="{ 'border-ravinala bg-ravinala/10': selected !== null && current.answer === true, 'border-laterite bg-laterite/10': selected === true && current.answer !== true, 'border-route/15 hover:border-signal/40': selected === null, 'border-route/10 opacity-60': selected !== null && !(selected === true) && current.answer !== true }"
+              class="rounded-xl border-2 px-4 py-3 text-sm font-semibold text-route transition"
+            >
+              <span x-text="t('exo.true')">Vrai</span>
+            </button>
+            <button
+              type="button"
+              @click="answer(false)"
+              :class="{ 'border-ravinala bg-ravinala/10': selected !== null && current.answer === false, 'border-laterite bg-laterite/10': selected === false && current.answer !== false, 'border-route/15 hover:border-signal/40': selected === null, 'border-route/10 opacity-60': selected !== null && !(selected === false) && current.answer !== false }"
+              class="rounded-xl border-2 px-4 py-3 text-sm font-semibold text-route transition"
+            >
+              <span x-text="t('exo.false')">Faux</span>
+            </button>
+          </div>
+
+          <p x-show="selected !== null" x-cloak class="mt-4 rounded-lg bg-sun/15 p-3 text-sm text-route" x-text="current.explanation"></p>
+        </div>
+
+        <div class="mt-6 flex justify-end">
+          <button
+            type="button"
+            x-show="selected !== null"
+            x-cloak
+            @click="next()"
+            class="rounded-full bg-route px-5 py-2 text-sm font-semibold text-sisal hover:bg-route/90"
+            x-text="index === scenarios.length - 1 ? t('action.seeResult') : t('exo.caseNext')"
+          ></button>
+        </div>
+      </div>
+    </template>
+
+    <template x-if="finished">
+      <div class="mt-6 rounded-2xl border-2 border-route/10 bg-white/70 p-8 text-center">
+        <p class="font-plate text-xs uppercase tracking-widest text-ink-soft"><span x-text="t('quiz.result')">Résultat</span></p>
+        <p class="mt-2 font-display text-4xl font-semibold text-route"><span x-text="score"></span> / <span x-text="scenarios.length"></span></p>
+        <div class="mt-6 flex justify-center gap-3">
+          <button type="button" @click="restart()" class="rounded-full bg-laterite px-5 py-2.5 text-sm font-semibold text-sisal hover:bg-laterite-dark"><span x-text="t('action.restart')">Recommencer</span></button>
+          <a href={withBase('/exercices')} class="rounded-full border-2 border-route px-5 py-2.5 text-sm font-semibold text-route hover:bg-route hover:text-sisal"><span x-text="t('exo.other')">Autre exercice</span></a>
+        </div>
+      </div>
+    </template>
+  </section>
+</Layout>

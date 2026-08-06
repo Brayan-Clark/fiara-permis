@@ -1,0 +1,40 @@
+---
+import RavinalaMark from './RavinalaMark.astro';
+import { withBase } from '../utils/url';
+---
+
+<footer class="border-t border-route/10 bg-route text-sisal">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 py-12 grid gap-10 md:grid-cols-3">
+    <div>
+      <div class="flex items-center gap-2 font-display text-lg font-semibold">
+        <RavinalaMark class="h-7 w-7 text-sun" />
+        <span>Fiara Permis</span>
+      </div>
+      <p class="mt-3 text-sm text-sisal/70 max-w-xs">
+        <span x-text="t('footer.about')">Un compagnon de révision pour le code de la route à Madagascar — signalisation, priorités et catégories de permis, avec des sources vérifiables.</span>
+      </p>
+    </div>
+
+    <div>
+      <h2 class="font-display text-sm font-semibold uppercase tracking-wide text-sun" x-text="t('footer.nav')">Navigation</h2>
+      <ul class="mt-3 space-y-2 text-sm text-sisal/80">
+        <li><a class="hover:text-sun" href={withBase('/cours')}><span x-text="t('footer.cours')">Les 6 modules du cours</span></a></li>
+        <li><a class="hover:text-sun" href={withBase('/quiz')}><span x-text="t('footer.quiz')">Cartes de quiz</span></a></li>
+        <li><a class="hover:text-sun" href={withBase('/exercices')}><span x-text="t('footer.exercices')">Exercices pratiques</span></a></li>
+        <li><a class="hover:text-sun" href={withBase('/examen')}><span x-text="t('footer.examen')">Examen blanc</span></a></li>
+        <li><a class="hover:text-sun" href={withBase('/glossaire')}><span x-text="t('footer.glossaire')">Glossaire</span></a></li>
+        <li><a class="hover:text-sun" href={withBase('/sources')}><span x-text="t('footer.sources')">Sources &amp; références</span></a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="font-display text-sm font-semibold uppercase tracking-wide text-sun" x-text="t('footer.warning')">Avertissement</h2>
+      <p class="mt-3 text-sm text-sisal/70">
+        <span x-text="t('footer.warningText')">Ce site est un outil de révision indépendant, basé sur la loi n°2017-002 portant Code de la Route à Madagascar et des sources publiques. Il ne remplace pas ton auto-école ni les textes officiels en vigueur — vérifie toujours les montants et procédures auprès du CIM.</span>
+      </p>
+    </div>
+  </div>
+  <div class="border-t border-sisal/10 py-4 text-center text-xs text-sisal/50">
+    <span x-text="t('footer.tagline')">Fiara Permis — fait avec de la latérite, du soleil et un peu de code.</span> Madagascar, {new Date().getFullYear()}.
+  </div>
+</footer>

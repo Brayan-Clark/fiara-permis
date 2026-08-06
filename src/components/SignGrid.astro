@@ -1,0 +1,24 @@
+---
+import { panneaux, signCategoryLabel } from '../data/panneaux';
+
+const accentByCategory: Record<string, string> = {
+  danger: 'border-laterite/30',
+  interdiction: 'border-laterite/30',
+  obligation: 'border-signal/30',
+  indication: 'border-signal/30',
+  special: 'border-sun/40',
+};
+---
+
+<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+  {panneaux.map((sign) => (
+    <div class:list={['rounded-xl border-2 bg-white/70 p-4 flex gap-4 items-start', accentByCategory[sign.category]]}>
+      <div class="h-14 w-14 shrink-0" set:html={sign.svg} />
+      <div>
+        <p class="text-[0.65rem] font-plate uppercase tracking-wide text-ink-soft">{signCategoryLabel[sign.category]}</p>
+        <h4 class="font-display text-sm font-semibold text-route leading-snug">{sign.name}</h4>
+        <p class="mt-1 text-xs text-ink-soft leading-relaxed">{sign.description}</p>
+      </div>
+    </div>
+  ))}
+</div>

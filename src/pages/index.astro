@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ModuleCard from '../components/ModuleCard.astro';
+import RavinalaProgress from '../components/RavinalaProgress.astro';
+import { getCollection } from 'astro:content';
+import { withBase } from '../utils/url';
+
+const modules = (await getCollection('cours')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Layout
+  title="Réviser le code de la route à Madagascar"
+  description="Cours, cartes de quiz et exercices pratiques pour préparer le permis A, A' ou B à Madagascar, basés sur la loi n°2017-002 portant Code de la Route."
+>
+  <section class="road-strip relative overflow-hidden border-b-4 border-route/10">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-20 sm:py-28">
+      <div class="grid gap-12 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+        <div>
+          <span class="inline-flex items-center gap-2 rounded-full border border-laterite/30 bg-laterite/10 px-3 py-1 text-xs font-medium text-laterite">
+            <span x-text="t('home.badge')">RN &middot; Route vers ton permis</span>
+          </span>
+          <h1 class="mt-5 font-display text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-route leading-[1.05]">
+            <span x-text="t('home.hero1')">Le code de la route,</span>
+            <span class="text-laterite" x-text="t('home.hero2')">appris comme la route se lit</span><span x-text="t('home.hero3')"> : panneau par panneau.</span>
+          </h1>
+          <p class="mt-6 max-w-xl text-lg text-ink-soft">
+            <span x-text="t('home.heroDesc1')">Six modules, des cartes de quiz et des exercices pratiques pour préparer les catégories</span>
+            <strong class="text-route">A, A'</strong> <span x-text="t('home.heroDesc2')">et</span> <strong class="text-route">B</strong><span x-text="t('home.heroDesc3')"> à Madagascar — construits à partir de la loi n°2017-002 et de sources vérifiables, pas d'à-peu-près.</span>
+          </p>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href={withBase('/cours')} class="rounded-full bg-laterite px-6 py-3 text-sm font-semibold text-sisal shadow-lg shadow-laterite/20 transition hover:bg-laterite-dark">
+              <span x-text="t('home.startCta')">Commencer PK 1 →</span>
+            </a>
+            <a href={withBase('/quiz')} class="rounded-full border-2 border-route px-6 py-3 text-sm font-semibold text-route transition hover:bg-route hover:text-sisal">
+              <span x-text="t('home.testCta')">Tester mes connaissances</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="flex justify-center lg:justify-end">
+          <div class="rounded-3xl border border-route/10 bg-white/70 p-8 shadow-xl shadow-route/5">
+            <p class="font-plate text-xs uppercase tracking-widest text-ink-soft" x-text="t('home.progress')">Ta progression</p>
+            <div class="mt-4">
+              <RavinalaProgress size="full" />
+            </div>
+            <p class="mt-4 text-xs text-ink-soft max-w-[16rem]">
+              <span x-text="t('home.progressNote')">Chaque feuille du ravinala s'allume quand tu termines un module — comme les tiges de l'arbre du voyageur, ta route se construit une étape à la fois.</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
+    <div class="flex items-end justify-between gap-4 flex-wrap">
+      <div>
+        <h2 class="font-display text-2xl sm:text-3xl font-semibold text-route" x-text="t('home.modulesTitle')">Les 6 modules du parcours</h2>
+        <p class="mt-2 text-ink-soft max-w-2xl"><span x-text="t('home.modulesSub')">Chaque module est un point kilométrique (PK) sur la route vers l'examen — dans l'ordre, ou dans le désordre selon ce que tu veux réviser.</span></p>
+      </div>
+      <a href={withBase('/cours')} class="text-sm font-medium text-laterite hover:underline shrink-0" x-text="t('home.seeAll')">Voir tout le parcours →</a>
+    </div>
+
+    <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {modules.map((mod) => (
+        <ModuleCard
+          href={withBase(`/cours/${mod.id}`)}
+          pk={mod.data.pk}
+          title={mod.data.title}
+          summary={mod.data.summary}
+          accent={mod.data.accent}
+          slug={mod.id}
+        />
+      ))}
+    </div>
+  </section>
+
+  <section class="bg-route text-sisal">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 py-16 grid gap-8 md:grid-cols-2">
+      <div class="rounded-2xl border border-sisal/15 p-8">
+        <h2 class="font-display text-xl font-semibold" x-text="t('home.quizCardTitle')">Cartes de quiz</h2>
+        <p class="mt-2 text-sm text-sisal/70"><span x-text="t('home.quizCardDesc')">Retourne chaque carte, teste-toi module par module, et suis ton score en temps réel.</span></p>
+        <a href={withBase('/quiz')} class="mt-5 inline-block rounded-full bg-sun px-5 py-2.5 text-sm font-semibold text-route hover:brightness-95" x-text="t('home.quizCardCta')">Ouvrir les quiz</a>
+      </div>
+      <div class="rounded-2xl border border-sisal/15 p-8">
+        <h2 class="font-display text-xl font-semibold" x-text="t('home.exoCardTitle')">Exercices pratiques</h2>
+        <p class="mt-2 text-sm text-sisal/70"><span x-text="t('home.exoCardDesc')">Reconnais les panneaux en un coup d'œil et tranche des cas de priorité vrai/faux avec correction immédiate.</span></p>
+        <a href={withBase('/exercices')} class="mt-5 inline-block rounded-full bg-ravinala px-5 py-2.5 text-sm font-semibold text-sisal hover:brightness-110" x-text="t('home.exoCardCta')">Faire un exercice</a>
+      </div>
+    </div>
+  </section>
+</Layout>

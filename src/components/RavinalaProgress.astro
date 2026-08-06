@@ -1,0 +1,39 @@
+---
+interface Props {
+  size?: 'compact' | 'full';
+}
+const { size = 'compact' } = Astro.props;
+const leaves = [
+  { x: 32, y: 8, rot: 0 },
+  { x: 14, y: 12, rot: -35 },
+  { x: 50, y: 12, rot: 35 },
+  { x: 8, y: 26, rot: -70 },
+  { x: 56, y: 26, rot: 70 },
+  { x: 12, y: 40, rot: -105 },
+];
+---
+
+<div class:list={["flex items-center gap-3", size === 'full' && 'flex-col gap-2']}>
+  <svg viewBox="0 0 64 64" class:list={[size === 'compact' ? 'h-10 w-10' : 'h-28 w-28']} fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <line x1="32" y1="60" x2="32" y2="30" stroke="var(--color-route)" stroke-opacity="0.25" stroke-width="3" stroke-linecap="round" />
+    {leaves.map((l, i) => (
+      <g>
+        <line x1="32" y1="30" x2={l.x} y2={l.y} stroke="var(--color-route)" stroke-opacity="0.2" stroke-width="3" stroke-linecap="round" />
+        <ellipse
+          cx={l.x}
+          cy={l.y}
+          rx="4"
+          ry="7"
+          transform={`rotate(${l.rot} ${l.x} ${l.y})`}
+          fill="var(--color-ravinala)"
+          x-bind:opacity={`completed.length > ${i} ? 1 : 0.18`}
+          style="transition: opacity 400ms ease"
+        />
+      </g>
+    ))}
+  </svg>
+  <p class:list={["font-plate text-route", size === 'compact' ? 'text-xs' : 'text-sm']}>
+    <span x-text="completed.length" class="font-semibold text-laterite">0</span>
+    <span x-text="`/ 6 ${t('module.done')}`">/ 6 modules terminés</span>
+  </p>
+</div>

@@ -1,0 +1,30 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+<!-- Signature mark: a stylised ravinala (traveller's tree) fan, the national
+     symbol of Madagascar, doubling as the site's wayfinding motif. -->
+<svg viewBox="0 0 64 64" class={className} fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <line x1="32" y1="60" x2="32" y2="30" stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+  <g stroke="currentColor" stroke-width="3" stroke-linecap="round">
+    <path d="M32 30 L32 8" />
+    <path d="M32 30 L14 12" />
+    <path d="M32 30 L50 12" />
+    <path d="M32 30 L8 26" />
+    <path d="M32 30 L56 26" />
+    <path d="M32 30 L12 40" />
+    <path d="M32 30 L52 40" />
+  </g>
+  <g fill="currentColor">
+    <ellipse cx="32" cy="8" rx="4" ry="7" />
+    <ellipse cx="14" cy="12" rx="4" ry="7" transform="rotate(-35 14 12)" />
+    <ellipse cx="50" cy="12" rx="4" ry="7" transform="rotate(35 50 12)" />
+    <ellipse cx="8" cy="26" rx="4" ry="7" transform="rotate(-70 8 26)" />
+    <ellipse cx="56" cy="26" rx="4" ry="7" transform="rotate(70 56 26)" />
+    <ellipse cx="12" cy="40" rx="4" ry="7" transform="rotate(-105 12 40)" />
+    <ellipse cx="52" cy="40" rx="4" ry="7" transform="rotate(105 52 40)" />
+  </g>
+</svg>

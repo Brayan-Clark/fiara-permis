@@ -1,0 +1,55 @@
+---
+interface Props {
+  href: string;
+  pk: number;
+  title: string;
+  summary: string;
+  accent: 'laterite' | 'ravinala' | 'signal' | 'sun';
+  slug: string;
+}
+const { href, pk, title, summary, accent, slug } = Astro.props;
+
+const accentBg: Record<string, string> = {
+  laterite: 'bg-laterite',
+  ravinala: 'bg-ravinala',
+  signal: 'bg-signal',
+  sun: 'bg-sun',
+};
+---
+
+<a
+  href={href}
+  class="group relative flex flex-col overflow-hidden rounded-2xl border border-route/10 bg-white/60 p-6 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-route/10"
+>
+  <div class:list={['absolute inset-x-0 top-0 h-1.5', accentBg[accent]]}></div>
+
+  <div class="flex items-center justify-between">
+    <span class="inline-flex items-center gap-1 rounded border-2 border-route bg-sun px-2 py-0.5 font-plate text-xs font-semibold tracking-wide text-route">
+      PK&nbsp;{pk}
+    </span>
+    <svg
+      x-show={`isDone('${slug}')`}
+      x-cloak
+      class="h-6 w-6 text-ravinala"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-label="Module terminé"
+    >
+      <path d="M20 6 9 17l-5-5"></path>
+    </svg>
+  </div>
+
+  <h3 class="mt-4 font-display text-xl font-semibold text-route">{title}</h3>
+  <p class="mt-2 text-sm leading-relaxed text-ink-soft">{summary}</p>
+
+  <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-laterite group-hover:gap-2 transition-all">
+    <span x-text="t('module.open')">Ouvrir le module</span>
+    <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
+  </span>
+</a>
