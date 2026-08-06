@@ -14,6 +14,7 @@ const { title, description, image = withBase('/og-image.svg') } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const siteTitle = `${title} · Fiara Permis`;
 const swBase = import.meta.env.BASE_URL;
+const isProd = import.meta.env.PROD;
 ---
 
 <!doctype html>
@@ -66,13 +67,26 @@ const swBase = import.meta.env.BASE_URL;
       areaServed: 'MG',
     })} />
 
-    <script is:inline define:vars={{ swBase }}>
+    <script is:inline define:vars={{ swBase, isProd }}>
       if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register(`${swBase}sw.js`, { scope: swBase }).catch(() => {
-            // Offline support degrades gracefully to a normal online-only site.
+        if (isProd) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register(`${swBase}sw.js`, { scope: swBase }).catch(() => {
+              // Offline support degrades gracefully to a normal online-only site.
+            });
           });
-        });
+        } else {
+          // En dev, `sw.js` n'existe pas (il n'est généré qu'au build). Pire, un
+          // service worker laissé par un `astro preview` sur le même hôte:port
+          // continue de servir du HTML précaché : la page reçoit alors un vieux
+          // token HMR et le websocket de Vite est rejeté. On nettoie.
+          navigator.serviceWorker.getRegistrations().then((regs) => {
+            regs.forEach((r) => r.unregister());
+          });
+          if (window.caches) {
+            caches.keys().then((keys) => keys.forEach((k) => caches.delete(k)));
+          }
+        }
       }
     </script>
 
