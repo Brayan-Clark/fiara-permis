@@ -9,6 +9,9 @@ const cours = defineCollection({
     summary: z.string(),
     accent: z.enum(['laterite', 'ravinala', 'signal', 'sun']),
     order: z.number(),
+    // Catégories de permis concernées. Absent = module commun à toutes les
+    // catégories, ce qui est le cas de la grande majorité du cours.
+    categories: z.array(z.enum(['A', "A'", 'B', 'C', 'D', 'E'])).optional(),
     sources: z.array(
       z.object({
         label: z.string(),

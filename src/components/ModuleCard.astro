@@ -6,8 +6,9 @@ interface Props {
   summary: string;
   accent: 'laterite' | 'ravinala' | 'signal' | 'sun';
   slug: string;
+  categories?: string[];
 }
-const { href, pk, title, summary, accent, slug } = Astro.props;
+const { href, pk, title, summary, accent, slug, categories } = Astro.props;
 
 const accentBg: Record<string, string> = {
   laterite: 'bg-laterite',
@@ -24,8 +25,15 @@ const accentBg: Record<string, string> = {
   <div class:list={['absolute inset-x-0 top-0 h-1.5', accentBg[accent]]}></div>
 
   <div class="flex items-center justify-between">
-    <span class="inline-flex items-center gap-1 rounded border-2 border-route bg-sun px-2 py-0.5 font-plate text-xs font-semibold tracking-wide text-route">
-      PK&nbsp;{pk}
+    <span class="flex items-center gap-2">
+      <span class="inline-flex items-center gap-1 rounded border-2 border-route bg-sun px-2 py-0.5 font-plate text-xs font-semibold tracking-wide text-route">
+        PK&nbsp;{pk}
+      </span>
+      {categories && (
+        <span class="inline-flex items-center rounded-full border border-signal/40 bg-signal/10 px-2 py-0.5 font-plate text-[0.65rem] font-semibold text-signal">
+          {categories.join(' · ')}
+        </span>
+      )}
     </span>
     <svg
       x-show={`isDone('${slug}')`}

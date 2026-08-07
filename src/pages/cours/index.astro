@@ -29,6 +29,7 @@ const modules = (await getCollection('cours')).sort((a, b) => a.data.order - b.d
           summary={mod.data.summary}
           accent={mod.data.accent}
           slug={mod.id}
+          categories={mod.data.categories}
         />
       ))}
     </div>

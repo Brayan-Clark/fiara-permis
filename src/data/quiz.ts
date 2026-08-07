@@ -1080,6 +1080,123 @@ export const quizModules: QuizModule[] = [
       },
     ],
   },
+  {
+    slug: 'deux-roues',
+    title: 'Deux-roues : conduire une moto',
+    accent: 'signal',
+    questions: [
+      {
+        id: 'dr-1',
+        question: 'Le port du casque est obligatoire pour :',
+        choices: ['Le conducteur seulement', 'Le conducteur et le passager', 'Le passager seulement', 'Les trajets de plus de 10 km'],
+        correctIndex: 1,
+        explanation: "Le défaut de port du casque est sanctionné pour tout conducteur ou passager d'une motocyclette ou d'un vélomoteur. Et un casque non attaché ne compte pas : il quitte le crâne au premier choc.",
+      },
+      {
+        id: 'dr-2',
+        question: "Acheter et utiliser une moto non homologuée (sans réception) :",
+        choices: [
+          "Ne concerne que le vendeur",
+          "Expose l'acheteur : suspension du permis ou immobilisation du véhicule",
+          'Est toléré si la moto est en bon état',
+          "N'est pas prévu par les textes",
+        ],
+        correctIndex: 1,
+        explanation: "Le texte vise la fabrication, l'importation, la vente, la location, l'achat ET l'utilisation d'un deux-roues sans réception ou non conforme — même la tentative. Vérifie les papiers avant d'acheter.",
+      },
+      {
+        id: 'dr-3',
+        question: "À quel âge peut-on obtenir un permis A ou A' à Madagascar ?",
+        choices: ['14 ans', '16 ans avec consentement parental', '18 ans', '21 ans'],
+        correctIndex: 1,
+        explanation: "Les catégories A et A' sont accessibles dès 16 ans, avec le consentement d'un parent ou d'un adulte responsable.",
+      },
+      {
+        id: 'dr-4',
+        question: 'Conduire une moto trop puissante pour la catégorie de ton permis :',
+        choices: [
+          "N'est pas grave si tu conduis bien",
+          'Entraîne la suspension ou le retrait du permis',
+          'Est une simple amende de 1ère catégorie',
+          'Est autorisé pendant un an après l\'obtention',
+        ],
+        correctIndex: 1,
+        explanation: "Un permis non valable pour la catégorie du véhicule entraîne la suspension ou le retrait, temporaire ou définitif. Et en cas d'accident, l'assurance s'en servira.",
+      },
+      {
+        id: 'dr-5',
+        question: "Quelle est la cause principale des accidents de moto en intersection ?",
+        choices: [
+          "La vitesse excessive du motard",
+          "L'automobiliste regarde mais ne voit pas la moto",
+          "Le mauvais état des freins",
+          'Le manque de signalisation',
+        ],
+        correctIndex: 1,
+        explanation: "Une moto de face est étroite et se confond avec l'arrière-plan : le conducteur qui cherche « une voiture » la filtre. Considère que celui qui n'a pas croisé ton regard ne t'a pas vu.",
+      },
+      {
+        id: 'dr-6',
+        question: 'Sur une moto, le freinage se fait :',
+        choices: [
+          'Uniquement avec le frein arrière',
+          "Droit, avant le virage, en dosant l'avant qui fournit l'essentiel de la puissance",
+          'En bloquant les deux freins simultanément',
+          'Pendant le virage pour mieux se placer',
+        ],
+        correctIndex: 1,
+        explanation: "Le frein avant fournit l'essentiel de la puissance, mais le bloquer — surtout en virage ou sur sol glissant — met la moto au sol. On freine droit, avant le virage.",
+      },
+      {
+        id: 'dr-7',
+        question: 'Quand la chaussée est-elle la plus dangereuse sous la pluie ?',
+        choices: [
+          'Après plusieurs heures de pluie',
+          'Dans les premières minutes',
+          'Uniquement la nuit',
+          "La pluie ne change rien à l'adhérence",
+        ],
+        correctIndex: 1,
+        explanation: "Les premières minutes sont les pires : l'eau soulève les hydrocarbures déposés sur la chaussée avant de les laver.",
+      },
+      {
+        id: 'dr-8',
+        question: "Que faire quand tu circules à côté d'une voiture ?",
+        choices: [
+          'Rester dans son angle mort, on y est tranquille',
+          'Ne jamais y rester : soit doubler franchement, soit reculer',
+          'Se coller au bord de la chaussée',
+          'Klaxonner en permanence',
+        ],
+        correctIndex: 1,
+        explanation: "L'angle mort est l'endroit où tu n'existes pas pour l'autre conducteur. Soit tu doubles franchement, soit tu recules — mais tu n'y restes pas.",
+      },
+      {
+        id: 'dr-9',
+        question: 'Un pneu lisse sur une moto, cela signifie :',
+        choices: [
+          'Une simple amende',
+          "L'immobilisation du véhicule — et sur deux roues, un risque de chute",
+          'Rien tant que la route est sèche',
+          'Une majoration d\'assurance',
+        ],
+        correctIndex: 1,
+        explanation: "Les pneus lisses entraînent l'immobilisation du véhicule. Sur deux roues, un pneu usé n'est pas une amende : c'est une chute, parce que tu n'as que deux contacts au sol.",
+      },
+      {
+        id: 'dr-10',
+        question: 'Transporter un passager sur ta moto :',
+        choices: [
+          'Ne change rien à la conduite',
+          'Alourdit la machine, allonge le freinage et impose plus de distance',
+          'Est interdit avant 18 ans de permis',
+          'Dispense du casque pour le passager',
+        ],
+        correctIndex: 1,
+        explanation: "La machine devient plus lourde, plus longue à freiner et plus instable au démarrage et à l'arrêt. Le casque reste obligatoire pour lui, et il doit suivre tes mouvements, pas les contrarier.",
+      },
+    ],
+  },
 ];
 
 export function getQuizModule(slug: string) {
