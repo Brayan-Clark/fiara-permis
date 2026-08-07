@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import ModuleCard from '../../components/ModuleCard.astro';
+import CategoryPicker from '../../components/CategoryPicker.astro';
 import { getCollection } from 'astro:content';
 import { withBase } from '../../utils/url';
 
@@ -20,8 +21,13 @@ const modules = (await getCollection('cours')).sort((a, b) => a.data.order - b.d
       Chaque module est numéroté comme un point kilométrique sur une route nationale. Suis l'ordre pour une progression logique, ou saute directement au module qui te manque avant l'examen.
     </p>
 
+    <div class="mt-8">
+      <CategoryPicker />
+    </div>
+
     <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {modules.map((mod) => (
+        <div x-show={`showsModule(${JSON.stringify(mod.data.categories ?? [])})`}>
         <ModuleCard
           href={withBase(`/cours/${mod.id}`)}
           pk={mod.data.pk}
@@ -31,6 +37,7 @@ const modules = (await getCollection('cours')).sort((a, b) => a.data.order - b.d
           slug={mod.id}
           categories={mod.data.categories}
         />
+        </div>
       ))}
     </div>
 

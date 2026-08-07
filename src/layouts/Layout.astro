@@ -196,6 +196,44 @@ const isProd = import.meta.env.PROD;
             localStorage.setItem('fiara-lang', l);
             document.documentElement.lang = l;
           },
+          // Catégories de permis préparées par l'utilisateur. Tableau vide =
+          // aucun choix fait, on montre alors tout le parcours.
+          cats: JSON.parse(localStorage.getItem('fiara-cats') || '[]'),
+          toggleCat(c) {
+            this.cats = this.cats.includes(c)
+              ? this.cats.filter((x) => x !== c)
+              : [...this.cats, c];
+            localStorage.setItem('fiara-cats', JSON.stringify(this.cats));
+          },
+          clearCats() {
+            this.cats = [];
+            localStorage.setItem('fiara-cats', '[]');
+          },
+          // Prérequis entre catégories (module PK 6) : le permis C exige le B,
+          // le permis E exige le B et le C. Préparer E implique donc de réviser
+          // aussi le contenu C — on développe la sélection en conséquence.
+          get catsWithPrereqs() {
+            const PREREQ = { C: ['B'], E: ['B', 'C'] };
+            const out = new Set();
+            for (const c of this.cats) {
+              out.add(c);
+              for (const p of PREREQ[c] || []) out.add(p);
+            }
+            return [...out];
+          },
+          // Catégorie affichée uniquement parce qu'elle est prérequise.
+          isImplied(c) {
+            return !this.cats.includes(c) && this.catsWithPrereqs.includes(c);
+          },
+          // Un module sans catégorie est commun : toujours visible. Un module
+          // spécifique n'apparaît que si l'utilisateur prépare l'une des
+          // catégories concernées, prérequis compris.
+          showsModule(moduleCats) {
+            if (!moduleCats || moduleCats.length === 0) return true;
+            if (this.cats.length === 0) return true;
+            const active = this.catsWithPrereqs;
+            return moduleCats.some((c) => active.includes(c));
+          },
           isDone(id) {
             return this.completed.includes(id);
           },
@@ -413,6 +451,9 @@ const isProd = import.meta.env.PROD;
           return arr;
         }
         return {
+          // Réservoir de questions, exposé pour que la page puisse le filtrer
+          // sur les catégories choisies avant d'appeler init().
+          source: allQuestions,
           pool: [],
           total,
           index: 0,
@@ -431,7 +472,9 @@ const isProd = import.meta.env.PROD;
             return String(this.timeLeft % 60).padStart(2, '0');
           },
           init() {
-            this.pool = shuffle(allQuestions).slice(0, total);
+            const src = this.source.length ? this.source : allQuestions;
+            this.pool = shuffle(src).slice(0, total);
+            this.total = Math.min(total, this.pool.length);
             this.index = 0;
             this.score = 0;
             this.selected = null;

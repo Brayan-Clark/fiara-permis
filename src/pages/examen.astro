@@ -1,9 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { quizModules } from '../data/quiz';
+import { getCollection } from 'astro:content';
 import { withBase } from '../utils/url';
 
-const allQuestions = quizModules.flatMap((m) => m.questions);
+// Chaque question porte les catégories de son module : l'examen blanc ne doit
+// pas poser de questions poids lourd à quelqu'un qui prépare A, A' et B.
+const cours = await getCollection('cours');
+const catsBySlug = new Map(cours.map((m) => [m.id, m.data.categories ?? []]));
+const allQuestions = quizModules.flatMap((m) =>
+  m.questions.map((qu) => ({ ...qu, cats: catsBySlug.get(m.slug) ?? [] })),
+);
 const TOTAL = 20;
 const DURATION = 600; // 10 minutes — a self-practice pace, not an official exam timing
 const PASS_THRESHOLD = 16; // 80% — a common convention for code exams, to confirm with your driving school
@@ -16,7 +23,7 @@ const PASS_THRESHOLD = 16; // 80% — a common convention for code exams, to con
   <section
     class="mx-auto max-w-2xl px-4 sm:px-6 py-14 sm:py-20"
     x-data={`mockExam(${JSON.stringify(allQuestions)}, ${TOTAL}, ${DURATION})`}
-    x-init="init()"
+    x-init="source = source.filter((q) => showsModule(q.cats)); init()"
   >
     <a href={withBase('/exercices')} class="text-sm text-ink-soft hover:text-laterite"><span x-text="t('exo.back')">← Tous les exercices</span></a>
     <h1 class="mt-3 font-display text-2xl sm:text-3xl font-semibold text-route"><span x-text="t('exam.title')">Examen blanc</span></h1>

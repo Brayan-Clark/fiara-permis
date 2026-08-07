@@ -5,6 +5,7 @@ import { getCollection, render } from 'astro:content';
 import { glossary } from '../data/glossary';
 import { panneaux } from '../data/panneaux';
 import { withBase } from '../utils/url';
+import CategoryPicker from '../components/CategoryPicker.astro';
 
 const modules = (await getCollection('cours')).sort((a, b) => a.data.order - b.data.order);
 
@@ -60,6 +61,10 @@ const categories = ["A", "A'", 'B', 'C', 'D', 'E'];
       >
         <span x-text="t('livret.back')">Revenir au cours</span>
       </a>
+    </div>
+
+    <div class="mt-8">
+      <CategoryPicker />
     </div>
 
     <div class="mt-8 rounded-2xl border border-route/10 bg-white/60 p-5 text-sm text-ink-soft">
@@ -147,7 +152,7 @@ const categories = ["A", "A'", 'B', 'C', 'D', 'E'];
       <h3 class="font-display text-xl font-semibold text-route">Sommaire</h3>
       <ol class="mt-4 space-y-1.5 text-sm">
         {modules.map((mod) => (
-          <li class="flex gap-3">
+          <li class="flex gap-3" x-show={`showsModule(${JSON.stringify(mod.data.categories ?? [])})`}>
             <span class="font-plate text-laterite shrink-0">PK {mod.data.pk}</span>
             <span class="text-route">{mod.data.title}</span>
           </li>
@@ -164,7 +169,7 @@ const categories = ["A", "A'", 'B', 'C', 'D', 'E'];
     </nav>
 
     {rendered.map(({ mod, Content }) => (
-      <section class="print-chapter mt-12">
+      <section class="print-chapter mt-12" x-show={`showsModule(${JSON.stringify(mod.data.categories ?? [])})`}>
         <p class="font-plate text-xs uppercase tracking-widest text-laterite">PK {mod.data.pk}</p>
         <h3 class="mt-1 font-display text-2xl font-semibold text-route">{mod.data.title}</h3>
         <p class="mt-2 text-ink-soft italic">{mod.data.summary}</p>

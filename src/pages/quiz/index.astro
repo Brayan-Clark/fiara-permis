@@ -1,7 +1,14 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { quizModules } from '../../data/quiz';
+import { getCollection } from 'astro:content';
 import { withBase } from '../../utils/url';
+import CategoryPicker from '../../components/CategoryPicker.astro';
+
+// Les paquets de quiz suivent les catégories de leur module de cours : filtrer
+// les leçons sans filtrer les quiz laisserait des questions hors sujet.
+const cours = await getCollection('cours');
+const catsBySlug = new Map(cours.map((m) => [m.id, m.data.categories ?? []]));
 
 const accentBg: Record<string, string> = {
   laterite: 'bg-laterite',
@@ -54,8 +61,13 @@ const accentBg: Record<string, string> = {
       </a>
     </div>
 
+    <div class="mt-8">
+      <CategoryPicker />
+    </div>
+
     <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {quizModules.map((mod) => (
+        <div x-show={`showsModule(${JSON.stringify(catsBySlug.get(mod.slug) ?? [])})`}>
         <a
           href={withBase(`/quiz/${mod.slug}`)}
           class="group relative flex flex-col overflow-hidden rounded-2xl border border-route/10 bg-white/60 p-6 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-route/10"
@@ -70,6 +82,7 @@ const accentBg: Record<string, string> = {
             </svg>
           </span>
         </a>
+        </div>
       ))}
     </div>
   </section>
