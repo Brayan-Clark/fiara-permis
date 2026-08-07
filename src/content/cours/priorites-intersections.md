@@ -36,9 +36,10 @@ Quand plusieurs règles semblent s'appliquer en même temps, l'ordre est toujour
 3. **Les panneaux** (STOP, cédez-le-passage, route prioritaire).
 4. **La priorité à droite**, en dernier recours, si rien de tout ça n'est présent.
 
-## Le croisement et le dépassement
+## Et le croisement, le dépassement ?
 
-- **Croisement** : deux véhicules qui se déplacent en sens inverse se croisent en se tenant chacun sur sa droite, en laissant un espace latéral suffisant.
-- **Dépassement** : il se fait toujours par la gauche (sauf exception signalée), après s'être assuré qu'aucun véhicule n'arrive en face et qu'aucun panneau n'interdit la manœuvre à cet endroit.
+Ce sont aussi des questions de priorité, mais elles ont assez de règles propres pour mériter leur propre module : va voir **PK 8 — Croisement et dépassement**.
+
+Retiens déjà les deux principes : au **croisement**, chacun se tient sur sa droite en laissant un espace latéral suffisant ; le **dépassement** se fait toujours par la gauche, sauf exception signalée.
 
 Maîtriser ces règles, c'est savoir répondre à la question que tout examinateur pose tôt ou tard : *« Qui passe en premier ? »*

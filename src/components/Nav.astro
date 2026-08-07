@@ -7,6 +7,7 @@ const links = [
   { href: '/quiz', label: 'Quiz', key: 'nav.quiz' },
   { href: '/exercices', label: 'Exercices', key: 'nav.exercices' },
   { href: '/glossaire', label: 'Glossaire', key: 'nav.glossaire' },
+  { href: '/ressources', label: 'Ressources', key: 'nav.ressources' },
 ];
 
 const path = Astro.url.pathname;
@@ -102,6 +103,9 @@ const path = Astro.url.pathname;
           <span x-text={`t('${link.key}')`}>{link.label}</span>
         </a>
       ))}
+      <a href={withBase('/livret')} class="rounded-md px-4 py-2 text-sm font-medium text-route hover:bg-route/5">
+        <span x-text="t('nav.livret')">Livret</span>
+      </a>
       <a href={withBase('/sources')} class="rounded-md px-4 py-2 text-sm font-medium text-route hover:bg-route/5">
         <span x-text="t('nav.sources')">Sources</span>
       </a>

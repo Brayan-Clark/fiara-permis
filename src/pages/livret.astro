@@ -1,0 +1,208 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SignGrid from '../components/SignGrid.astro';
+import { getCollection, render } from 'astro:content';
+import { glossary } from '../data/glossary';
+import { withBase } from '../utils/url';
+
+const modules = (await getCollection('cours')).sort((a, b) => a.data.order - b.data.order);
+
+// Le contenu de chaque module est rendu ici même : le livret n'est pas un
+// résumé, c'est le cours complet en un seul document imprimable.
+const rendered = await Promise.all(
+  modules.map(async (mod) => ({ mod, Content: (await render(mod)).Content })),
+);
+
+const today = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<Layout
+  title="Livret complet à imprimer"
+  description="Tous les modules du code de la route à Madagascar réunis en un seul document, avec les panneaux et le glossaire — à imprimer ou à enregistrer en PDF."
+>
+  <!-- Barre d'action : masquée à l'impression -->
+  <section class="no-print mx-auto max-w-3xl px-4 sm:px-6 py-12">
+    <h1 class="font-display text-3xl sm:text-4xl font-semibold text-route">
+      <span x-text="t('livret.title')">Le livret complet</span>
+    </h1>
+    <p class="mt-3 text-lg text-ink-soft">
+      <span x-text="t('livret.intro')"
+        >Tous les modules du cours réunis en un seul document, avec la planche de panneaux et le
+        glossaire. Enregistre-le en PDF pour le relire sans connexion, ou imprime-le pour réviser
+        sur papier.</span
+      >
+    </p>
+
+    <div class="mt-8 flex flex-wrap gap-3">
+      <button
+        type="button"
+        @click="window.print()"
+        class="inline-flex items-center gap-2 rounded-full bg-laterite px-6 py-3 text-sm font-semibold text-sisal shadow-lg shadow-laterite/20 transition hover:bg-laterite-dark"
+      >
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z" />
+        </svg>
+        <span x-text="t('livret.print')">Enregistrer en PDF / Imprimer</span>
+      </button>
+      <a
+        href={withBase('/cours')}
+        class="rounded-full border-2 border-route px-6 py-3 text-sm font-semibold text-route transition hover:bg-route hover:text-sisal"
+      >
+        <span x-text="t('livret.back')">Revenir au cours</span>
+      </a>
+    </div>
+
+    <div class="mt-8 rounded-2xl border border-route/10 bg-white/60 p-5 text-sm text-ink-soft">
+      <p class="font-semibold text-route" x-text="t('livret.howTitle')">Comment obtenir le PDF</p>
+      <p class="mt-2">
+        <span x-text="t('livret.how')"
+          >Clique sur le bouton ci-dessus, puis dans la fenêtre d'impression choisis « Enregistrer
+          au format PDF » comme destination (sur Android : « Enregistrer au format PDF » ;
+          sur iPhone : Partager puis Imprimer, et pince pour agrandir l'aperçu). Active les
+          « graphiques d'arrière-plan » si tu veux garder les couleurs.</span
+        >
+      </p>
+    </div>
+  </section>
+
+  <!-- Le document lui-même -->
+  <article class="print-doc mx-auto max-w-3xl px-4 sm:px-6 pb-20">
+    <header class="print-cover border-y-4 border-laterite py-10 text-center">
+      <p class="font-plate text-xs uppercase tracking-[0.3em] text-laterite">Fiara Permis</p>
+      <h2 class="mt-4 font-display text-4xl font-semibold text-route">Code de la route à Madagascar</h2>
+      <p class="mt-3 text-ink-soft">Livret de révision — {modules.length} modules</p>
+      <p class="mt-6 font-plate text-xs text-ink-soft">Édition du {today}</p>
+    </header>
+
+    <nav class="print-toc mt-10">
+      <h3 class="font-display text-xl font-semibold text-route">Sommaire</h3>
+      <ol class="mt-4 space-y-1.5 text-sm">
+        {modules.map((mod) => (
+          <li class="flex gap-3">
+            <span class="font-plate text-laterite shrink-0">PK {mod.data.pk}</span>
+            <span class="text-route">{mod.data.title}</span>
+          </li>
+        ))}
+        <li class="flex gap-3 pt-2">
+          <span class="font-plate text-laterite shrink-0">A.</span>
+          <span class="text-route">Planche des panneaux</span>
+        </li>
+        <li class="flex gap-3">
+          <span class="font-plate text-laterite shrink-0">B.</span>
+          <span class="text-route">Glossaire</span>
+        </li>
+      </ol>
+    </nav>
+
+    {rendered.map(({ mod, Content }) => (
+      <section class="print-chapter mt-12">
+        <p class="font-plate text-xs uppercase tracking-widest text-laterite">PK {mod.data.pk}</p>
+        <h3 class="mt-1 font-display text-2xl font-semibold text-route">{mod.data.title}</h3>
+        <p class="mt-2 text-ink-soft italic">{mod.data.summary}</p>
+        <div class="prose-route mt-6">
+          <Content />
+        </div>
+        {mod.id === 'panneaux-signalisation' && (
+          <div class="mt-8">
+            <h4 class="font-display text-lg font-semibold text-route">Les panneaux en images</h4>
+            <div class="mt-4">
+              <SignGrid />
+            </div>
+          </div>
+        )}
+        <p class="mt-6 text-xs text-ink-soft">
+          <span class="font-semibold">Sources —</span>
+          {mod.data.sources.map((s, i) => (
+            <span>{i > 0 && ' · '}{s.label}</span>
+          ))}
+        </p>
+      </section>
+    ))}
+
+    <section class="print-chapter mt-12">
+      <p class="font-plate text-xs uppercase tracking-widest text-laterite">Annexe A</p>
+      <h3 class="mt-1 font-display text-2xl font-semibold text-route">Glossaire</h3>
+      <dl class="mt-6 space-y-3">
+        {glossary.map((g) => (
+          <div class="break-inside-avoid">
+            <dt class="font-display text-sm font-semibold text-route">{g.term}</dt>
+            <dd class="text-sm text-ink-soft leading-relaxed">{g.definition}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
+
+    <footer class="print-chapter mt-12 border-t border-route/15 pt-6 text-xs text-ink-soft">
+      <p>
+        <strong class="text-route">Avertissement.</strong> Ce livret est un outil de révision
+        indépendant, basé sur la loi n°2017-002 portant Code de la Route à Madagascar et sur des
+        sources publiques, dont le Guide des usagers de la route (BIANCO / Ministère des Transports
+        / Police nationale / Gendarmerie). Il ne remplace ni ton auto-école, ni les textes officiels
+        en vigueur. Les montants d'amendes ne sont volontairement pas indiqués : ils sont fixés par
+        décret et révisés — vérifie-les auprès de ton auto-école ou du Centre Immatriculateur.
+      </p>
+      <p class="mt-3">Fiara Permis — édition du {today}.</p>
+    </footer>
+  </article>
+</Layout>
+
+<style is:global>
+  @media print {
+    /* Ne garder que le document : ni nav, ni pied de page du site, ni boutons. */
+    header.sticky,
+    footer.border-t.border-route\/10,
+    .no-print {
+      display: none !important;
+    }
+
+    html,
+    body {
+      background: #fff !important;
+      font-size: 11pt;
+    }
+
+    .print-doc {
+      max-width: none;
+      padding: 0;
+    }
+
+    /* Chaque module commence en haut d'une page. */
+    .print-chapter {
+      break-before: page;
+      margin-top: 0 !important;
+    }
+
+    .print-cover {
+      break-after: page;
+    }
+
+    /* Ne jamais couper un titre de sa suite, ni une entrée de glossaire. */
+    h2,
+    h3,
+    h4 {
+      break-after: avoid;
+    }
+
+    .break-inside-avoid,
+    table,
+    blockquote,
+    li {
+      break-inside: avoid;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* La grille de panneaux tient en deux colonnes sur papier. */
+    .print-doc .grid {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr !important;
+    }
+  }
+
+  @page {
+    margin: 16mm 14mm;
+  }
+</style>
