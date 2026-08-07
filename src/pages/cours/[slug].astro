@@ -34,7 +34,7 @@ const accentText: Record<string, string> = {
     <div class="flex items-center gap-3">
       <PkMarker pk={mod.data.pk} />
       <span class:list={['text-xs font-semibold uppercase tracking-wide', accentText[mod.data.accent]]}>
-        <span x-text="t('cours.module')">Module</span> {mod.data.pk} / 6
+        <span x-text="t('cours.module')">Module</span> {mod.data.pk} / {all.length}
       </span>
     </div>
 

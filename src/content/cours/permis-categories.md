@@ -47,7 +47,7 @@ Le système malgache distingue six catégories de permis, chacune liée à un ty
 
 ## Le déroulement de l'examen
 
-L'examen se déroule en deux parties, organisées via l'auto-école : l'épreuve théorique du **code** et l'épreuve pratique de **conduite**. Une fois l'examen réussi, le permis est à retirer personnellement, sur rendez-vous, au **Centre Immatriculateur d'Ambohidahy (CIM)**.
+L'examen se déroule en deux parties, organisées via l'auto-école : l'épreuve théorique du **code** et l'épreuve pratique de **conduite**. Une fois l'examen réussi, le permis est à retirer personnellement, sur rendez-vous, au **Centre Immatriculateur (CIM)** dont dépend ta région — ton auto-école t'indiquera lequel.
 
 ## Un ordre d'idée des frais
 

@@ -55,7 +55,7 @@ const modules = (await getCollection('cours')).sort((a, b) => a.data.order - b.d
   <section class="mx-auto max-w-6xl px-4 sm:px-6 py-16 sm:py-20">
     <div class="flex items-end justify-between gap-4 flex-wrap">
       <div>
-        <h2 class="font-display text-2xl sm:text-3xl font-semibold text-route" x-text="t('home.modulesTitle')">Les 6 modules du parcours</h2>
+        <h2 class="font-display text-2xl sm:text-3xl font-semibold text-route" x-text="t('home.modulesTitle')">Les modules du parcours</h2>
         <p class="mt-2 text-ink-soft max-w-2xl"><span x-text="t('home.modulesSub')">Chaque module est un point kilométrique (PK) sur la route vers l'examen — dans l'ordre, ou dans le désordre selon ce que tu veux réviser.</span></p>
       </div>
       <a href={withBase('/cours')} class="text-sm font-medium text-laterite hover:underline shrink-0" x-text="t('home.seeAll')">Voir tout le parcours →</a>
