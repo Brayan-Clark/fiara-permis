@@ -7,8 +7,8 @@ order: 3
 sources:
   - label: "Fiarakodia — Code de la route à Madagascar"
     url: "https://www.fiarakodia.com/en/posts/code-de-la-route-a-madagascar-une-piqure-de-rappel-essentielle"
-  - label: "Loi n°2017-002 portant Code de la Route à Madagascar"
-    url: "https://www.assemblee-nationale.mg/wp-content/uploads/2020/10/Loi-n%C2%B02017-002_Code-de-la-route-%C3%A0-Madagascar.pdf"
+  - label: "Loi n°2017-002 portant Code de la Route à Madagascar (fiche du texte)"
+    url: "https://textes.lexxika.com/lois-malagasy/loi-n2017-002-du-06-juillet-2016-portant-code-de-la-route-a-madagascar/"
 ---
 
 La vitesse est la variable que le conducteur contrôle le plus directement — et celle qui a le plus d'impact sur la gravité d'un accident. Une différence de 20 km/h change complètement la distance nécessaire pour s'arrêter.

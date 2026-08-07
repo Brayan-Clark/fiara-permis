@@ -5,8 +5,8 @@ summary: "Apprendre à lire les panneaux avant d'apprendre à conduire : danger,
 accent: laterite
 order: 1
 sources:
-  - label: "Loi n°2017-002 portant Code de la Route à Madagascar"
-    url: "https://www.assemblee-nationale.mg/wp-content/uploads/2020/10/Loi-n%C2%B02017-002_Code-de-la-route-%C3%A0-Madagascar.pdf"
+  - label: "Loi n°2017-002 portant Code de la Route à Madagascar (fiche du texte)"
+    url: "https://textes.lexxika.com/lois-malagasy/loi-n2017-002-du-06-juillet-2016-portant-code-de-la-route-a-madagascar/"
   - label: "Fiarakodia — Code de la route à Madagascar"
     url: "https://www.fiarakodia.com/en/posts/code-de-la-route-a-madagascar-une-piqure-de-rappel-essentielle"
 ---

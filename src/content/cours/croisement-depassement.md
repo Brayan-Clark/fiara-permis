@@ -7,8 +7,8 @@ order: 8
 sources:
   - label: "BIANCO / Ministère des Transports / Police nationale / Gendarmerie — Guide des usagers de la route"
     url: "https://www.bianco-mg.org/uploads/documentation/guide-des-usagers-de-la-route2.pdf"
-  - label: "Loi n°2017-002 portant Code de la Route à Madagascar"
-    url: "https://www.assemblee-nationale.mg/wp-content/uploads/2020/10/Loi-n%C2%B02017-002_Code-de-la-route-%C3%A0-Madagascar.pdf"
+  - label: "Loi n°2017-002 portant Code de la Route à Madagascar (fiche du texte)"
+    url: "https://textes.lexxika.com/lois-malagasy/loi-n2017-002-du-06-juillet-2016-portant-code-de-la-route-a-madagascar/"
 ---
 
 Le dépassement est la seule manœuvre ordinaire où tu vas volontairement te placer **face au trafic arrivant en sens inverse**. C'est pour ça qu'elle concentre autant de règles, et autant d'accidents graves.
