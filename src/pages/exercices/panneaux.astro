@@ -1,6 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { panneaux } from '../../data/panneaux';
+import { panneaux, signHtml } from '../../data/panneaux';
+
+// Le jeu n'a besoin que du nom, de la famille et du visuel de chaque panneau.
+const signs = panneaux.map((s) => ({ id: s.id, name: s.name, category: s.category, html: signHtml(s), mg: s.mg && { name: s.mg.name } }));
 import { withBase } from '../../utils/url';
 ---
 
@@ -10,7 +13,7 @@ import { withBase } from '../../utils/url';
 >
   <section
     class="mx-auto max-w-xl px-4 sm:px-6 py-14 sm:py-20"
-    x-data={`signQuiz(${JSON.stringify(panneaux)})`}
+    x-data={`signQuiz(${JSON.stringify(signs)})`}
     x-init="init()"
   >
     <a href={withBase('/exercices')} class="text-sm text-ink-soft hover:text-laterite"><span x-text="t('exo.back')">← Tous les exercices</span></a>
@@ -24,7 +27,7 @@ import { withBase } from '../../utils/url';
         </p>
 
         <div class="mt-4 flex justify-center rounded-2xl border-2 border-route/10 bg-white/70 p-10">
-          <div class="h-32 w-32" x-html="current.svg"></div>
+          <div class="h-32 w-32" x-html="current.html"></div>
         </div>
 
         <div class="mt-6 grid gap-2.5">
@@ -34,8 +37,9 @@ import { withBase } from '../../utils/url';
               @click="choose(opt.id)"
               :class="{ 'border-ravinala bg-ravinala/10 text-route': selected !== null && opt.id === current.id, 'border-laterite bg-laterite/10 text-route': selected === opt.id && opt.id !== current.id, 'border-route/15 hover:border-signal/40': selected === null, 'border-route/10 opacity-60': selected !== null && opt.id !== current.id && opt.id !== selected }"
               class="rounded-xl border-2 px-4 py-3 text-left text-sm font-medium transition"
+              aria-label="Panneau"
             >
-              <span x-text="opt.name"></span>
+              <span x-text="tr(opt, 'name')"></span>
             </button>
           </template>
         </div>
@@ -47,8 +51,9 @@ import { withBase } from '../../utils/url';
             x-cloak
             @click="next()"
             class="rounded-full bg-route px-5 py-2 text-sm font-semibold text-sisal hover:bg-route/90"
+            aria-label="Panneau suivant"
             x-text="round === total - 1 ? t('action.seeResult') : t('exo.signNext')"
-          ></button>
+          >Panneau suivant</button>
         </div>
       </div>
     </template>

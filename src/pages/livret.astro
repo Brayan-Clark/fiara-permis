@@ -3,22 +3,37 @@ import Layout from '../layouts/Layout.astro';
 import SignGrid from '../components/SignGrid.astro';
 import { getCollection, render } from 'astro:content';
 import { glossary } from '../data/glossary';
-import { panneaux } from '../data/panneaux';
+import { panneaux, signHtml } from '../data/panneaux';
 import { withBase } from '../utils/url';
 import CategoryPicker from '../components/CategoryPicker.astro';
+import { getMgModules } from '../utils/modules';
 
 const modules = (await getCollection('cours')).sort((a, b) => a.data.order - b.data.order);
 
 // Le contenu de chaque module est rendu ici même : le livret n'est pas un
 // résumé, c'est le cours complet en un seul document imprimable.
+const mgModules = await getMgModules();
 const rendered = await Promise.all(
-  modules.map(async (mod) => ({ mod, Content: (await render(mod)).Content })),
+  modules.map(async (mod) => {
+    const mg = mgModules.get(mod.id);
+    return {
+      mod,
+      mg,
+      Content: (await render(mod)).Content,
+      MgContent: mg ? (await render(mg)).Content : null,
+    };
+  }),
 );
 
 const today = new Date().toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+const MOIS_MG = ['Janoary', 'Febroary', 'Martsa', 'Aprily', 'Mey', 'Jona', 'Jolay', 'Aogositra', 'Septambra', 'Oktobra', 'Novambra', 'Desambra'];
+const now = new Date();
+const pdfFr = withBase('/livret/fiara-permis-livret-fr.pdf');
+const pdfMg = withBase('/livret/fiara-permis-livret-mg.pdf');
+const todayMg = `${now.getDate()} ${MOIS_MG[now.getMonth()]} ${now.getFullYear()}`;
 
-// Panneaux de la couverture. Ce sont de vrais SVG du cours, pas des images
-// décoratives : ils s'impriment nets et restent lisibles en noir et blanc.
+// Panneaux de la couverture. Ce sont les panneaux vectoriels du cours, pas des
+// images décoratives : ils s'impriment nets et restent lisibles en noir et blanc.
 const coverSignIds = ['stop', 'cedez-passage', 'sens-interdit', 'route-prioritaire', 'rond-point', 'limitation-vitesse'];
 const coverSigns = coverSignIds
   .map((id) => panneaux.find((s) => s.id === id))
@@ -45,15 +60,28 @@ const categories = ["A", "A'", 'B', 'C', 'D', 'E'];
     </p>
 
     <div class="mt-8 flex flex-wrap gap-3">
+      <!-- PDF prêts à télécharger, générés au build par scripts/build-pdf.mjs. -->
+      <a
+        :href={`lang === 'mg' ? '${pdfMg}' : '${pdfFr}'`}
+        href={pdfFr}
+        :download="lang === 'mg' ? 'fiara-permis-livret-mg.pdf' : 'fiara-permis-livret-fr.pdf'"
+        download="fiara-permis-livret-fr.pdf"
+        class="inline-flex items-center gap-2 rounded-full bg-laterite px-6 py-3 text-sm font-semibold text-sisal shadow-lg shadow-laterite/20 transition hover:bg-laterite-dark"
+      >
+        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3v12M7 10l5 5 5-5M5 21h14" />
+        </svg>
+        <span x-text="t('livret.download')">Télécharger le PDF</span>
+      </a>
       <button
         type="button"
         @click="window.print()"
-        class="inline-flex items-center gap-2 rounded-full bg-laterite px-6 py-3 text-sm font-semibold text-sisal shadow-lg shadow-laterite/20 transition hover:bg-laterite-dark"
+        class="inline-flex items-center gap-2 rounded-full border-2 border-laterite px-6 py-3 text-sm font-semibold text-laterite transition hover:bg-laterite hover:text-sisal"
       >
         <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z" />
         </svg>
-        <span x-text="t('livret.print')">Enregistrer en PDF / Imprimer</span>
+        <span x-text="t('livret.printOnly')">Imprimer</span>
       </button>
       <a
         href={withBase('/cours')}
@@ -62,6 +90,11 @@ const categories = ["A", "A'", 'B', 'C', 'D', 'E'];
         <span x-text="t('livret.back')">Revenir au cours</span>
       </a>
     </div>
+
+    <p class="mt-3 text-xs text-ink-soft">
+      <span x-text="t('livret.downloadNote')">Le PDF contient tout le cours, toutes catégories confondues. Pour un livret limité à tes catégories, choisis-les ci-dessous puis utilise « Imprimer ».</span>
+      <a :href={`lang === 'mg' ? '${pdfFr}' : '${pdfMg}'`} href={pdfMg} class="underline underline-offset-2 hover:text-laterite" x-text="t('livret.otherLang')">Version en malagasy</a>
+    </p>
 
     <div class="mt-8">
       <CategoryPicker />
@@ -111,14 +144,14 @@ const categories = ["A", "A'", 'B', 'C', 'D', 'E'];
         <p class="mt-7 font-plate text-[0.7rem] uppercase tracking-[0.42em] text-laterite">Fiara Permis</p>
 
         <h2 class="cover-title mt-4 font-display text-5xl font-semibold leading-[1.05] text-route">
-          Code de la route<br /><span class="text-laterite">à Madagascar</span>
+          <span x-show="lang !== 'mg'">Code de la route<br /><span class="text-laterite">à Madagascar</span></span><span x-show="lang === 'mg'" x-cloak lang="mg">Fitsipi-pifamoivoizana<br /><span class="text-laterite">eto Madagasikara</span></span>
         </h2>
 
         <div class="mt-6 h-px w-24 bg-route/25"></div>
 
-        <p class="mt-6 text-lg text-ink-soft">Livret de révision complet</p>
+        <p class="mt-6 text-lg text-ink-soft"><span x-show="lang !== 'mg'">Livret de révision complet</span><span x-show="lang === 'mg'" x-cloak lang="mg">Boky famerenana feno</span></p>
         <p class="mt-1 font-plate text-sm text-ink-soft">
-          {modules.length} modules · {glossary.length} définitions · planche de panneaux
+          <span x-show="lang !== 'mg'">{modules.length} modules · {glossary.length} définitions · planche de panneaux</span><span x-show="lang === 'mg'" x-cloak lang="mg">{modules.length} lesona · {glossary.length} voambolana · tabilaon'ny famantarana</span>
         </p>
 
         <!-- Catégories couvertes -->
@@ -129,63 +162,70 @@ const categories = ["A", "A'", 'B', 'C', 'D', 'E'];
             </span>
           ))}
         </div>
-        <p class="mt-2 font-plate text-[0.65rem] uppercase tracking-widest text-ink-soft">Toutes catégories de permis</p>
+        <p class="mt-2 font-plate text-[0.65rem] uppercase tracking-widest text-ink-soft"><span x-show="lang !== 'mg'">Toutes catégories de permis</span><span x-show="lang === 'mg'" x-cloak lang="mg">Ny sokajin-permis rehetra</span></p>
 
         <!-- Vrais panneaux du cours -->
         <div class="mt-9 flex flex-wrap items-center justify-center gap-5">
           {coverSigns.map((sign) => (
-            <div class="h-14 w-14" set:html={sign.svg} />
+            <div class="h-14 w-14" set:html={signHtml(sign)} />
           ))}
         </div>
       </div>
 
       <div class="border-t-2 border-route/10 px-8 py-5 text-center">
-        <p class="font-plate text-xs text-ink-soft">Édition du {today}</p>
+        <p class="font-plate text-xs text-ink-soft"><span x-show="lang !== 'mg'">Édition du {today}</span><span x-show="lang === 'mg'" x-cloak lang="mg">Navoaka ny {todayMg}</span></p>
         <p class="mt-1.5 text-[0.7rem] leading-relaxed text-ink-soft">
-          D'après la loi n°2017-002 portant Code de la Route à Madagascar et le Guide des usagers de
-          la route (BIANCO · Ministère des Transports · Police nationale · Gendarmerie)
+          <span x-show="lang !== 'mg'">D'après la loi n°2017-002 portant Code de la Route à Madagascar et le Guide des usagers de la route (BIANCO · Ministère des Transports · Police nationale · Gendarmerie)</span><span x-show="lang === 'mg'" x-cloak lang="mg">Araka ny lalàna laharana faha-2017-002 mikasika ny Fitsipi-pifamoivoizana eto Madagasikara sy ny Torolalana ho an'ny mpampiasa lalana (BIANCO · Ministeran'ny Fitaterana · Polisim-pirenena · Zandarimariam-pirenena)</span>
         </p>
       </div>
     </header>
 
     <nav class="print-toc mt-10">
-      <h3 class="font-display text-xl font-semibold text-route">Sommaire</h3>
+      <h3 class="font-display text-xl font-semibold text-route"><span x-show="lang !== 'mg'">Sommaire</span><span x-show="lang === 'mg'" x-cloak lang="mg">Votoatiny</span></h3>
       <ol class="mt-4 space-y-1.5 text-sm">
         {modules.map((mod) => (
           <li class="flex gap-3" x-show={`showsModule(${JSON.stringify(mod.data.categories ?? [])})`}>
             <span class="font-plate text-laterite shrink-0">PK {mod.data.pk}</span>
-            <span class="text-route">{mod.data.title}</span>
+            <span class="text-route" x-show={mgModules.has(mod.id) ? "lang !== 'mg'" : 'true'}>{mod.data.title}</span>
+            {mgModules.has(mod.id) && <span class="text-route" x-show="lang === 'mg'" x-cloak lang="mg">{mgModules.get(mod.id)!.data.title}</span>}
           </li>
         ))}
         <li class="flex gap-3 pt-2">
           <span class="font-plate text-laterite shrink-0">A.</span>
-          <span class="text-route">Planche des panneaux</span>
-        </li>
-        <li class="flex gap-3">
-          <span class="font-plate text-laterite shrink-0">B.</span>
-          <span class="text-route">Glossaire</span>
+          <span class="text-route"><span x-show="lang !== 'mg'">Glossaire</span><span x-show="lang === 'mg'" x-cloak lang="mg">Voambolana</span></span>
         </li>
       </ol>
     </nav>
 
-    {rendered.map(({ mod, Content }) => (
+    {rendered.map(({ mod, mg, Content, MgContent }) => (
       <section class="print-chapter mt-12" x-show={`showsModule(${JSON.stringify(mod.data.categories ?? [])})`}>
         <p class="font-plate text-xs uppercase tracking-widest text-laterite">PK {mod.data.pk}</p>
-        <h3 class="mt-1 font-display text-2xl font-semibold text-route">{mod.data.title}</h3>
-        <p class="mt-2 text-ink-soft italic">{mod.data.summary}</p>
-        <div class="prose-route mt-6">
-          <Content />
+        <div x-show={mg ? "lang !== 'mg'" : 'true'}>
+          <h3 class="mt-1 font-display text-2xl font-semibold text-route">{mod.data.title}</h3>
+          <p class="mt-2 text-ink-soft italic">{mod.data.summary}</p>
+          <div class="prose-route mt-6">
+            <Content />
+          </div>
         </div>
+        {mg && MgContent && (
+          <div x-show="lang === 'mg'" x-cloak lang="mg">
+            <h3 class="mt-1 font-display text-2xl font-semibold text-route">{mg.data.title}</h3>
+            <p class="mt-2 text-ink-soft italic">{mg.data.summary}</p>
+            <div class="prose-route mt-6">
+              <MgContent />
+            </div>
+          </div>
+        )}
         {mod.id === 'panneaux-signalisation' && (
           <div class="mt-8">
-            <h4 class="font-display text-lg font-semibold text-route">Les panneaux en images</h4>
+            <h4 class="font-display text-lg font-semibold text-route"><span x-show="lang !== 'mg'">Les panneaux en images</span><span x-show="lang === 'mg'" x-cloak lang="mg">Ny famantarana an-tsary</span></h4>
             <div class="mt-4">
               <SignGrid />
             </div>
           </div>
         )}
         <p class="mt-6 text-xs text-ink-soft">
-          <span class="font-semibold">Sources —</span>
+          <span class="font-semibold"><span x-show="lang !== 'mg'">Sources —</span><span x-show="lang === 'mg'" x-cloak lang="mg">Loharano —</span></span>
           {mod.data.sources.map((s, i) => (
             <span>{i > 0 && ' · '}{s.label}</span>
           ))}
@@ -194,20 +234,26 @@ const categories = ["A", "A'", 'B', 'C', 'D', 'E'];
     ))}
 
     <section class="print-chapter mt-12">
-      <p class="font-plate text-xs uppercase tracking-widest text-laterite">Annexe A</p>
-      <h3 class="mt-1 font-display text-2xl font-semibold text-route">Glossaire</h3>
+      <p class="font-plate text-xs uppercase tracking-widest text-laterite"><span x-show="lang !== 'mg'">Annexe A</span><span x-show="lang === 'mg'" x-cloak lang="mg">Fanampiny A</span></p>
+      <h3 class="mt-1 font-display text-2xl font-semibold text-route"><span x-show="lang !== 'mg'">Glossaire</span><span x-show="lang === 'mg'" x-cloak lang="mg">Voambolana</span></h3>
       <dl class="mt-6 space-y-3">
         {glossary.map((g) => (
           <div class="break-inside-avoid">
-            <dt class="font-display text-sm font-semibold text-route">{g.term}</dt>
-            <dd class="text-sm text-ink-soft leading-relaxed">{g.definition}</dd>
+            <dt class="font-display text-sm font-semibold text-route">
+              <span x-show={g.mg ? "lang !== 'mg'" : 'true'}>{g.term}</span>
+              {g.mg && <span x-show="lang === 'mg'" x-cloak lang="mg">{g.mg.term}</span>}
+            </dt>
+            <dd class="text-sm text-ink-soft leading-relaxed">
+              <span x-show={g.mg ? "lang !== 'mg'" : 'true'}>{g.definition}</span>
+              {g.mg && <span x-show="lang === 'mg'" x-cloak lang="mg">{g.mg.definition}</span>}
+            </dd>
           </div>
         ))}
       </dl>
     </section>
 
     <footer class="print-chapter mt-12 border-t border-route/15 pt-6 text-xs text-ink-soft">
-      <p>
+      <p x-show="lang !== 'mg'">
         <strong class="text-route">Avertissement.</strong> Ce livret est un outil de révision
         indépendant, basé sur la loi n°2017-002 portant Code de la Route à Madagascar et sur des
         sources publiques, dont le Guide des usagers de la route (BIANCO / Ministère des Transports
@@ -215,7 +261,15 @@ const categories = ["A", "A'", 'B', 'C', 'D', 'E'];
         en vigueur. Les montants d'amendes ne sont volontairement pas indiqués : ils sont fixés par
         décret et révisés — vérifie-les auprès de ton auto-école ou du Centre Immatriculateur.
       </p>
-      <p class="mt-3">Fiara Permis — édition du {today}.</p>
+      <p x-show="lang === 'mg'" x-cloak lang="mg">
+        <strong class="text-route">Fampitandremana.</strong> Fitaovana famerenana tsy miankina ity
+        boky ity, miorina amin'ny lalàna laharana faha-2017-002 mikasika ny Fitsipi-pifamoivoizana
+        eto Madagasikara sy loharano ampahibemaso, anisan'izany ny Torolalana ho an'ny mpampiasa
+        lalana (BIANCO / Ministeran'ny Fitaterana / Polisim-pirenena / Zandarimariam-pirenena). Tsy
+        manolo ny auto-école-nao na ny lalàna manan-kery izy. Tsy nasiana ny sandan'ny lamandy : didim-panjakana
+        no mametraka azy ary ovaina — hamarino any amin'ny auto-école-nao na ao amin'ny Centre Immatriculateur.
+      </p>
+      <p class="mt-3"><span x-show="lang !== 'mg'">Fiara Permis — édition du {today}.</span><span x-show="lang === 'mg'" x-cloak lang="mg">Fiara Permis — navoaka ny {todayMg}.</span></p>
     </footer>
   </article>
 </Layout>

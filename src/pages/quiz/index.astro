@@ -19,7 +19,7 @@ const accentBg: Record<string, string> = {
 ---
 
 <Layout
-  title="Cartes de quiz"
+  title="Quiz du code de la route"
   description="Teste tes connaissances du code de la route malgache avec des cartes à retourner et un mode quiz noté, module par module."
 >
   <section class="mx-auto max-w-6xl px-4 sm:px-6 py-14 sm:py-20">
@@ -74,7 +74,10 @@ const accentBg: Record<string, string> = {
         >
           <div class:list={['absolute inset-x-0 top-0 h-1.5', accentBg[mod.accent]]}></div>
           <p class="font-plate text-xs uppercase tracking-widest text-ink-soft">{mod.questions.length} <span x-text="t('quiz.cards')">cartes</span></p>
-          <h2 class="mt-2 font-display text-lg font-semibold text-route">{mod.title}</h2>
+          <h2 class="mt-2 font-display text-lg font-semibold text-route">
+            <span x-show={mod.titleMg ? "lang !== 'mg'" : 'true'}>{mod.title}</span>
+            {mod.titleMg && <span x-show="lang === 'mg'" x-cloak lang="mg">{mod.titleMg}</span>}
+          </h2>
           <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-laterite group-hover:gap-2 transition-all">
             <span x-text="t('quiz.deck')">Réviser ce paquet</span>
             <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

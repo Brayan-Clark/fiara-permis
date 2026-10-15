@@ -13,6 +13,11 @@ sources:
 
 Le système malgache distingue six catégories de permis, chacune liée à un type de véhicule et à un âge minimum. Comprendre cette architecture aide à savoir exactement pour quoi on s'entraîne.
 
+## Deux définitions à savoir par cœur
+
+- **Le code de la route** est l'ensemble des règles applicables à **tous les usagers de la route**, pour que la circulation soit régulière, fluide et ordonnée, afin d'éviter les accidents.
+- **Le permis de conduire** est une autorisation délivrée par le **centre immatriculateur**, à condition d'avoir passé avec succès les épreuves **théorique** et **pratique** exigées.
+
 ## Les six catégories
 
 | Catégorie | Véhicules concernés | Âge minimum |
@@ -23,6 +28,16 @@ Le système malgache distingue six catégories de permis, chacune liée à un ty
 | **C** | Poids lourds — nécessite le permis B depuis **au moins 1 an** | 19 ans (18 + 1 an de B) |
 | **D** | Transport de passagers (bus, taxi-be) — certificat médical requis | 21 ans |
 | **E** | Véhicules avec remorque / semi-remorque — nécessite B et C, plus expérience et certificat médical | 21 ans |
+
+### Le détail des catégories deux-roues et B
+
+- **A' (ou A1)** : **vélomoteur** dont la cylindrée est comprise **entre 50 et 125 cm³** — 16 ans minimum.
+- **A** : **motocyclette de plus de 125 cm³**, avec ou sans side-car, ainsi que les tricycles et quadricycles à moteur — 16 ans minimum.
+- En dessous de **50 cm³** (cyclomoteur), **aucun permis** n'est exigé — mais l'âge minimum pour conduire un cyclomoteur ou une bicyclette sur la route est de **14 ans**.
+- Pour tout deux-roues à moteur, l'obligation de sécurité tient en une ligne : **lumière + casque, jour et nuit**.
+- **B** : véhicules automobiles affectés au transport de personnes, **9 places assises au maximum conducteur compris**, ou au transport de marchandises dont le **PTAC ne dépasse pas 3 500 kg**. On peut y atteler une **remorque dont le PTAC ne dépasse pas 750 kg**.
+
+> **PTAC** : Poids Total Autorisé en Charge — le poids maximal du véhicule chargé, inscrit sur la carte grise.
 
 > Bon à savoir : à 16 ans, un mineur peut obtenir un permis (catégorie A ou A') avec le consentement d'un parent ou d'un adulte responsable.
 
@@ -44,6 +59,30 @@ Le système malgache distingue six catégories de permis, chacune liée à un ty
 - Les documents de la catégorie B
 - Un certificat médical délivré par le Bureau Municipal d'Hygiène (BMH)
 - Copie certifiée du permis B
+
+## Ce que le permis B permet de conduire — et à quelles conditions
+
+Le permis B (comme les permis A et A') est **permanent** : il reste valable **sans visite médicale** pour un usage personnel. Mais certains usages professionnels du permis B demandent des conditions supplémentaires :
+
+| Usage | Âge minimum | Conditions |
+|---|---|---|
+| **Véhicule particulier** (9 places ou 3 500 kg maxi) | 18 ans | — |
+| **Transport de marchandises** | 18 ans | Certificat médical |
+| **Transport d'enfants** | 21 ans | Certificat médical |
+| **Ambulance** | 21 ans | Certificat médical + autorisation communale |
+| **Taxi** | 21 ans | Certificat médical + certificat de capacité + permis B depuis **au moins 1 an** |
+| **Auto-école** (moniteur) | 21 ans | Certificat médical + **CAP de moniteur** + permis B depuis **au moins 1 an** |
+
+### Les visites médicales
+
+Le permis B n'a pas besoin de visite médicale, **sauf** pour le taxi, l'ambulance, l'auto-école, le transport d'enfants et le transport de marchandises. Dans ces cas, la visite est délivrée par un **médecin au dispensaire**, à une fréquence qui dépend de l'âge :
+
+| Âge du conducteur | Visite médicale |
+|---|---|
+| Moins de 40 ans | tous les **5 ans** |
+| De 40 à 52 ans | tous les **3 ans** |
+| De 52 à 60 ans | tous les **2 ans** |
+| Plus de 60 ans | **tous les ans** |
 
 ## Le déroulement de l'examen
 

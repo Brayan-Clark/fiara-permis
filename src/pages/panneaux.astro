@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { panneaux, signCategoryLabel, signCategoryLabelMg, signCategoryOrder, signHtml } from '../data/panneaux';
+import { withBase } from '../utils/url';
+
+const families = signCategoryOrder
+  .map((category) => ({ category, signs: panneaux.filter((s) => s.category === category) }))
+  .filter((f) => f.signs.length > 0);
+
+// Texte de recherche sans accents ni majuscules : « cedez » trouve « Cédez ».
+const fold = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+---
+
+<Layout
+  title="Les panneaux de signalisation"
+  description={`Les ${panneaux.length} panneaux et feux du code de la route à Madagascar, classés par famille, avec leur signification et la conduite à tenir.`}
+>
+  <section
+    class="mx-auto max-w-6xl px-4 sm:px-6 py-14 sm:py-20"
+    x-data="{ q: '', family: 'all', fold(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); }, shows(cat, text) { return (this.family === 'all' || this.family === cat) && text.includes(this.fold(this.q.trim())); } }"
+  >
+    <span class="inline-flex items-center gap-2 rounded-full border border-laterite/40 bg-laterite/10 px-3 py-1 text-xs font-medium text-laterite">
+      {panneaux.length} <span x-text="t('signs.badge')">panneaux et feux</span>
+    </span>
+    <h1 class="mt-4 font-display text-3xl sm:text-4xl font-semibold text-route"><span x-text="t('signs.title')">Les panneaux</span></h1>
+    <p class="mt-3 max-w-2xl text-ink-soft">
+      <span x-text="t('signs.intro')">Toute la planche de signalisation, classée par famille. La forme et la couleur donnent la famille ; le dessin donne le détail.</span>
+    </p>
+
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a href={withBase('/exercices/panneaux')} class="rounded-full bg-laterite px-4 py-2 text-sm font-semibold text-sisal hover:bg-laterite-dark"><span x-text="t('signs.train')">S'entraîner à les reconnaître</span></a>
+      <a href={withBase('/quiz/panneaux-images')} class="rounded-full border-2 border-route px-4 py-2 text-sm font-semibold text-route hover:bg-route hover:text-sisal"><span x-text="t('signs.cards')">Réviser en cartes</span></a>
+      <a href={withBase('/cours/panneaux-signalisation')} class="rounded-full border-2 border-route/20 px-4 py-2 text-sm font-semibold text-route hover:border-route"><span x-text="t('signs.lesson')">Le cours sur la signalisation</span></a>
+    </div>
+
+    <div class="sticky top-0 z-10 -mx-4 mt-8 bg-sisal/95 px-4 py-3 backdrop-blur sm:-mx-6 sm:px-6">
+      <label for="sign-search" class="sr-only" x-text="t('signs.search')">Rechercher un panneau</label>
+      <input
+        id="sign-search"
+        type="search"
+        x-model="q"
+        :placeholder="t('signs.search')"
+        placeholder="Rechercher un panneau"
+        class="w-full rounded-xl border-2 border-route/15 bg-white px-4 py-2.5 text-sm text-route focus:border-signal focus:outline-none"
+      />
+      <div class="mt-3 flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" role="group" aria-label="Familles de panneaux">
+        <button type="button" @click="family = 'all'" :aria-pressed="family === 'all'" :class="family === 'all' ? 'bg-route text-sisal' : 'bg-white text-route'" class="shrink-0 rounded-full border border-route/15 px-3 py-1.5 text-xs font-semibold transition">
+          <span x-text="t('signs.all')">Tous</span>
+        </button>
+        {families.map(({ category, signs }) => (
+          <button
+            type="button"
+            @click={`family = '${category}'`}
+            :aria-pressed={`family === '${category}'`}
+            :class={`family === '${category}' ? 'bg-route text-sisal' : 'bg-white text-route'`}
+            class="shrink-0 rounded-full border border-route/15 px-3 py-1.5 text-xs font-semibold transition"
+          >
+            <span x-show="lang !== 'mg'">{signCategoryLabel[category]}</span><span x-show="lang === 'mg'" x-cloak lang="mg">{signCategoryLabelMg[category]}</span> · {signs.length}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-6 space-y-10">
+      {families.map(({ category, signs }) => (
+        <section x-show={`family === 'all' || family === '${category}'`}>
+          <h2 class="mb-4 font-display text-xl font-semibold text-route"><span x-show="lang !== 'mg'">{signCategoryLabel[category]}</span><span x-show="lang === 'mg'" x-cloak lang="mg">{signCategoryLabelMg[category]}</span></h2>
+          <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {signs.map((sign) => (
+              <article
+                id={sign.id}
+                x-show={`shows('${category}', ${JSON.stringify(fold(`${sign.name} ${sign.description} ${sign.mg?.name ?? ''} ${sign.mg?.description ?? ''}`))})`}
+                class="flex gap-4 rounded-2xl border-2 border-route/10 bg-white/70 p-4"
+              >
+                <div class="h-20 w-20 shrink-0" set:html={signHtml(sign)} />
+                <div>
+                  <div x-show={sign.mg ? "lang !== 'mg'" : 'true'}>
+                    <h3 class="font-display text-base font-semibold leading-snug text-route">{sign.name}</h3>
+                    <p class="mt-1 text-sm leading-relaxed text-ink-soft">{sign.description}</p>
+                  </div>
+                  {sign.mg && (
+                    <div x-show="lang === 'mg'" x-cloak lang="mg">
+                      <h3 class="font-display text-base font-semibold leading-snug text-route">{sign.mg.name}</h3>
+                      <p class="mt-1 text-sm leading-relaxed text-ink-soft">{sign.mg.description}</p>
+                    </div>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    <p class="mt-12 text-xs text-ink-soft">
+      <span x-text="t('signs.credits')">Dessins officiels des panneaux : Wikimedia Commons (CC BY-SA). Auteurs crédités sur la page</span>
+      <a href={withBase('/sources')} class="underline underline-offset-2 hover:text-laterite"><span x-text="t('nav.sources')">Sources</span></a>.
+    </p>
+  </section>
+</Layout>

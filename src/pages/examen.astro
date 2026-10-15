@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { quizModules } from '../data/quiz';
+import QuizChoice from '../components/QuizChoice.astro';
+import { quizModules, withSignVisuals } from '../data/quiz';
 import { getCollection } from 'astro:content';
 import { withBase } from '../utils/url';
 
@@ -9,7 +10,7 @@ import { withBase } from '../utils/url';
 const cours = await getCollection('cours');
 const catsBySlug = new Map(cours.map((m) => [m.id, m.data.categories ?? []]));
 const allQuestions = quizModules.flatMap((m) =>
-  m.questions.map((qu) => ({ ...qu, cats: catsBySlug.get(m.slug) ?? [] })),
+  withSignVisuals(m.questions).map((qu) => ({ ...qu, cats: catsBySlug.get(m.slug) ?? [] })),
 );
 const TOTAL = 20;
 const DURATION = 600; // 10 minutes — a self-practice pace, not an official exam timing
@@ -17,7 +18,7 @@ const PASS_THRESHOLD = 16; // 80% — a common convention for code exams, to con
 ---
 
 <Layout
-  title="Examen blanc"
+  title="Examen blanc du code de la route"
   description="20 questions mélangées de tous les modules du code de la route, chronométrées, pour t'entraîner comme le jour de l'examen."
 >
   <section
@@ -48,21 +49,15 @@ const PASS_THRESHOLD = 16; // 80% — a common convention for code exams, to con
         </div>
 
         <div class="mt-6 rounded-2xl border border-route/10 bg-white/70 p-6">
-          <p class="font-display text-lg font-semibold text-route" x-text="current.question"></p>
+          <div x-show="current.signHtml" class="mx-auto h-24 w-24" x-html="current.signHtml"></div>
+          <p class="font-display text-lg font-semibold text-route" x-text="tr(current, 'question')"></p>
           <div class="mt-5 space-y-2.5">
-            <template x-for="(choice, i) in current.choices" :key="i">
-              <button
-                type="button"
-                @click="choose(i)"
-                :class="{ 'border-ravinala bg-ravinala/10 text-route': selected !== null && i === current.correctIndex, 'border-laterite bg-laterite/10 text-route': selected === i && i !== current.correctIndex, 'border-route/15 hover:border-signal/40': selected === null, 'border-route/10 opacity-60': selected !== null && i !== current.correctIndex && i !== selected }"
-                class="w-full rounded-xl border-2 px-4 py-3 text-left text-sm font-medium transition"
-              >
-                <span x-text="choice"></span>
-              </button>
+            <template x-for="(choice, i) in tr(current, 'choices')" :key="i">
+              <QuizChoice />
             </template>
           </div>
 
-          <p x-show="selected !== null" x-cloak class="mt-4 rounded-lg bg-sun/15 p-3 text-sm text-route" x-text="current.explanation"></p>
+          <p x-show="selected !== null" x-cloak class="mt-4 rounded-lg bg-sun/15 p-3 text-sm text-route" x-text="tr(current, 'explanation')"></p>
 
           <div class="mt-5 flex justify-end">
             <button
@@ -71,8 +66,9 @@ const PASS_THRESHOLD = 16; // 80% — a common convention for code exams, to con
               x-cloak
               @click="next()"
               class="rounded-full bg-route px-5 py-2 text-sm font-semibold text-sisal hover:bg-route/90"
+              aria-label="Question suivante"
               x-text="index === pool.length - 1 ? t('action.seeResult') : t('action.nextQuestion')"
-            ></button>
+            >Question suivante</button>
           </div>
         </div>
       </div>

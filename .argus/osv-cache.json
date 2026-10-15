@@ -1,0 +1,772 @@
+{
+  "source": "https://osv.dev",
+  "generatedAt": "2026-09-03T10:15:20.328Z",
+  "packageCount": 738,
+  "packages": {
+    "npm:astro@5.18.2": {
+      "name": "astro",
+      "version": "5.18.2",
+      "ecosystem": "npm",
+      "vulns": [
+        "GHSA-2pvr-wf23-7pc7",
+        "GHSA-4g3v-8h47-v7g6",
+        "GHSA-7pw4-f3q4-r2p2",
+        "GHSA-8hv8-536x-4wqp",
+        "GHSA-f48w-9m4c-m7f5",
+        "GHSA-j687-52p2-xcff",
+        "GHSA-jrpj-wcv7-9fh9",
+        "GHSA-xr5h-phrj-8vxv"
+      ]
+    },
+    "npm:fast-uri@3.1.5": {
+      "name": "fast-uri",
+      "version": "3.1.5",
+      "ecosystem": "npm",
+      "vulns": [
+        "GHSA-5jgf-p345-68v8",
+        "GHSA-f65p-4m7j-42xc",
+        "GHSA-fph4-wmhf-6fwf",
+        "GHSA-jqff-g426-hqxp"
+      ]
+    },
+    "npm:nanoid@3.3.17": {
+      "name": "nanoid",
+      "version": "3.3.17",
+      "ecosystem": "npm",
+      "vulns": [
+        "GHSA-2v37-7h3g-55p8"
+      ]
+    },
+    "npm:sharp@0.34.5": {
+      "name": "sharp",
+      "version": "0.34.5",
+      "ecosystem": "npm",
+      "vulns": [
+        "GHSA-f88m-g3jw-g9cj"
+      ]
+    }
+  },
+  "advisories": {
+    "GHSA-2pvr-wf23-7pc7": {
+      "id": "GHSA-2pvr-wf23-7pc7",
+      "aliases": [
+        "CVE-2026-54299"
+      ],
+      "summary": "Astro: Host header SSRF in prerendered error page fetch",
+      "details": "## Summary\n\nAstro SSR apps with prerendered error pages (`/404` or `/500` using `export const prerender = true`) fetch those pages over HTTP at runtime when an error occurs. The URL for this fetch is derived from `request.url`, which in turn gets its origin from the incoming `Host` header. When the `Host` header is not validated against `allowedDomains`, an attacker can point the fetch at an arbitrary host and read the response.\n\n## Who is affected\n\nThis affects SSR deployments that:\n\n1. Have a prerendered 404 or 500 page\n2. Use `createRequestFromNodeRequest` from `astro/app/node` with `app.re",
+      "published": "2026-06-16T14:38:06Z",
+      "cvss": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:L/A:N",
+      "score": 7.5,
+      "severity": "high",
+      "affected": [
+        {
+          "package": {
+            "name": "astro",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/astro"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "6.4.6"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "references": [
+        "https://github.com/withastro/astro/security/advisories/GHSA-2pvr-wf23-7pc7",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54299"
+      ]
+    },
+    "GHSA-4g3v-8h47-v7g6": {
+      "id": "GHSA-4g3v-8h47-v7g6",
+      "aliases": [
+        "CVE-2026-73422"
+      ],
+      "summary": "Astro: Reflected XSS via unescaped View Transition animation properties",
+      "details": "## Summary\n\nAstro's server-side View Transition CSS generator interpolates animation properties into an inline `<style>` element without escaping them for the CSS and HTML contexts.\n\nAn attacker-controlled value passed to an animation property such as `duration` can contain a `</style>` sequence, terminate the generated style element, and inject arbitrary HTML or JavaScript.\n\nThis is similar to GHSA-8hv8-536x-4wqp, but exploits a different injection point: unescaped View Transition animation values in a server-generated `<style>` element rather than an unescaped slot name in a hydration templa",
+      "published": "2026-07-20T21:08:16Z",
+      "cvss": null,
+      "score": null,
+      "severity": "medium",
+      "affected": [
+        {
+          "package": {
+            "name": "astro",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/astro"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "2.9.0"
+                },
+                {
+                  "fixed": "7.1.0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "references": [
+        "https://github.com/withastro/astro/security/advisories/GHSA-4g3v-8h47-v7g6",
+        "https://github.com/withastro/astro/pull/17393",
+        "https://github.com/withastro/astro/commit/092da560eea77ee63a3e2c583c80d8238544e42b"
+      ]
+    },
+    "GHSA-7pw4-f3q4-r2p2": {
+      "id": "GHSA-7pw4-f3q4-r2p2",
+      "aliases": [
+        "CVE-2026-59727"
+      ],
+      "summary": "Astro: Cross-site scripting via unescaped transition:* directive values on hydrated islands",
+      "details": "### Summary\n\nWhen a `transition:persist`, `transition:scope`, or `transition:persist-props` directive is applied to a client-hydrated (`client:*`) component, Astro copied the directive value onto the rendered `<astro-island>` element **without HTML-escaping it**. If a developer reflects attacker-controlled input into one of these directives, an attacker can break out of the attribute and inject arbitrary HTML/JavaScript into the server-rendered output, resulting in reflected cross-site scripting (XSS).\n\n### Severity\n\nAlthough a generic reflected XSS scores in the Medium range, exploitation her",
+      "published": "2026-07-20T23:21:02Z",
+      "cvss": null,
+      "score": null,
+      "severity": "low",
+      "affected": [
+        {
+          "package": {
+            "name": "astro",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/astro"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "3.10.0"
+                },
+                {
+                  "fixed": "7.0.4"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "references": [
+        "https://github.com/withastro/astro/security/advisories/GHSA-7pw4-f3q4-r2p2",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-59727",
+        "https://github.com/withastro/astro/pull/17212"
+      ]
+    },
+    "GHSA-8hv8-536x-4wqp": {
+      "id": "GHSA-8hv8-536x-4wqp",
+      "aliases": [
+        "CVE-2026-50146"
+      ],
+      "summary": "Astro: Reflected XSS via unescaped slot name",
+      "details": "## Summary\n\nWhen a component uses a `client:*` directive, Astro inserts named slot content into a `data-astro-template` attribute without HTML escaping the slot name allowing an attacker to break out of the attribute context and inject arbitrary HTML, resulting in reflected XSS during SSR.\n\nThis is similar to GHSA-wrwg-2hg8-v723 but exploits a different injection point.\n\n## Vulnerable Code\n\n`packages/astro/src/runtime/server/render/component.ts:371:376`\n\n```ts\n// component.ts:371\n`<template data-astro-template${key !== 'default' ? `=\"${key}\"` : ''}>${children[key]}</template>`\n```\n\nI found tha",
+      "published": "2026-06-16T14:05:06Z",
+      "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:L/I:H/A:N",
+      "score": 7.1,
+      "severity": "high",
+      "affected": [
+        {
+          "package": {
+            "name": "astro",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/astro"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "6.3.3"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "references": [
+        "https://github.com/withastro/astro/security/advisories/GHSA-8hv8-536x-4wqp",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-50146"
+      ]
+    },
+    "GHSA-f48w-9m4c-m7f5": {
+      "id": "GHSA-f48w-9m4c-m7f5",
+      "aliases": [
+        "CVE-2026-59729"
+      ],
+      "summary": "Astro: XSS via unescaped spread attribute names in renderHTMLElement (incomplete fix for CVE-2026-54298)",
+      "details": "## Summary\n\nThe fix for CVE-2026-54298 (GHSA-jrpj-wcv7-9fh9) added an `INVALID_ATTR_NAME_CHAR` guard to `addAttribute()` so that spread-prop attribute names containing `\"' >/=` or whitespace are dropped. A second attribute-rendering path, `renderHTMLElement()` in `packages/astro/src/runtime/server/render/dom.ts`, has its own inline attribute loop that does not go through `addAttribute()` and was not updated. It interpolates the attribute name unescaped and only escapes the value, so untrusted prop keys spread onto a native-`HTMLElement`-subclass component can still break out of the attribute c",
+      "published": "2026-07-20T23:21:58Z",
+      "cvss": null,
+      "score": null,
+      "severity": "medium",
+      "affected": [
+        {
+          "package": {
+            "name": "astro",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/astro"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "7.0.6"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "references": [
+        "https://github.com/withastro/astro/security/advisories/GHSA-f48w-9m4c-m7f5",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-59729",
+        "https://github.com/withastro/astro/pull/17251"
+      ]
+    },
+    "GHSA-j687-52p2-xcff": {
+      "id": "GHSA-j687-52p2-xcff",
+      "aliases": [
+        "CVE-2026-41067"
+      ],
+      "summary": "Astro: XSS in define:vars via incomplete </script> tag sanitization",
+      "details": "## Summary\n\nThe `defineScriptVars` function in Astro's server-side rendering pipeline uses a case-sensitive regex `/<\\/script>/g` to sanitize values injected into inline `<script>` tags via the `define:vars` directive. HTML parsers close `<script>` elements case-insensitively and also accept whitespace or `/` before the closing `>`, allowing an attacker to bypass the sanitization with payloads like `</Script>`, `</script >`, or `</script/>` and inject arbitrary HTML/JavaScript.\n\n## Details\n\nThe vulnerable function is `defineScriptVars` at `packages/astro/src/runtime/server/render/util.ts:42-53",
+      "published": "2026-04-21T20:39:49Z",
+      "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+      "score": 6.1,
+      "severity": "medium",
+      "affected": [
+        {
+          "package": {
+            "name": "astro",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/astro"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "6.1.6"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "references": [
+        "https://github.com/withastro/astro/security/advisories/GHSA-j687-52p2-xcff",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-41067",
+        "https://github.com/withastro/astro/releases/tag/astro@6.1.6"
+      ]
+    },
+    "GHSA-jrpj-wcv7-9fh9": {
+      "id": "GHSA-jrpj-wcv7-9fh9",
+      "aliases": [
+        "CVE-2026-54298"
+      ],
+      "summary": "Astro: XSS via Unescaped Attribute Names in Spread Props",
+      "details": "## Summary\n\nThe `spreadAttributes` function in Astro's server-side rendering pipeline iterates over object keys and passes them directly to `addAttribute`, which interpolates the key into the HTML output without escaping. When a developer uses the spread syntax `{...props}` on an HTML element and the object keys come from an untrusted source (API, CMS, URL parameters), an attacker can inject arbitrary HTML attributes including event handlers like `onmousemove`, `onclick`, or break out of the attribute context entirely to inject new elements.\n\n## Details\n\nThe vulnerable function is [`addAttribu",
+      "published": "2026-06-16T14:57:21Z",
+      "cvss": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:N",
+      "score": 4.2,
+      "severity": "medium",
+      "affected": [
+        {
+          "package": {
+            "name": "astro",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/astro"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "6.4.6"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "references": [
+        "https://github.com/withastro/astro/security/advisories/GHSA-jrpj-wcv7-9fh9",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-54298"
+      ]
+    },
+    "GHSA-xr5h-phrj-8vxv": {
+      "id": "GHSA-xr5h-phrj-8vxv",
+      "aliases": [
+        "CVE-2026-45028"
+      ],
+      "summary": "Astro: Server island encrypted parameters vulnerable to cross-component replay",
+      "details": "### Impact\n\nAstro versions prior to 6.1.10 used AES-GCM encryption to protect the confidentiality and integrity of server island props and slots parameters, but did not bind the ciphertext to its intended component or parameter type. An attacker could replay one component's encrypted props (`p`) value as another component's slots (`s`) value, or vice versa.\n\nSince slots contain raw unescaped HTML while props may contain user-controlled values, this could lead to XSS in applications that meet **all** of the following conditions:\n\n- The application uses server islands\n- Two different server isla",
+      "published": "2026-05-13T01:36:39Z",
+      "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+      "score": 6.1,
+      "severity": "medium",
+      "affected": [
+        {
+          "package": {
+            "name": "astro",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/astro"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "6.1.10"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "references": [
+        "https://github.com/withastro/astro/security/advisories/GHSA-xr5h-phrj-8vxv",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-45028",
+        "https://github.com/withastro/astro/pull/16457"
+      ]
+    },
+    "GHSA-5jgf-p345-68v8": {
+      "id": "GHSA-5jgf-p345-68v8",
+      "aliases": [
+        "CVE-2026-75931"
+      ],
+      "summary": "fast-uri vulnerable to host confusion via skipped IDN canonicalization on scheme-relative references",
+      "details": "### Impact\n\n`fast-uri` canonicalizes a host to its ASCII form only when the input carries an explicit scheme. When `resolve()` resolves a scheme-relative reference (`//host/`) against a scheme-bearing base, it still emits the host verbatim even though the effective scheme is known, so re-parsing the resolved URI yields a different host than the one `resolve()` returned. An application that resolves an untrusted reference with `fast-uri` and then checks or routes on the resulting host can make a policy decision on one host and reach another. This is an incomplete-fix variant of CVE-2026-13676, ",
+      "published": "2026-09-02T15:44:30Z",
+      "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+      "score": 7.5,
+      "severity": "high",
+      "affected": [
+        {
+          "package": {
+            "name": "fast-uri",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/fast-uri"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "2.4.2"
+                },
+                {
+                  "fixed": "2.4.5"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "fast-uri",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/fast-uri"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "3.1.3"
+                },
+                {
+                  "fixed": "3.1.6"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "fast-uri",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/fast-uri"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "4.0.1"
+                },
+                {
+                  "fixed": "4.1.3"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "references": [
+        "https://github.com/fastify/fast-uri/security/advisories/GHSA-5jgf-p345-68v8",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-75931",
+        "https://github.com/fastify/fast-uri/commit/0256bc8d1f28b5d0ac657faf67e2411a189dfcb5"
+      ]
+    },
+    "GHSA-f65p-4m7j-42xc": {
+      "id": "GHSA-f65p-4m7j-42xc",
+      "aliases": [
+        "CVE-2026-75975"
+      ],
+      "summary": "fast-uri vulnerable to server-side request forgery via malformed IPv6 normalization",
+      "details": "### Impact\n\n`fast-uri` does not validate the complete RFC 3986 grammar for bracketed IPv6 literals, so a malformed literal with invalid trailing text is silently truncated to a different valid IPv6 address with no error reported. For example, `normalize('http://[::not-valid]/private')` returns `http://[::]/private`, and `[fc00::not-hex]` and `[fe80::not-hex]` collapse to `[fc00::]` and `[fe80::]`. An application that normalizes an untrusted URL before an outbound request, redirect, or host-policy check can be routed to a local or private address such as loopback (`::1`), unique-local, or link-",
+      "published": "2026-09-02T15:43:30Z",
+      "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+      "score": 7.5,
+      "severity": "high",
+      "affected": [
+        {
+          "package": {
+            "name": "fast-uri",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/fast-uri"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "2.3.1"
+                },
+                {
+                  "fixed": "2.4.5"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "fast-uri",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/fast-uri"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "3.0.0"
+                },
+                {
+                  "fixed": "3.1.6"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "fast-uri",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/fast-uri"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "4.0.0"
+                },
+                {
+                  "fixed": "4.1.3"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "references": [
+        "https://github.com/fastify/fast-uri/security/advisories/GHSA-f65p-4m7j-42xc",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-75975",
+        "https://github.com/fastify/fast-uri/commit/3728465caacef4b16bc84b7d14760f1c8fe41595"
+      ]
+    },
+    "GHSA-fph4-wmhf-6fwf": {
+      "id": "GHSA-fph4-wmhf-6fwf",
+      "aliases": [
+        "CVE-2026-75899"
+      ],
+      "summary": "fast-uri vulnerable to server-side request forgery via repeated hostname percent-decoding",
+      "details": "### Impact\n\n`fast-uri` decodes a hostname's percent escapes twice in a single `normalize()` or `resolve()` call: once during parsing and again during authority recomposition. A nested percent-encoded host therefore survives the first decode and is turned into a live destination by the second, so `normalize('http://%256c%256f%2563%2561%256c%2568%256f%2573%2574/')` returns `http://localhost/`. Applications that normalize or resolve an untrusted URI before an SSRF check, redirect validation, or host allowlist can be steered to a different destination, including internal addresses such as loopback",
+      "published": "2026-09-02T15:42:39Z",
+      "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+      "score": 7.5,
+      "severity": "high",
+      "affected": [
+        {
+          "package": {
+            "name": "fast-uri",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/fast-uri"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "2.4.1"
+                },
+                {
+                  "fixed": "2.4.5"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "fast-uri",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/fast-uri"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "3.1.2"
+                },
+                {
+                  "fixed": "3.1.6"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "fast-uri",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/fast-uri"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "4.0.0"
+                },
+                {
+                  "fixed": "4.1.3"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "references": [
+        "https://github.com/fastify/fast-uri/security/advisories/GHSA-fph4-wmhf-6fwf",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-75899",
+        "https://github.com/fastify/fast-uri/commit/2642290672e7211c990aaed3749c2ce667d0af4f"
+      ]
+    },
+    "GHSA-jqff-g426-hqxp": {
+      "id": "GHSA-jqff-g426-hqxp",
+      "aliases": [
+        "CVE-2026-76172"
+      ],
+      "summary": "fast-uri vulnerable to host confusion via percent-encoded scheme normalization",
+      "details": "### Impact\n\n`fast-uri` decodes percent-encoded characters in the scheme component with the legacy global `unescape()` and serializes the result back as raw characters, without re-escaping it or validating it as a scheme. A scheme that decodes to characters outside the RFC 3986 scheme grammar can therefore introduce structure the original input did not contain.\n\nFor example, `%2f%2fevil.example:/pwn` parses with no authority (`parse().host` is `undefined`), but `resolve()` and `normalize()` return `//evil.example:/pwn`, which reparses with host `evil.example`. The `%uXXXX` form (`%u002f%u002fev",
+      "published": "2026-09-02T15:41:53Z",
+      "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+      "score": 7.5,
+      "severity": "high",
+      "affected": [
+        {
+          "package": {
+            "name": "fast-uri",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/fast-uri"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "2.3.1"
+                },
+                {
+                  "fixed": "2.4.5"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "fast-uri",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/fast-uri"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "3.0.0"
+                },
+                {
+                  "fixed": "3.1.6"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "fast-uri",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/fast-uri"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "4.0.0"
+                },
+                {
+                  "fixed": "4.1.3"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "references": [
+        "https://github.com/fastify/fast-uri/security/advisories/GHSA-jqff-g426-hqxp",
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-76172",
+        "https://github.com/fastify/fast-uri/commit/37f3417c82994279656854f83ce938acd81c3862"
+      ]
+    },
+    "GHSA-2v37-7h3g-55p8": {
+      "id": "GHSA-2v37-7h3g-55p8",
+      "aliases": [
+        "CVE-2026-67213"
+      ],
+      "summary": "nanoid: custom generators can loop indefinitely when size is zero",
+      "details": "nanoid (Nano ID) before 5.1.6 contains an infinite loop in the customAlphabet and customRandom functions. When these functions are configured with a size of 0, the internal generation loop never satisfies its exit condition and spins indefinitely, hanging the calling thread. An application that passes an unvalidated, attacker-controlled size of 0 to these functions is exposed to a denial-of-service condition.",
+      "published": "2026-07-29T15:31:12Z",
+      "cvss": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+      "score": 5.9,
+      "severity": "medium",
+      "affected": [
+        {
+          "package": {
+            "name": "nanoid",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/nanoid"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "3.3.18"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "package": {
+            "name": "nanoid",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/nanoid"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "4.0.0"
+                },
+                {
+                  "fixed": "5.1.6"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "references": [
+        "https://nvd.nist.gov/vuln/detail/CVE-2026-67213",
+        "https://github.com/ai/nanoid/commit/cb3626d0f3342fdf179cd425fd9c4fbb92c7d0e7",
+        "https://github.com/ai/nanoid/commit/e10f8d40ce9d1ab47f66d65a16b48086432730d0"
+      ]
+    },
+    "GHSA-f88m-g3jw-g9cj": {
+      "id": "GHSA-f88m-g3jw-g9cj",
+      "aliases": [],
+      "summary": "sharp inherited vulnerabilities in libvips: CVE-2026-33327, CVE-2026-33328, CVE-2026-35590, CVE-2026-35591",
+      "details": "### Impact\n\nA number of vulnerabilities, two rated as \"High\" severity using CVSSv4, have been discovered and fixed in the upstream libvips dependency.\n\nThose processing untrusted input with versions of sharp prior to 0.35.0 are affected.\n\n### Patches\n\n#### Using prebuilt binaries provided by sharp?\n\nMost people rely on the prebuilt binaries provided by sharp.\n\nPlease upgrade sharp to the latest version, currently 0.35.3, which provides libvips 8.18.3.\n\n#### Using a globally-installed libvips?\n\nPlease ensure you are using the latest libvips 8.18.3.\n\n### Workarounds\nAdd the following to your cod",
+      "published": "2026-07-21T22:07:17Z",
+      "cvss": null,
+      "score": null,
+      "severity": "high",
+      "affected": [
+        {
+          "package": {
+            "name": "sharp",
+            "ecosystem": "npm",
+            "purl": "pkg:npm/sharp"
+          },
+          "ranges": [
+            {
+              "type": "SEMVER",
+              "events": [
+                {
+                  "introduced": "0"
+                },
+                {
+                  "fixed": "0.35.0"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "references": [
+        "https://github.com/libvips/libvips/security/advisories/GHSA-2fcj-gj27-279x",
+        "https://github.com/libvips/libvips/security/advisories/GHSA-523x-vhfw-6r76",
+        "https://github.com/libvips/libvips/security/advisories/GHSA-jmwm-wc68-mhwm"
+      ]
+    }
+  }
+}

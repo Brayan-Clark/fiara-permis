@@ -1,0 +1,31 @@
+---
+/**
+ * Shared choice button for quiz / exam pages.
+ * Accepts Alpine expression strings so each page can wire its own state.
+ */
+interface Props {
+  /** Alpine @click expression (default: "choose(i)") */
+  onClick?: string;
+  /** Loop variable used in :class bindings (default: "i") */
+  indexVar?: string;
+  /** Static aria-label fallback for accessibility / static analysis */
+  ariaLabel?: string;
+}
+
+const {
+  onClick = 'choose(i)',
+  indexVar = 'i',
+  ariaLabel = 'Réponse',
+} = Astro.props;
+---
+
+<button
+  type="button"
+  @click={onClick}
+  :class={`{ 'border-ravinala bg-ravinala/10 text-route': selected !== null && ${indexVar} === current.correctIndex, 'border-laterite bg-laterite/10 text-route': selected === ${indexVar} && ${indexVar} !== current.correctIndex, 'border-route/15 hover:border-signal/40': selected === null, 'border-route/10 opacity-60': selected !== null && ${indexVar} !== current.correctIndex && ${indexVar} !== selected }`}
+  class="w-full rounded-xl border-2 px-4 py-3 text-left text-sm font-medium transition"
+  :aria-label="choice"
+  aria-label={ariaLabel}
+>
+  <span x-text="choice"></span>
+</button>

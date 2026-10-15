@@ -1,0 +1,223 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { withBase } from '../../utils/url';
+---
+
+<Layout
+  title="Calcul des distances d'arrêt"
+  description="Calculateur des distances de réaction, de freinage et d'arrêt selon la vitesse, et entraînement au calcul mental avec les formules de l'auto-école."
+>
+  <section class="mx-auto max-w-xl px-4 sm:px-6 py-14 sm:py-20" x-data="distanceTrainer()" x-init="init()">
+    <a href={withBase('/exercices')} class="text-sm text-ink-soft hover:text-laterite"><span x-text="t('exo.back')">← Tous les exercices</span></a>
+    <h1 class="mt-3 font-display text-2xl sm:text-3xl font-semibold text-route"><span x-text="t('exo.distTitle')">Calcul des distances d'arrêt</span></h1>
+
+    <div class="mt-6 rounded-2xl border-2 border-route/10 bg-white/70 p-6">
+      <p class="font-plate text-xs uppercase tracking-widest text-ink-soft" x-text="t('dist.formulas')">Les trois formules</p>
+      <ul class="mt-3 space-y-1 text-sm text-route" x-show="lang !== 'mg'">
+        <li><strong>Réaction</strong> = dizaine × 3</li>
+        <li><strong>Arrêt</strong> (route sèche) = dizaine × dizaine</li>
+        <li><strong>Freinage</strong> = arrêt − réaction</li>
+        <li><strong>Route mouillée</strong> : arrêt + la moitié</li>
+      </ul>
+      <ul class="mt-3 space-y-1 text-sm text-route" x-show="lang === 'mg'" x-cloak lang="mg">
+        <li><strong>Fihetsika</strong> (réaction) = ampolony × 3</li>
+        <li><strong>Fijanonana</strong> (lalana maina) = ampolony × ampolony</li>
+        <li><strong>Frein</strong> = fijanonana − fihetsika</li>
+        <li><strong>Lalana mando</strong> : fijanonana + ny antsasany</li>
+      </ul>
+    </div>
+
+    <h2 class="mt-10 font-display text-xl font-semibold text-route"><span x-text="t('dist.calcTitle')">Le calculateur</span></h2>
+    <div class="mt-4 rounded-2xl border-2 border-route/10 bg-white/70 p-6">
+      <label for="dist-speed" class="flex items-baseline justify-between text-sm text-ink-soft">
+        <span x-text="t('dist.speed')">Vitesse</span>
+        <span class="font-display text-2xl font-semibold text-route"><span x-text="speed"></span> km/h</span>
+      </label>
+      <input id="dist-speed" type="range" min="40" max="130" step="10" x-model.number="speed" class="mt-3 w-full accent-laterite" />
+
+      <div class="mt-4 grid grid-cols-2 gap-3" role="group" aria-label="État de la route">
+        <button type="button" @click="wet = false" :aria-pressed="!wet" :class="!wet ? 'border-sun bg-sun/15' : 'border-route/15'" class="rounded-xl border-2 px-4 py-2 text-sm font-semibold text-route transition"><span x-text="t('dist.dry')">Route sèche</span></button>
+        <button type="button" @click="wet = true" :aria-pressed="wet" :class="wet ? 'border-signal bg-signal/10' : 'border-route/15'" class="rounded-xl border-2 px-4 py-2 text-sm font-semibold text-route transition"><span x-text="t('dist.wet')">Route mouillée</span></button>
+      </div>
+
+      <div class="mt-6 space-y-4">
+        <div>
+          <p class="flex justify-between text-sm"><span class="text-ink-soft" x-text="t('dist.reaction')">Réaction</span><span class="font-semibold text-route"><span x-text="reaction"></span> m</span></p>
+          <div class="mt-1 h-3 rounded-full bg-route/10"><div class="h-3 rounded-full bg-sun transition-all" :style="`width:${pct(reaction)}%`"></div></div>
+          <p class="mt-1 font-plate text-xs text-ink-soft"><span x-text="dizaine"></span> × 3</p>
+        </div>
+        <div>
+          <p class="flex justify-between text-sm"><span class="text-ink-soft" x-text="t('dist.braking')">Freinage</span><span class="font-semibold text-route"><span x-text="braking"></span> m</span></p>
+          <div class="mt-1 h-3 rounded-full bg-route/10"><div class="h-3 rounded-full bg-signal transition-all" :style="`width:${pct(braking)}%`"></div></div>
+          <p class="mt-1 font-plate text-xs text-ink-soft"><span x-text="stop"></span> − <span x-text="reaction"></span></p>
+        </div>
+        <div>
+          <p class="flex justify-between text-sm"><span class="font-semibold text-route" x-text="t('dist.stop')">Distance d'arrêt</span><span class="font-display text-xl font-semibold text-laterite"><span x-text="stop"></span> m</span></p>
+          <div class="mt-1 h-3 rounded-full bg-route/10"><div class="h-3 rounded-full bg-laterite transition-all" :style="`width:${pct(stop)}%`"></div></div>
+          <p class="mt-1 font-plate text-xs text-ink-soft" x-text="wet ? `${dizaine} × ${dizaine} = ${dizaine * dizaine}, + ${t('dist.half')} ≈ ${stop}` : `${dizaine} × ${dizaine}`"></p>
+        </div>
+      </div>
+      <p class="mt-5 rounded-lg bg-sun/15 p-3 text-sm text-route">
+        <span x-text="t('dist.safety')">Distance de sécurité (2 secondes)</span> ≈ <span x-text="dizaine"></span> × 6 = <strong><span x-text="dizaine * 6"></span> m</strong>
+      </p>
+    </div>
+
+    <h2 class="mt-10 font-display text-xl font-semibold text-route"><span x-text="t('dist.mentalTitle')">Calcul mental</span></h2>
+
+    <template x-if="!finished && current">
+      <div>
+        <p class="mt-4 font-plate text-xs text-ink-soft">
+          <span x-text="t('dist.question')">Question</span> <span x-text="round + 1"></span> / <span x-text="total"></span>
+          &middot; <span x-text="t('quiz.score')">Score</span> : <span x-text="score"></span>
+        </p>
+        <div class="mt-4 rounded-2xl border-2 border-route/10 bg-white/70 p-6">
+          <p class="font-display text-lg font-semibold text-route" x-text="tr(current, 'question')"></p>
+          <div class="mt-5 grid grid-cols-2 gap-3">
+            <template x-for="c in current.choices" :key="c">
+              <button
+                type="button"
+                @click="choose(c)"
+                :class="{ 'border-ravinala bg-ravinala/10': selected !== null && c === current.answer, 'border-laterite bg-laterite/10': selected === c && c !== current.answer, 'border-route/15 hover:border-signal/40': selected === null, 'border-route/10 opacity-60': selected !== null && selected !== c && c !== current.answer }"
+                class="rounded-xl border-2 px-4 py-3 text-sm font-semibold text-route transition"
+                x-text="`${c} m`"
+              ></button>
+            </template>
+          </div>
+          <p x-show="selected !== null" x-cloak class="mt-4 rounded-lg bg-sun/15 p-3 text-sm text-route" x-text="tr(current, 'explanation')"></p>
+        </div>
+        <div class="mt-6 flex justify-end">
+          <button
+            type="button"
+            x-show="selected !== null"
+            x-cloak
+            @click="next()"
+            class="rounded-full bg-route px-5 py-2 text-sm font-semibold text-sisal hover:bg-route/90"
+            x-text="round === total - 1 ? t('action.seeResult') : t('dist.next')"
+          >Question suivante</button>
+        </div>
+      </div>
+    </template>
+
+    <template x-if="finished">
+      <div class="mt-6 rounded-2xl border-2 border-route/10 bg-white/70 p-8 text-center">
+        <p class="font-plate text-xs uppercase tracking-widest text-ink-soft"><span x-text="t('quiz.result')">Résultat</span></p>
+        <p class="mt-2 font-display text-4xl font-semibold text-route"><span x-text="score"></span> / <span x-text="total"></span></p>
+        <div class="mt-6 flex justify-center gap-3">
+          <button type="button" @click="init()" class="rounded-full bg-laterite px-5 py-2.5 text-sm font-semibold text-sisal hover:bg-laterite-dark"><span x-text="t('action.restart')">Recommencer</span></button>
+          <a href={withBase('/cours/vitesse-distances')} class="rounded-full border-2 border-route px-5 py-2.5 text-sm font-semibold text-route hover:bg-route hover:text-sisal"><span x-text="t('dist.lesson')">Revoir le cours</span></a>
+        </div>
+      </div>
+    </template>
+  </section>
+
+  <script is:inline>
+    // Calculateur + calcul mental des distances d'arrêt, avec les formules
+    // enseignées en auto-école (chiffre des dizaines de la vitesse).
+    window.distanceTrainer = function () {
+      const TOTAL = 8;
+      const MAX = 130 / 10;
+      const shuffle = (a) => {
+        const r = [...a];
+        for (let i = r.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [r[i], r[j]] = [r[j], r[i]];
+        }
+        return r;
+      };
+      const formulas = {
+        reaction: (d) => d * 3,
+        arret: (d) => d * d,
+        freinage: (d) => d * d - d * 3,
+        mouille: (d) => Math.round(d * d * 1.5),
+      };
+      const makeQuestion = () => {
+        const kind = shuffle(Object.keys(formulas))[0];
+        const d = 4 + Math.floor(Math.random() * 10); // 40 à 130 km/h
+        const v = d * 10;
+        const answer = formulas[kind](d);
+        const pool = new Set([answer]);
+        // Pièges réalistes : les autres formules, puis des valeurs voisines.
+        for (const k of shuffle(Object.keys(formulas))) pool.add(formulas[k](d));
+        for (const off of shuffle([d, 2 * d, -d, 10, -5, 5])) pool.add(answer + off);
+        const wrong = [...pool].filter((x) => x !== answer && x > 0);
+        const choices = shuffle([answer, ...shuffle(wrong).slice(0, 3)]);
+        const text = {
+          reaction: [`À ${v} km/h, quelle distance parcours-tu pendant le temps de réaction ?`, `Réaction = dizaine × 3 = ${d} × 3 = ${answer} m.`],
+          arret: [`À ${v} km/h sur route sèche, quelle est la distance d'arrêt ?`, `Arrêt = dizaine × dizaine = ${d} × ${d} = ${answer} m.`],
+          freinage: [`À ${v} km/h sur route sèche, quelle est la distance de freinage seule ?`, `Freinage = arrêt − réaction = ${d * d} − ${d * 3} = ${answer} m.`],
+          mouille: [`À ${v} km/h sur route mouillée, quelle est environ la distance d'arrêt ?`, `Route sèche : ${d} × ${d} = ${d * d} m, plus la moitié ≈ ${answer} m.`],
+        }[kind];
+        const textMg = {
+          reaction: [`Amin'ny ${v} km/h, firy ny halavirana voadianao mandritra ny fotoana ihetsehana ?`, `Fihetsika = ampolony × 3 = ${d} × 3 = ${answer} m.`],
+          arret: [`Amin'ny ${v} km/h amin'ny lalana maina, firy ny halavirana fijanonana ?`, `Fijanonana = ampolony × ampolony = ${d} × ${d} = ${answer} m.`],
+          freinage: [`Amin'ny ${v} km/h amin'ny lalana maina, firy ny halavirana amin'ny frein fotsiny ?`, `Frein = fijanonana − fihetsika = ${d * d} − ${d * 3} = ${answer} m.`],
+          mouille: [`Amin'ny ${v} km/h amin'ny lalana mando, eo ho eo amin'ny firy ny halavirana fijanonana ?`, `Lalana maina : ${d} × ${d} = ${d * d} m, ampiana ny antsasany ≈ ${answer} m.`],
+        }[kind];
+        return {
+          question: text[0],
+          explanation: text[1],
+          mg: { question: textMg[0], explanation: textMg[1] },
+          answer,
+          choices,
+        };
+      };
+      return {
+        speed: 50,
+        wet: false,
+        total: TOTAL,
+        round: 0,
+        score: 0,
+        selected: null,
+        finished: false,
+        questions: [],
+        get dizaine() {
+          return this.speed / 10;
+        },
+        get reaction() {
+          return this.dizaine * 3;
+        },
+        get stop() {
+          const dry = this.dizaine * this.dizaine;
+          return this.wet ? Math.round(dry * 1.5) : dry;
+        },
+        get braking() {
+          return this.stop - this.reaction;
+        },
+        get current() {
+          return this.questions[this.round];
+        },
+        pct(m) {
+          return Math.round((m / (MAX * MAX * 1.5)) * 100);
+        },
+        init() {
+          const seen = new Set();
+          this.questions = [];
+          while (this.questions.length < TOTAL) {
+            const q = makeQuestion();
+            if (seen.has(q.question)) continue;
+            seen.add(q.question);
+            this.questions.push(q);
+          }
+          this.round = 0;
+          this.score = 0;
+          this.selected = null;
+          this.finished = false;
+        },
+        choose(c) {
+          if (this.selected !== null) return;
+          this.selected = c;
+          if (c === this.current.answer) this.score++;
+        },
+        next() {
+          if (this.selected === null) return;
+          if (this.round === TOTAL - 1) {
+            this.finished = true;
+          } else {
+            this.round++;
+            this.selected = null;
+          }
+        },
+      };
+    };
+  </script>
+</Layout>

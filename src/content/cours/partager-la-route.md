@@ -15,6 +15,16 @@ Sur les routes malgaches, tu ne partages pas la chaussée qu'avec des voitures. 
 
 Le principe qui organise tout : **plus tu es protégé, plus tu es responsable**. Une tôle de 1,5 tonne face à un piéton, le rapport de force n'est pas discutable.
 
+## Qui sont les usagers de la route ?
+
+Le support de formation en dresse la liste : les **piétons** — surtout les **enfants et les personnes âgées** —, les **véhicules** et **automobiles**, les **troupeaux**, les **charrettes**, les **pousse-pousse**, les **motocyclettes**, les **bicyclettes et cyclomoteurs** (âge minimum : **14 ans** pour circuler sur la route).
+
+Trois règles de comportement générales en découlent :
+
+- **Le klaxon** s'utilise **uniquement le jour**. La nuit, on ne klaxonne pas, **sauf si un danger se présente** — on avertit plutôt par un appel de phares.
+- **En sortant d'un garage ou en manœuvrant**, on ne fait **jamais de marche arrière sur une route principale** : on sort en marche avant, ou on manœuvre ailleurs.
+- **On réduit sa vitesse** dès qu'un usager vulnérable est en vue — la liste complète des cas est dans le module PK 3.
+
 ## Les piétons
 
 Le piéton est l'usager le plus exposé, et celui qui ne pardonne aucun choc.
@@ -66,7 +76,7 @@ Le guide prévoit même une procédure particulière pour la mise en fourrière 
 
 Ambulance, pompiers, police, gendarmerie en intervention : **refuser de leur céder le passage entraîne la suspension du permis de conduire**.
 
-Le bon geste : serrer à droite, ralentir, et s'arrêter si nécessaire pour libérer le passage — sans manœuvre brusque qui gênerait davantage.
+Le bon geste : serrer à droite, ralentir, mettre le clignotant à droite, et s'arrêter si nécessaire pour libérer le passage — sans manœuvre brusque qui gênerait davantage. La liste complète des véhicules prioritaires (et de ceux qui sont seulement tolérés, comme les cortèges de mariage ou funèbres) est dans le module PK 2.
 
 ## Ce qu'il faut retenir
 

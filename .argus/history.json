@@ -1,0 +1,104 @@
+{
+  "entries": [
+    {
+      "date": "2026-09-03T10:07:59.623Z",
+      "global": 81,
+      "grade": "B",
+      "categories": {
+        "security": 68,
+        "routes": 93,
+        "deadcode": 95,
+        "seo": 90,
+        "design": 22,
+        "performance": 100,
+        "quality": 87,
+        "dependencies": 100
+      },
+      "counts": {
+        "critical": 0,
+        "high": 16,
+        "medium": 20,
+        "low": 44,
+        "info": 9
+      },
+      "total": 89,
+      "files": 59,
+      "commit": "e808e1f"
+    },
+    {
+      "date": "2026-09-03T10:15:51.197Z",
+      "global": 77,
+      "grade": "C",
+      "categories": {
+        "security": 68,
+        "routes": 93,
+        "deadcode": 95,
+        "seo": 90,
+        "design": 22,
+        "performance": 100,
+        "quality": 87,
+        "dependencies": 73
+      },
+      "counts": {
+        "critical": 0,
+        "high": 19,
+        "medium": 21,
+        "low": 43,
+        "info": 9
+      },
+      "total": 92,
+      "files": 59,
+      "commit": "e808e1f"
+    },
+    {
+      "date": "2026-09-03T10:31:54.131Z",
+      "global": 79,
+      "grade": "C",
+      "categories": {
+        "security": 70,
+        "routes": 93,
+        "deadcode": 96,
+        "seo": 90,
+        "design": 30,
+        "performance": 100,
+        "quality": 87,
+        "dependencies": 73
+      },
+      "counts": {
+        "critical": 0,
+        "high": 18,
+        "medium": 18,
+        "low": 36,
+        "info": 11
+      },
+      "total": 83,
+      "files": 59,
+      "commit": "e808e1f"
+    },
+    {
+      "date": "2026-09-03T10:35:57.861Z",
+      "global": 84,
+      "grade": "B",
+      "categories": {
+        "security": 70,
+        "routes": 93,
+        "deadcode": 96,
+        "seo": 90,
+        "design": 72,
+        "performance": 100,
+        "quality": 86,
+        "dependencies": 73
+      },
+      "counts": {
+        "critical": 0,
+        "high": 12,
+        "medium": 18,
+        "low": 37,
+        "info": 11
+      },
+      "total": 78,
+      "files": 59,
+      "commit": "e808e1f"
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import { panneaux } from '../data/panneaux';
 
 const modules = (await getCollection('cours')).sort((a, b) => a.data.order - b.data.order);
 
@@ -10,6 +11,11 @@ for (const mod of modules) {
     uniqueSources.set(s.url, s.label);
   }
 }
+
+// Les dessins officiels des panneaux viennent de Wikimedia Commons, sous
+// licence CC BY-SA ou domaine public : la licence impose de créditer chaque
+// auteur et de lier la licence.
+const signCredits = panneaux.filter((s) => s.credit);
 ---
 
 <Layout
@@ -38,6 +44,28 @@ for (const mod of modules) {
         </div>
       ))}
     </div>
+
+    <details class="mt-10 rounded-xl border border-route/10 bg-white/60 p-5">
+      <summary class="cursor-pointer font-display text-lg font-semibold text-route">
+        <span x-text="t('sources.signsTitle')">Crédits des images de panneaux</span> ({signCredits.length})
+      </summary>
+      <p class="mt-2 text-sm text-ink-soft">
+        <span x-text="t('sources.signsIntro')">Les panneaux officiels affichés dans le cours et les exercices sont des fichiers de Wikimedia Commons, réutilisés sans modification. Auteur et licence de chaque fichier :</span>
+      </p>
+      <ul class="mt-3 grid gap-1 text-xs sm:grid-cols-2">
+        {signCredits.map((s) => (
+          <li>
+            <a href={s.credit!.page} target="_blank" rel="noopener noreferrer" class="text-signal underline underline-offset-2 hover:text-laterite">{s.name}</a>
+            — {s.credit!.author},{' '}
+            {s.credit!.licenseUrl ? (
+              <a href={s.credit!.licenseUrl} target="_blank" rel="noopener noreferrer" class="underline underline-offset-2">{s.credit!.license}</a>
+            ) : (
+              s.credit!.license
+            )}
+          </li>
+        ))}
+      </ul>
+    </details>
 
     <div class="mt-10 rounded-xl border-2 border-sun/40 bg-sun/10 p-5 text-sm text-route">
       <span x-text="t('sources.note')">Une information te semble dépassée ou inexacte ? Ce site n'a pas de canal de retour intégré pour le moment — recoupe toujours une règle qui te semble surprenante avec ton auto-école ou le CIM avant de t'y fier pour l'examen.</span>

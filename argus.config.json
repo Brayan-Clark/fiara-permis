@@ -1,0 +1,85 @@
+{
+  // ═══════════════════════════════════════════════════════════════════════════
+  // Argus config — Fiara Permis
+  // ═══════════════════════════════════════════════════════════════════════════
+  //
+  // Ce fichier désactive les règles qui produisent des faux positifs
+  // sur ce projet Astro + Alpine.js. Chaque entrée est justifiée ci-dessous.
+
+  // ── Règles désactivées (faux positifs confirmés) ──────────────────────
+
+  "disabledRules": [
+
+    // ASTRO-SET-HTML : les 3 occurrences rendent du contenu 100% first-party
+    // - SignGrid.astro : icônes SVG statiques (pas de saisie utilisateur)
+    // - Layout.astro : balise <script type="application/ld+json"> (JSON-LD schema.org)
+    // - livret.astro : contenu de章节 statiques en HTML
+    // Aucun input externe ne transite par set:html ici.
+    "ASTRO-SET-HTML",
+
+    // SEC-SECRET-BASIC-AUTH-URL : faux positif
+    // L'URL https://fonts.googleapis.com/css2?... contient des paramètres
+    // de police (famille, poids), pas des identifiants d'authentification.
+    // Le pattern de détection confond les query strings avec des credentials.
+    "SEC-SECRET-BASIC-AUTH-URL",
+
+    // SEO-SITEMAP-MISSING : le sitemap est généré automatiquement par
+    // @astrojs/sitemap sous le nom sitemap-index.xml, et référencé dans
+    // robots.txt. Argus cherche uniquement "sitemap.xml".
+    "SEO-SITEMAP-MISSING"
+  ],
+
+  // ── Sévérités ajustées (vrais positifs mais non-pertinents) ───────────
+
+  "ruleSeverity": {
+
+    // SEO-H1-MISSING : chaque page possède un <h1>, mais Argus scanne
+    // Layout.astro isolément (c'est un wrapper avec <slot/>). Les <h1>
+    // sont dans les pages enfants. On passe en "info" pour refléter que
+    // c'est une limitation de l'outil, pas un vrai problème.
+    "SEO-H1-MISSING": "info",
+
+    // SEO-TITLE-SHORT / SEO-DESC-SHORT : le layout utilise des props
+    // dynamiques ({title}, {description}). Les valeurs réelles sont
+    // passées par chaque page et respectent les seuils.
+    "SEO-TITLE-SHORT": "info",
+    "SEO-DESC-SHORT": "info",
+
+    // ROUTE-ORPHAN : toutes les routes sont liées via Nav.astro.
+    // Argus ne détecte pas les liens Alpine.js (x-show, @click).
+    // Les 12 "orphans" sont en réalité tous accessibles depuis la nav.
+    "ROUTE-ORPHAN": "info",
+
+    // DEAD-UNREACHABLE : les 2 occurrences sont du CSS dans
+    // @media print (livret.astro), pas du JavaScript exécutable.
+    "DEAD-UNREACHABLE": "info",
+
+    // DEAD-LOCAL : les déclarations "inutilisées" sont des interfaces
+    // TypeScript (Props) utilisées par le système de typage Astro,
+    // et des variables injectées via define:vars / import.meta.env.
+    "DEAD-LOCAL": "info",
+
+    // DESIGN-NO-DARK-MODE : informationnelle, pas un vrai problème.
+    "DESIGN-NO-DARK-MODE": "info"
+  },
+
+  // ── Fichiers exclus de l'analyse de duplication ──────────────────────
+
+  "ignore": [
+    // Fichiers de test (ne doivent pas être comparés au code source)
+    "**/__tests__/**",
+    "**/*.test.ts",
+    "**/*.test.js"
+  ],
+
+  // ── Options de qualité ───────────────────────────────────────────────
+
+  "options": {
+    "quality": {
+      // Augmenter le seuil pour les projets Astro qui ont
+      // naturellement des templates longs avec Alpine.js
+      "maxFileLines": 600,
+      "maxFunctionLines": 100
+    }
+  }
+}

@@ -1,12 +1,16 @@
-export interface Scenario {
+import { scenariosMg } from './mg/scenarios';
+
+interface Scenario {
   id: string;
   situation: string;
   question: string;
   answer: boolean;
   explanation: string;
+  /** Version malagasy, rattachée depuis ./mg/scenarios.ts. */
+  mg?: { situation: string; question: string; explanation: string };
 }
 
-export const scenarios: Scenario[] = [
+const scenariosFr: Scenario[] = [
   {
     id: 'sc-1',
     situation: "Tu arrives à une intersection sans aucun panneau. Un véhicule arrive de ta droite au même moment.",
@@ -147,4 +151,62 @@ export const scenarios: Scenario[] = [
     answer: false,
     explanation: "Non — sans visibilité, on s'arrête dès que possible (hors de la chaussée) et on désembue avant de repartir.",
   },
+  {
+    id: 'sc-21',
+    situation: "Tu roules à 60 km/h sur route sèche. Un enfant surgit à 30 m devant toi.",
+    question: "Peux-tu t'arrêter avant de l'atteindre ?",
+    answer: false,
+    explanation: "Non — à 60 km/h, la distance d'arrêt sur sol sec est d'environ 6 × 6 = 36 m. À 30 m, le choc est inévitable : d'où l'obligation de ralentir dès qu'un danger est possible.",
+  },
+  {
+    id: 'sc-22',
+    situation: "Tu t'immobilises 1 minute au bord de la route pour déposer un passager, en restant au volant.",
+    question: "S'agit-il d'un stationnement ?",
+    answer: false,
+    explanation: "Non — c'est un arrêt : immobilisation momentanée (2 minutes au plus), conducteur prêt à repartir. Le stationnement est une immobilisation durable.",
+  },
+  {
+    id: 'sc-23',
+    situation: "Une ambulance roule derrière toi sans sirène ni gyrophare, à vitesse normale.",
+    question: "Est-elle prioritaire ?",
+    answer: false,
+    explanation: "Non — les véhicules prioritaires ne le sont que lorsqu'ils utilisent leurs avertisseurs.",
+  },
+  {
+    id: 'sc-24',
+    situation: "Tu suis un camion qui porte une plaque « D » à l'arrière, sur une longue ligne droite dégagée.",
+    question: "Peux-tu le dépasser librement ?",
+    answer: false,
+    explanation: "Non — D signifie hors gabarit : on ne le dépasse qu'avec l'autorisation de l'escorte ou du convoi.",
+  },
+  {
+    id: 'sc-25',
+    situation: "Hors agglomération, tu arrives sur une route à grande circulation depuis une route secondaire sans panneau.",
+    question: "Dois-tu céder le passage aux véhicules de la route à grande circulation, même s'ils viennent de ta gauche ?",
+    answer: true,
+    explanation: "Oui — hors agglomération, les routes à grande circulation ont une priorité absolue sur les routes secondaires. En ville, elles perdent cette priorité.",
+  },
+  {
+    id: 'sc-26',
+    situation: "Tu tournes à gauche à une intersection. Une voiture arrive en face et va tout droit.",
+    question: "Peux-tu passer avant elle ?",
+    answer: false,
+    explanation: "Non — celui qui tourne à gauche cède le passage à celui qui continue tout droit en sens opposé.",
+  },
+  {
+    id: 'sc-27',
+    situation: "Ton dépassement dure déjà 15 secondes car le véhicule doublé roule presque aussi vite que toi.",
+    question: "Est-ce un dépassement correct ?",
+    answer: false,
+    explanation: "Non — un dépassement doit durer 8 à 12 secondes au maximum. Si c'est plus long, il faut renoncer et se rabattre en sécurité.",
+  },
+  {
+    id: 'sc-28',
+    situation: "Il est 23 h, la rue est calme et tu veux saluer un ami en klaxonnant.",
+    question: "Est-ce autorisé ?",
+    answer: false,
+    explanation: "Non — le klaxon s'utilise de jour ; la nuit, uniquement si un danger se présente.",
+  },
 ];
+
+export const scenarios: Scenario[] = scenariosFr.map((s) => ({ ...s, mg: scenariosMg[s.id] }));

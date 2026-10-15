@@ -37,7 +37,7 @@ Autrement dit, acheter une moto non homologuée t'expose toi, pas seulement le v
 
 Conduire avec un **permis non valable pour la catégorie du véhicule** est sanctionné par la suspension ou le retrait, temporaire ou définitif, du permis.
 
-A et A' ne couvrent pas les mêmes cylindrées. Une moto plus grosse que ce que ton permis autorise te met en infraction même si tu conduis parfaitement — et, en cas d'accident, l'assurance s'en servira.
+A et A' ne couvrent pas les mêmes cylindrées : le **A'** s'arrête aux vélomoteurs de **50 à 125 cm³**, le **A** couvre les motocyclettes **au-delà de 125 cm³**. En dessous de 50 cm³ (cyclomoteur), aucun permis n'est exigé, mais il faut avoir **14 ans** et rouler avec la taxe de roulage et une assurance. Une moto plus grosse que ce que ton permis autorise te met en infraction même si tu conduis parfaitement — et, en cas d'accident, l'assurance s'en servira.
 
 La **non-présentation du permis auto-moto** lors d'un contrôle est également sanctionnée : garde-le sur toi, pas dans un tiroir.
 

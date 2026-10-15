@@ -7,8 +7,11 @@ interface Props {
   accent: 'laterite' | 'ravinala' | 'signal' | 'sun';
   slug: string;
   categories?: string[];
+  /** Titre et résumé malgaches, affichés quand la langue MG est choisie. */
+  titleMg?: string;
+  summaryMg?: string;
 }
-const { href, pk, title, summary, accent, slug, categories } = Astro.props;
+const { href, pk, title, summary, accent, slug, categories, titleMg, summaryMg } = Astro.props;
 
 const accentBg: Record<string, string> = {
   laterite: 'bg-laterite',
@@ -51,8 +54,10 @@ const accentBg: Record<string, string> = {
     </svg>
   </div>
 
-  <h3 class="mt-4 font-display text-xl font-semibold text-route">{title}</h3>
-  <p class="mt-2 text-sm leading-relaxed text-ink-soft">{summary}</p>
+  <h3 class="mt-4 font-display text-xl font-semibold text-route" x-show={titleMg ? "lang !== 'mg'" : 'true'}>{title}</h3>
+  <p class="mt-2 text-sm leading-relaxed text-ink-soft" x-show={summaryMg ? "lang !== 'mg'" : 'true'}>{summary}</p>
+  {titleMg && <h3 class="mt-4 font-display text-xl font-semibold text-route" x-show="lang === 'mg'" x-cloak lang="mg">{titleMg}</h3>}
+  {summaryMg && <p class="mt-2 text-sm leading-relaxed text-ink-soft" x-show="lang === 'mg'" x-cloak lang="mg">{summaryMg}</p>}
 
   <span class="mt-4 inline-flex items-center gap-1 text-sm font-medium text-laterite group-hover:gap-2 transition-all">
     <span x-text="t('module.open')">Ouvrir le module</span>

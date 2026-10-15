@@ -4,15 +4,15 @@ import { withBase } from '../../utils/url';
 ---
 
 <Layout
-  title="Exercices pratiques"
-  description="Deux exercices dynamiques pour t'entraîner : reconnaissance de panneaux en un coup d'œil, et cas pratiques de priorité vrai ou faux."
+  title="Exercices pratiques du code de la route"
+  description="Des exercices dynamiques pour t'entraîner : reconnaissance de panneaux, cas pratiques vrai ou faux, et calcul des distances d'arrêt."
 >
   <section class="mx-auto max-w-6xl px-4 sm:px-6 py-14 sm:py-20">
     <span class="inline-flex items-center gap-2 rounded-full border border-ravinala/40 bg-ravinala/10 px-3 py-1 text-xs font-medium text-ravinala-dark">
       <span x-text="t('exo.badge')">Entraînement chronométré par toi-même</span>
     </span>
     <h1 class="mt-4 font-display text-3xl sm:text-4xl font-semibold text-route"><span x-text="t('exo.title')">Mets tes réflexes à l'épreuve</span></h1>
-    <p class="mt-3 max-w-2xl text-ink-soft"><span x-text="t('exo.intro')">Un bon conducteur reconnaît un panneau sans y penser, et tranche une priorité en une seconde. Ces deux exercices s'entraînent justement sur la vitesse de décision.</span></p>
+    <p class="mt-3 max-w-2xl text-ink-soft"><span x-text="t('exo.intro')">Un bon conducteur reconnaît un panneau sans y penser, et tranche une priorité en une seconde. Ces exercices entraînent justement la vitesse de décision — et le calcul de tête des distances d'arrêt.</span></p>
 
     <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       <a href={withBase('/exercices/panneaux')} class="group relative flex flex-col overflow-hidden rounded-2xl border border-route/10 bg-white/60 p-8 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-route/10">
@@ -30,6 +30,16 @@ import { withBase } from '../../utils/url';
         <h2 class="font-display text-xl font-semibold text-route"><span x-text="t('exo.prioritiesTitle')">Cas pratiques : vrai ou faux</span></h2>
         <p class="mt-2 text-sm text-ink-soft"><span x-text="t('exo.prioritiesDesc')">Des situations concrètes de priorité, vitesse et sécurité. Réponds vrai ou faux et vérifie ton raisonnement.</span></p>
         <span class="mt-6 inline-flex items-center gap-1 text-sm font-medium text-signal group-hover:gap-2 transition-all">
+          <span x-text="t('action.start')">Démarrer</span>
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+        </span>
+      </a>
+
+      <a href={withBase('/exercices/distances')} class="group relative flex flex-col overflow-hidden rounded-2xl border border-route/10 bg-white/60 p-8 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-route/10">
+        <div class="absolute inset-x-0 top-0 h-1.5 bg-sun"></div>
+        <h2 class="font-display text-xl font-semibold text-route"><span x-text="t('exo.distTitle')">Calcul des distances d'arrêt</span></h2>
+        <p class="mt-2 text-sm text-ink-soft"><span x-text="t('exo.distDesc')">Un calculateur pour voir réaction, freinage et arrêt selon ta vitesse, puis 8 calculs de tête avec les formules de l'auto-école.</span></p>
+        <span class="mt-6 inline-flex items-center gap-1 text-sm font-medium text-laterite group-hover:gap-2 transition-all">
           <span x-text="t('action.start')">Démarrer</span>
           <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
         </span>

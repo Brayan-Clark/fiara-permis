@@ -114,6 +114,14 @@ body {
   border: 1px solid color-mix(in srgb, var(--color-route) 15%, transparent);
   padding: 0.6em 0.9em;
   text-align: left;
+  /* Un mot long (« fiara-pitateram-bahoaka », « immatriculation ») ne doit pas
+     élargir le tableau au-delà de l'écran sur mobile. */
+  overflow-wrap: anywhere;
+}
+@media (max-width: 480px) {
+  .prose-route th, .prose-route td {
+    padding: 0.5em 0.55em;
+  }
 }
 .prose-route th {
   background: color-mix(in srgb, var(--color-route) 6%, transparent);

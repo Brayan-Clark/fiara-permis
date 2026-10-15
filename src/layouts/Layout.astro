@@ -101,7 +101,7 @@ const isProd = import.meta.env.PROD;
       window.mistakeTracker = {
         key: 'fiara-mistakes-v2',
         read() {
-          let raw = null;
+          let raw;
           try {
             raw = JSON.parse(localStorage.getItem(this.key) || 'null');
           } catch {
@@ -113,7 +113,7 @@ const isProd = import.meta.env.PROD;
         // Migration : l'ancien format (tableau d'ids, clé 'fiara-mistakes') devient
         // des entrées à la boîte 0, considérées comme ratées une fois.
         migrate() {
-          let old = null;
+          let old;
           try {
             old = JSON.parse(localStorage.getItem('fiara-mistakes') || 'null');
           } catch {
@@ -190,6 +190,14 @@ const isProd = import.meta.env.PROD;
             const dict = window.FIARA_DICT || {};
             const table = dict[this.lang] || dict.fr || {};
             return table[key] ?? key;
+          },
+          // Champ d'une donnée (question, terme, panneau…) dans la langue
+          // choisie : la version malagasy (`obj.mg`) si elle existe, sinon le
+          // français.
+          tr(obj, field) {
+            if (!obj) return '';
+            const mg = this.lang === 'mg' && obj.mg ? obj.mg[field] : undefined;
+            return mg ?? obj[field];
           },
           setLang(l) {
             this.lang = l;
@@ -342,17 +350,21 @@ const isProd = import.meta.env.PROD;
     </script>
 
     <script is:inline>
+      // Shuffle Fisher-Yates sécurisé (crypto) — partagé par signQuiz et mockExam.
+      window._fiaraShuffle = function (a) {
+        const arr = [...a];
+        const rnd = new Uint32Array(arr.length);
+        crypto.getRandomValues(rnd);
+        for (let i = arr.length - 1; i > 0; i--) {
+          const j = rnd[i] % (i + 1);
+          [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+        return arr;
+      };
+
       // Reconnaissance de panneaux : 8 panneaux tirés au sort, 4 propositions.
       window.signQuiz = function (signs) {
         const TOTAL = 8;
-        function shuffle(a) {
-          const arr = [...a];
-          for (let i = arr.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [arr[i], arr[j]] = [arr[j], arr[i]];
-          }
-          return arr;
-        }
         return {
           pool: [],
           total: TOTAL,
@@ -367,14 +379,19 @@ const isProd = import.meta.env.PROD;
           get options() {
             if (this._roundKey !== this.round) {
               const good = this.current;
-              const decoys = shuffle(signs.filter((s) => s.id !== good.id)).slice(0, 3);
-              this._options = shuffle([good, ...decoys]);
+              // Leurres de la même famille d'abord : distinguer deux panneaux
+              // ronds bleus est le vrai exercice, pas un rond d'un triangle.
+              const others = signs.filter((s) => s.id !== good.id);
+              const same = _fiaraShuffle(others.filter((s) => s.category === good.category));
+              const rest = _fiaraShuffle(others.filter((s) => s.category !== good.category));
+              const decoys = [...same, ...rest].slice(0, 3);
+              this._options = _fiaraShuffle([good, ...decoys]);
               this._roundKey = this.round;
             }
             return this._options;
           },
           init() {
-            this.pool = shuffle(signs).slice(0, TOTAL);
+            this.pool = _fiaraShuffle(signs).slice(0, TOTAL);
             this.round = 0;
             this.score = 0;
             this.selected = null;
@@ -442,14 +459,6 @@ const isProd = import.meta.env.PROD;
       // Examen blanc : pool aléatoire, chronomètre, enregistrement des
       // réponses dans mistakeTracker.
       window.mockExam = function (allQuestions, total, duration) {
-        function shuffle(a) {
-          const arr = [...a];
-          for (let i = arr.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [arr[i], arr[j]] = [arr[j], arr[i]];
-          }
-          return arr;
-        }
         return {
           // Réservoir de questions, exposé pour que la page puisse le filtrer
           // sur les catégories choisies avant d'appeler init().
@@ -473,7 +482,7 @@ const isProd = import.meta.env.PROD;
           },
           init() {
             const src = this.source.length ? this.source : allQuestions;
-            this.pool = shuffle(src).slice(0, total);
+            this.pool = _fiaraShuffle(src).slice(0, total);
             this.total = Math.min(total, this.pool.length);
             this.index = 0;
             this.score = 0;

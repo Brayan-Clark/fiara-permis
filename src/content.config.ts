@@ -21,4 +21,15 @@ const cours = defineCollection({
   }),
 });
 
-export const collections = { cours };
+// Version malgache d'une leçon : même nom de fichier que dans src/content/cours.
+// Une leçon sans traduction relue reste affichée en français en mode malagasy,
+// avec un avertissement, plutôt que d'afficher une traduction non vérifiée.
+const coursMg = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/cours-mg' }),
+  schema: z.object({
+    title: z.string(),
+    summary: z.string(),
+  }),
+});
+
+export const collections = { cours, coursMg };

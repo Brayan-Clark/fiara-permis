@@ -36,6 +36,82 @@ Retiens la logique de classement plutôt que les montants : ceux-ci sont fixés 
 
 Quand la faute dépasse la simple contravention, elle devient un **délit** : le dossier part au tribunal, qui peut prononcer une **amende** et une **peine d'emprisonnement**. C'est le cas notamment de la conduite en état d'ivresse, du délit de fuite, ou d'un accident ayant causé des blessures ou la mort.
 
+## Les six sanctions qui peuvent frapper un conducteur
+
+Le support de formation des auto-écoles pose la question : *combien de types de sanctions peuvent frapper un conducteur ?* Réponse : **six**.
+
+1. Le **retrait de permis** ;
+2. L'**immobilisation du véhicule** (48 heures au maximum) ;
+3. La **mise en fourrière** du véhicule (à la mairie) ;
+4. Le **retrait de la circulation** du véhicule ;
+5. L'**emprisonnement** ;
+6. La **contravention ou amende**.
+
+### 1. Ce qui entraîne le retrait de permis
+
+- Ne pas respecter un **STOP** ou un **feu rouge**
+- **Refus de priorité**
+- **Ne pas s'arrêter** quand la police l'ordonne
+- **Conduite en état d'ivresse**
+- **Circuler sans feux la nuit**
+- **Dépassement dangereux**
+- **Stationnement dangereux**
+- **Tourner brusquement** sans regarder ni avertir
+- **Franchir une ligne continue**
+- **Garder les feux de route** (pleins phares) en croisant un autre véhicule
+- **Accélérer quand on se fait dépasser**
+- **Ne pas payer l'amende** dans les 48 heures
+- **Rouler sur la partie gauche** de la chaussée
+- **Surcharge** du véhicule
+- **Excès de vitesse**
+
+### 2. Ce qui entraîne l'immobilisation du véhicule
+
+- **Conducteur ivre**
+- **Échappement libre** (pot d'échappement percé ou trafiqué)
+- **Assurance expirée**
+- **Pneus usés**
+- **Permis ne correspondant pas** à la catégorie du véhicule conduit
+- **Chargement mal arrimé**
+
+### 3. Ce qui entraîne la mise en fourrière
+
+- **Immobilisation de plus de 48 heures** sans que l'infraction soit réglée
+- Véhicule **laissé plus de 15 jours** sur la voie publique
+- **Stationnement dangereux**
+- **Vitres teintées** (fumées)
+- **Visite technique périmée**
+- **Transport en commun sans patente ni licence**
+- **Violation de ligne** : taxi-be ou taxi-brousse qui **sort de la ligne** qui lui est attribuée
+- Transport de passagers **sans sécurité**
+- **Transport clandestin** : véhicule personnel qui transporte des passagers payants
+- **Transport en commun ou privé de personnes sans carte violette ou sans autorisation** (taxi-ville, taxi-brousse, bus)
+- Véhicule qui **circule encore avec une simple déclaration de perte** de ses papiers
+
+### 4. Ce qui entraîne le retrait de la circulation
+
+- **Véhicule hors norme** — modification du véhicule non autorisée par l'État
+- **État de vétusté** — véhicule trop vieux, qu'on ne peut plus réparer
+- **Refus définitif à la visite technique**
+- **Véhicule non immatriculé** à Madagascar
+
+### 5. Ce qui mène en prison
+
+| Infraction | Peine |
+|---|---|
+| Refus de s'arrêter à la sommation de la police | **10 jours à 3 mois** |
+| Circuler avec un véhicule **sans plaque d'immatriculation** | **10 jours à 6 mois** |
+| Conduite en état d'ivresse | **1 mois à 1 an** |
+| **Délit de fuite** | **1 an** |
+| **Usage de faux** — falsification des papiers du véhicule | **6 mois à 5 ans** |
+
+### 6. L'amende
+
+Les amendes sont classées en **catégories**, de la 1ʳᵉ (la moins grave) à la 4ᵉ (la plus grave), chacune avec un montant forfaitaire fixé par décret. Les montants changent avec le temps : demande la valeur en vigueur à ton auto-école ou à l'agent.
+
+- **L'amende la plus lourde** citée par le support sanctionne le **transport payant de passagers sans autorisation de l'État**.
+- **En cas de récidive** : une contravention de **4ᵉ catégorie** répétée peut valoir **jusqu'à 8 jours** d'emprisonnement ; une contravention de **5ᵉ catégorie** répétée, **jusqu'à 29 jours**.
+
 ## Les quatre familles de fautes
 
 Le guide officiel classe les infractions selon ce qu'elles concernent :
@@ -126,4 +202,4 @@ Côté usager, ce que ça implique concrètement : la sanction est celle prévue
 
 ---
 
-> **À vérifier auprès de ton auto-école.** Ce module décrit les *types* de fautes et de sanctions, qui sont stables. Les **montants** des amendes, eux, sont fixés par décret et révisés — ne te fie jamais à un montant lu en ligne, y compris ici : c'est pour cette raison qu'aucun n'est indiqué dans ce module.
+> **À vérifier auprès de ton auto-école.** Ce module décrit les *types* de fautes et de sanctions, qui sont stables. Les **montants** des amendes, eux, sont fixés par décret et révisés — ne te fie jamais à un montant lu en ligne : c'est pour cette raison qu'aucun n'est indiqué dans ce module.

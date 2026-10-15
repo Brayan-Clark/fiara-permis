@@ -1,9 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { quizModules } from '../../data/quiz';
+import QuizChoice from '../../components/QuizChoice.astro';
+import { quizModules, withSignVisuals } from '../../data/quiz';
 import { withBase } from '../../utils/url';
 
-const allQuestions = quizModules.flatMap((m) => m.questions);
+const allQuestions = quizModules.flatMap((m) => withSignVisuals(m.questions));
 ---
 
 <Layout
@@ -48,21 +49,15 @@ const allQuestions = quizModules.flatMap((m) => m.questions);
 
         <template x-if="!finished">
           <div class="mt-3 rounded-2xl border border-route/10 bg-white/70 p-6">
-            <p class="font-display text-lg font-semibold text-route" x-text="current.question"></p>
+            <div x-show="current.signHtml" class="mx-auto h-24 w-24" x-html="current.signHtml"></div>
+            <p class="font-display text-lg font-semibold text-route" x-text="tr(current, 'question')"></p>
             <div class="mt-5 space-y-2.5">
-              <template x-for="(choice, i) in current.choices" :key="i">
-                <button
-                  type="button"
-                  @click="choose(i)"
-                  :class="{ 'border-ravinala bg-ravinala/10 text-route': selected !== null && i === current.correctIndex, 'border-laterite bg-laterite/10 text-route': selected === i && i !== current.correctIndex, 'border-route/15 hover:border-signal/40': selected === null, 'border-route/10 opacity-60': selected !== null && i !== current.correctIndex && i !== selected }"
-                  class="w-full rounded-xl border-2 px-4 py-3 text-left text-sm font-medium transition"
-                >
-                  <span x-text="choice"></span>
-                </button>
+              <template x-for="(choice, i) in tr(current, 'choices')" :key="i">
+                <QuizChoice />
               </template>
             </div>
 
-            <p x-show="selected !== null" x-cloak class="mt-4 rounded-lg bg-sun/15 p-3 text-sm text-route" x-text="current.explanation"></p>
+            <p x-show="selected !== null" x-cloak class="mt-4 rounded-lg bg-sun/15 p-3 text-sm text-route" x-text="tr(current, 'explanation')"></p>
 
             <div class="mt-5 flex justify-end">
               <button
@@ -71,8 +66,9 @@ const allQuestions = quizModules.flatMap((m) => m.questions);
                 x-cloak
                 @click="nextQuestion()"
                 class="rounded-full bg-route px-5 py-2 text-sm font-semibold text-sisal hover:bg-route/90"
+                aria-label="Question suivante"
                 x-text="isLast ? t('erreurs.finish') : t('action.nextQuestion')"
-              ></button>
+              >Question suivante</button>
             </div>
           </div>
         </template>

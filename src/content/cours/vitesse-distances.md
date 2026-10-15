@@ -32,12 +32,57 @@ La distance d'arrêt totale se décompose en deux temps qu'on oublie souvent de 
 
 > Sur chaussée mouillée, sur une route en latérite détrempée ou avec des pneus usés, ces distances augmentent encore — parfois du double.
 
+## Calculer de tête : les trois formules de l'auto-école
+
+À l'examen comme sur la route, personne ne sort une calculatrice. Les auto-écoles enseignent trois formules mentales, toutes basées sur le **chiffre des dizaines** de la vitesse (à 50 km/h, c'est 5 ; à 90 km/h, c'est 9) :
+
+| Ce qu'on calcule | Formule | Exemple à 50 km/h | Exemple à 90 km/h |
+|---|---|---|---|
+| **Distance de réaction** (pendant la seconde où l'on réagit) | dizaine **× 3** | 5 × 3 = **15 m** | 9 × 3 = **27 m** |
+| **Distance d'arrêt** sur route sèche (réaction + freinage) | dizaine **× elle-même** | 5 × 5 = **25 m** | 9 × 9 = **81 m** |
+| **Distance de freinage** (une fois le pied sur le frein) | arrêt **−** réaction | 25 − 15 = **10 m** | 81 − 27 = **54 m** |
+
+> **Attention à ne pas inverser les deux.** « Dizaine × 3 », c'est la distance parcourue *avant* de freiner (la réaction). « Dizaine × dizaine », c'est la distance d'arrêt *totale*. La distance de freinage seule, c'est la différence des deux.
+
+**Sur route mouillée**, on ajoute la moitié à la distance d'arrêt : à 50 km/h, 25 m deviennent environ **37 m** ; à 90 km/h, 81 m deviennent environ **120 m**. Sur latérite détrempée ou avec des pneus usés, c'est encore plus.
+
+### Le tableau à connaître
+
+| Vitesse | Réaction (× 3) | Arrêt sec (× lui-même) | Arrêt mouillé (+ ½) |
+|---|---|---|---|
+| 30 km/h | 9 m | 9 m* | ~14 m |
+| 50 km/h | 15 m | 25 m | ~37 m |
+| 60 km/h | 18 m | 36 m | ~54 m |
+| 80 km/h | 24 m | 64 m | ~96 m |
+| 90 km/h | 27 m | 81 m | ~120 m |
+| 100 km/h | 30 m | 100 m | ~150 m |
+| 130 km/h | 39 m | 169 m | ~250 m |
+
+\* Aux très basses vitesses, la formule « × lui-même » sous-estime un peu : la distance d'arrêt ne peut jamais être inférieure à la distance de réaction. Retiens qu'à 30 km/h, il faut **au moins une douzaine de mètres** pour s'arrêter.
+
+Ce que le tableau montre : de 50 à 100 km/h, la vitesse double, mais la distance d'arrêt est **multipliée par 4** (25 m → 100 m). C'est exactement l'effet « au carré » expliqué plus haut.
+
+Pour t'entraîner à ces calculs, utilise l'exercice **Calcul des distances d'arrêt** dans la rubrique Exercices.
+
+## Les cas où l'on doit réduire sa vitesse
+
+Le support de formation permis B liste les situations où ralentir est une obligation, même sans panneau :
+
+- **En ville** (agglomération).
+- Aux **panneaux de limitation de vitesse**.
+- Quand la **chaussée est encombrée**.
+- Par **mauvaise visibilité** (pluie, brouillard, poussière, nuit).
+- À **tout danger particulier** : intersection, croisement, rétrécissement, pont, quand on est en train d'**être dépassé**, passage à niveau, sommet de côte, virage et descente rapide.
+
 ## La distance de sécurité entre deux véhicules
 
 La règle pratique la plus utile sur route : garder au moins **2 secondes** d'écart avec le véhicule qui précède (repérer un point fixe — poteau, arbre — et compter le temps entre son passage par le véhicule de devant et par le sien). Sur route nationale ou par mauvais temps, cet écart doit être augmenté.
 
+Pour la traduire en mètres de tête : **2 secondes ≈ dizaine × 6**. À 50 km/h, garde au moins 30 m ; à 90 km/h, au moins 54 m — soit à peu près la distance de freinage. Le support de cours fixe d'ailleurs un minimum de **10 m en ville et 50 m hors agglomération** entre deux véhicules.
+
 ## Ce qu'il faut retenir
 
+- Distance d'arrêt sur sol sec = **dizaine × dizaine** ; distance de réaction = **dizaine × 3** ; freinage = la différence. Sur sol mouillé, ajoute la moitié.
 - Le panneau local prime toujours sur la limite générale.
 - Ralentir aux abords des marchés et des écoles n'est pas qu'une politesse : c'est souvent une obligation signalée.
 - La vitesse ne se juge jamais seule — elle se juge par rapport à l'état de la route, à la visibilité et à la densité de circulation.

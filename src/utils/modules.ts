@@ -8,3 +8,11 @@ import { getCollection } from 'astro:content';
 export async function getModuleCount(): Promise<number> {
   return (await getCollection('cours')).length;
 }
+
+/**
+ * Versions malgaches des modules, indexées par identifiant de leçon. Une
+ * leçon absente de la map n'a pas encore de traduction relue.
+ */
+export async function getMgModules() {
+  return new Map((await getCollection('coursMg')).map((m) => [m.id, m]));
+}
