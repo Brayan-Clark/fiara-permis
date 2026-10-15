@@ -150,5 +150,12 @@ try {
 } finally {
   chrome.kill();
   server.close();
-  rmSync(profile, { recursive: true, force: true });
+  // Chrome peut encore écrire dans son profil juste après kill() : le
+  // nettoyage est un bonus, il ne doit jamais faire échouer le build.
+  await new Promise((r) => (chrome.exitCode !== null ? r() : chrome.once('exit', r)));
+  try {
+    rmSync(profile, { recursive: true, force: true, maxRetries: 5, retryDelay: 200 });
+  } catch {
+    // Dossier temporaire du système : il sera nettoyé plus tard.
+  }
 }
