@@ -48,7 +48,9 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{html,css,js,svg,png,woff,woff2}'],
+        // Les photos de terrain sont incluses : le cours doit rester lisible
+        // hors connexion, c'est la raison d'être de l'application.
+        globPatterns: ['**/*.{html,css,js,svg,png,jpg,jpeg,webp,woff,woff2}'],
         navigateFallback: `${base}offline/`,
         runtimeCaching: [
           {

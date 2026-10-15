@@ -1,6 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import SignGrid from '../components/SignGrid.astro';
+import MarkingGrid from '../components/MarkingGrid.astro';
+import PhotoGrid from '../components/PhotoGrid.astro';
+import SchemaGrid from '../components/SchemaGrid.astro';
+import { moduleHasMarkings, moduleSigns } from '../utils/moduleVisuals';
+import { photosForModule } from '../data/photos';
+import { schemasForModule } from '../data/schemas';
 import { getCollection, render } from 'astro:content';
 import { glossary } from '../data/glossary';
 import { panneaux } from '../data/panneaux';
@@ -159,7 +165,7 @@ const categories = ["A", "A'", 'B', 'C', 'D', 'E'];
         ))}
         <li class="flex gap-3 pt-2">
           <span class="font-plate text-laterite shrink-0">A.</span>
-          <span class="text-route">Planche des panneaux</span>
+          <span class="text-route">Planche des panneaux et du marquage au sol</span>
         </li>
         <li class="flex gap-3">
           <span class="font-plate text-laterite shrink-0">B.</span>
@@ -181,6 +187,38 @@ const categories = ["A", "A'", 'B', 'C', 'D', 'E'];
             <h4 class="font-display text-lg font-semibold text-route">Les panneaux en images</h4>
             <div class="mt-4">
               <SignGrid />
+            </div>
+          </div>
+        )}
+        {moduleSigns(mod.id).length > 0 && (
+          <div class="mt-8">
+            <h4 class="font-display text-lg font-semibold text-route">Les panneaux de ce module</h4>
+            <div class="mt-4">
+              <SignGrid signs={moduleSigns(mod.id)} />
+            </div>
+          </div>
+        )}
+        {moduleHasMarkings(mod.id) && (
+          <div class="mt-8">
+            <h4 class="font-display text-lg font-semibold text-route">Le marquage au sol en images</h4>
+            <div class="mt-4">
+              <MarkingGrid />
+            </div>
+          </div>
+        )}
+        {schemasForModule(mod.id).length > 0 && (
+          <div class="mt-8">
+            <h4 class="font-display text-lg font-semibold text-route">Les schémas à retenir</h4>
+            <div class="mt-4">
+              <SchemaGrid schemas={schemasForModule(mod.id)} />
+            </div>
+          </div>
+        )}
+        {photosForModule(mod.id).length > 0 && (
+          <div class="mt-8">
+            <h4 class="font-display text-lg font-semibold text-route">Sur la route, en vrai</h4>
+            <div class="mt-4">
+              <PhotoGrid photos={photosForModule(mod.id)} />
             </div>
           </div>
         )}

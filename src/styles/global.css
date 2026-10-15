@@ -133,6 +133,15 @@ body {
   text-underline-offset: 2px;
 }
 
+/* Illustrations SVG injectées via set:html (panneaux, marquage au sol) :
+   sans width/height explicites, on force le SVG à remplir son cadre en
+   respectant le rapport d'aspect de son viewBox. */
+.illustration svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 /* Flip-card mechanics for the quiz deck */
 .flip-scene {
   perspective: 1600px;

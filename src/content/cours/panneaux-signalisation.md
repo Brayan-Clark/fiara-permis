@@ -9,6 +9,8 @@ sources:
     url: "https://textes.lexxika.com/lois-malagasy/loi-n2017-002-du-06-juillet-2016-portant-code-de-la-route-a-madagascar/"
   - label: "Fiarakodia — Code de la route à Madagascar"
     url: "https://www.fiarakodia.com/en/posts/code-de-la-route-a-madagascar-une-piqure-de-rappel-essentielle"
+  - label: "M. Lamonerie Jean — Synthèse du code de la route (Formations O.K., 2008)"
+    url: "https://fr.scribd.com/document/140572899/Document-Code-De-La-Route-pdf"
 ---
 
 Avant même de toucher un volant, un futur conducteur doit reconnaître un panneau **en une fraction de seconde**, souvent sans avoir le temps de lire un mot. C'est pour ça que la forme et la couleur comptent plus que le texte : elles se voient de loin, la nuit, sous la pluie, en swahili comme en malgache.
@@ -35,6 +37,46 @@ Parking, hôpital, sens unique, direction d'une ville. Il informe, il ne contrai
 - **Cédez-le-passage** (triangle inversé blanc/rouge) : on ralentit et on laisse passer, sans obligation de s'arrêter si la voie est dégagée.
 
 Ces deux panneaux règlent la circulation à une intersection **sans avoir besoin de feux**, ce qui est fréquent sur les routes secondaires malgaches.
+
+## Où le panneau est posé, et à quelle distance
+
+Un panneau n'agit pas seulement par son dessin : sa **position** fait partie du message.
+
+- Sur une route hors agglomération, un panneau de **danger** est implanté à environ **150 m** avant le danger. En agglomération, la distance descend autour de **50 m** — on roule moins vite, et il y a moins de place.
+- **Exception** : les panneaux de **passage à niveau** sont toujours placés à **150 m**, en ville comme à la campagne. Le danger ne se négocie pas avec la densité du bâti.
+- Les panneaux sont placés **à droite de la chaussée**, dans le sens de la marche. Dans un **sens unique**, ils peuvent aussi être à gauche, puisqu'aucun trafic n'arrive en face.
+
+Et une distinction que l'examen aime tester : un **signal avancé** annonce (il faut ralentir), un **signal de position** s'applique **à partir de là où il est posé**. Le triangle de danger est un signal avancé ; le rond rouge d'interdiction est un signal de position.
+
+## La signalisation temporaire
+
+La **signalisation permanente** est sur fond **blanc**. La **signalisation temporaire** — celle des chantiers — est sur fond **jaune**, et parfois **rouge** pour les déviations. Elle **prime** sur la signalisation permanente tant que le chantier existe : une limitation à 30 sur fond jaune l'emporte sur la limitation à 50 peinte en dessous.
+
+Le module PK 16 le rappelle pour la peinture : le jaune-brun au sol, c'est la même idée — du marquage provisoire.
+
+## Panonceaux, cartouches : les détails qui changent le sens
+
+Un **panonceau** — le petit rectangle posé sous un panneau — ne s'applique **qu'au panneau au-dessus de lui**. Posé sous une limitation de vitesse, il ne concerne pas le panneau suivant. Lis-les par couple, jamais en bloc.
+
+Deux pièges classiques avec les panonceaux de stationnement :
+
+- **Un panneau rond + un panonceau** = l'interdiction ne touche **que** les usagers désignés par le panonceau. Les autres peuvent stationner.
+- **Deux panneaux ronds côte à côte** = ils ne se « marient » pas. Chacun porte sa propre règle, et c'est la somme des deux qui s'applique.
+
+Quant aux **cartouches** — les petites étiquettes de couleur qui accompagnent un nom de ville — elles indiquent le **type de route** que tu vas emprunter. Les couleurs suivent la même logique dans la plupart des pays francophones (une teinte par niveau d'administration), mais **à Madagascar, fie-toi au cartouche réellement posé sur la route devant toi** plus qu'à une couleur mémorisée.
+
+## Les faux amis
+
+Certains panneaux se ressemblent assez pour qu'on les confonde sous pression — et c'est exactement ce que l'examen cherche.
+
+- **Sens unique** et **sens obligatoire** : l'un indique une rue à sens unique, l'autre impose une direction à une intersection. Le premier informe, le second contraint.
+- **Voie réservée aux véhicules lents** et **vitesse minimum obligatoire** : le premier interdit l'accès aux véhicules rapides, le second impose de rouler au moins à cette vitesse. Même idée, application différente.
+- **Virage** et **rétrécissement** : le dessin se ressemble, le comportement diffère. Le rétrécissement demande de se placer, le virage de ralentir.
+- **Vent latéral** et **zone exposée au vent** : le premier dit d'où il vient, le second prévient qu'on ne sait pas.
+- **Route prioritaire** et **fin de route prioritaire** : le losange et le losange barré. Le barré annonce la fin, donc le retour de la priorité à droite.
+- **Fin d'interdiction** et **fin de prescription** : barré de gris, c'est la **fin de ce qui était indiqué** — pas une interdiction nouvelle.
+
+La planche de panneaux en bas de cette page contient tous ces cas, y compris les plus retors. Le bon réflexe à l'examen : regarder **la forme et la couleur avant le dessin**, puis le dessin, puis le panonceau.
 
 ## Pourquoi c'est le premier module
 

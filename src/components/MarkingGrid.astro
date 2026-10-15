@@ -1,0 +1,32 @@
+---
+import { marquages as allMarkings, type RoadMarking } from '../data/marquages';
+
+interface Props {
+  markings?: RoadMarking[];
+}
+
+const { markings = allMarkings } = Astro.props;
+
+const borderByOrientation: Record<string, string> = {
+  longitudinale: 'border-sun/40',
+  transversale: 'border-signal/30',
+};
+
+const labelByOrientation: Record<string, string> = {
+  longitudinale: 'Marquage longitudinal',
+  transversale: 'Marquage transversal',
+};
+---
+
+<div class="grid gap-4 sm:grid-cols-2">
+  {markings.map((marking) => (
+    <div class:list={['rounded-xl border-2 bg-white/70 p-4', borderByOrientation[marking.orientation]]}>
+      <div class="illustration aspect-[3/1] overflow-hidden rounded-lg" set:html={marking.svg} />
+      <p class="mt-3 text-[0.65rem] font-plate uppercase tracking-wide text-ink-soft">
+        {labelByOrientation[marking.orientation]}
+      </p>
+      <h4 class="font-display text-sm font-semibold text-route leading-snug">{marking.name}</h4>
+      <p class="mt-1 text-xs text-ink-soft leading-relaxed">{marking.description}</p>
+    </div>
+  ))}
+</div>

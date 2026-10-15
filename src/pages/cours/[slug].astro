@@ -2,6 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 import PkMarker from '../../components/PkMarker.astro';
 import SignGrid from '../../components/SignGrid.astro';
+import MarkingGrid from '../../components/MarkingGrid.astro';
+import PhotoGrid from '../../components/PhotoGrid.astro';
+import SchemaGrid from '../../components/SchemaGrid.astro';
+import { moduleHasMarkings, moduleSigns } from '../../utils/moduleVisuals';
+import { photosForModule } from '../../data/photos';
+import { schemasForModule } from '../../data/schemas';
 import { getCollection, render } from 'astro:content';
 import { withBase } from '../../utils/url';
 
@@ -27,6 +33,11 @@ const accentText: Record<string, string> = {
   signal: 'text-signal',
   sun: 'text-sun-ink',
 };
+
+const signs = moduleSigns(mod.id);
+const hasMarkings = moduleHasMarkings(mod.id);
+const photos = photosForModule(mod.id);
+const schemas = schemasForModule(mod.id);
 ---
 
 <Layout title={mod.data.title} description={mod.data.summary}>
@@ -69,8 +80,46 @@ const accentText: Record<string, string> = {
 
     {mod.id === 'panneaux-signalisation' && (
       <div class="mt-12">
-        <h2 class="font-display text-xl font-semibold text-route mb-4" x-text="t('cours.signsTitle')">Les panneaux à connaître</h2>
+        <h2 class="font-display text-xl font-semibold text-route mb-4" x-text="t('cours.signsTitle')">
+          Les panneaux à connaître
+        </h2>
         <SignGrid />
+      </div>
+    )}
+
+    {signs.length > 0 && (
+      <div class="mt-12">
+        <h2 class="font-display text-xl font-semibold text-route mb-4" x-text="t('cours.moduleSignsTitle')">
+          Les panneaux de ce module
+        </h2>
+        <SignGrid signs={signs} />
+      </div>
+    )}
+
+    {hasMarkings && (
+      <div class="mt-12">
+        <h2 class="font-display text-xl font-semibold text-route mb-4" x-text="t('cours.markingsTitle')">
+          Le marquage au sol en images
+        </h2>
+        <MarkingGrid />
+      </div>
+    )}
+
+    {schemas.length > 0 && (
+      <div class="mt-12">
+        <h2 class="font-display text-xl font-semibold text-route mb-4" x-text="t('cours.schemasTitle')">
+          Les schémas à retenir
+        </h2>
+        <SchemaGrid schemas={schemas} />
+      </div>
+    )}
+
+    {photos.length > 0 && (
+      <div class="mt-12">
+        <h2 class="font-display text-xl font-semibold text-route mb-4" x-text="t('cours.photosTitle')">
+          Sur la route, en vrai
+        </h2>
+        <PhotoGrid photos={photos} />
       </div>
     )}
 

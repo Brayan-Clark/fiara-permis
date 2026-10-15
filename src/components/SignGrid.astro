@@ -1,5 +1,12 @@
 ---
-import { panneaux, signCategoryLabel } from '../data/panneaux';
+import { panneaux, signCategoryLabel, type RoadSign } from '../data/panneaux';
+
+interface Props {
+  /** Sous-ensemble de panneaux à afficher. Par défaut : la planche complète. */
+  signs?: RoadSign[];
+}
+
+const { signs = panneaux } = Astro.props;
 
 const accentByCategory: Record<string, string> = {
   danger: 'border-laterite/30',
@@ -11,9 +18,9 @@ const accentByCategory: Record<string, string> = {
 ---
 
 <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-  {panneaux.map((sign) => (
+  {signs.map((sign) => (
     <div class:list={['rounded-xl border-2 bg-white/70 p-4 flex gap-4 items-start', accentByCategory[sign.category]]}>
-      <div class="h-14 w-14 shrink-0" set:html={sign.svg} />
+      <div class="illustration h-14 w-14 shrink-0" set:html={sign.svg} />
       <div>
         <p class="text-[0.65rem] font-plate uppercase tracking-wide text-ink-soft">{signCategoryLabel[sign.category]}</p>
         <h4 class="font-display text-sm font-semibold text-route leading-snug">{sign.name}</h4>

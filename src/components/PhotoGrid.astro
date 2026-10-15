@@ -1,0 +1,47 @@
+---
+import { photos as allPhotos, type TerrainPhoto } from '../data/photos';
+import { withBase } from '../utils/url';
+
+interface Props {
+  /** Sous-ensemble de photos. Par défaut : toutes. */
+  photos?: TerrainPhoto[];
+}
+
+const { photos = allPhotos } = Astro.props;
+---
+
+<div class="grid gap-6 sm:grid-cols-2">
+  {photos.map((photo) => (
+    <figure class="break-inside-avoid overflow-hidden rounded-xl border-2 border-route/10 bg-white/70">
+      {/* object-contain, pas object-cover : la photo entière reste visible,
+          même en portrait. Un recadrage changerait l'image, et donc la
+          licence sous laquelle elle est publiée. */}
+      <img
+        src={withBase(`/images/terrain/${photo.file}`)}
+        alt={photo.alt}
+        width={photo.width}
+        height={photo.height}
+        loading="lazy"
+        decoding="async"
+        class="block max-h-[26rem] w-full bg-sisal-dark/25 object-contain"
+      />
+      <figcaption class="p-4">
+        <p class="text-xs text-ink-soft leading-relaxed">{photo.caption}</p>
+        <p class="mt-2 font-plate text-[0.65rem] text-ink-soft/80">
+          Photo : {photo.author} ·{' '}
+          <a
+            href={photo.licenseUrl}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            class="underline underline-offset-2 hover:text-laterite">{photo.license}</a>{' '}
+          ·{' '}
+          <a
+            href={photo.sourceUrl}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+            class="underline underline-offset-2 hover:text-laterite">Wikimedia Commons</a>
+        </p>
+      </figcaption>
+    </figure>
+  ))}
+</div>
