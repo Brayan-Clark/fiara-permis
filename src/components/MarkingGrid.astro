@@ -1,0 +1,38 @@
+---
+import { marquages as allMarkings, type RoadMarking } from '../data/marquages';
+import { marquagesMg } from '../data/mg/visuels';
+
+interface Props {
+  markings?: RoadMarking[];
+}
+
+const { markings = allMarkings } = Astro.props;
+
+const borderByOrientation: Record<string, string> = {
+  longitudinale: 'border-sun/40',
+  transversale: 'border-signal/30',
+};
+
+const labelByOrientation: Record<string, string> = {
+  longitudinale: 'Marquage longitudinal',
+  transversale: 'Marquage transversal',
+};
+
+const labelByOrientationMg: Record<string, string> = {
+  longitudinale: 'Tsipika manaraka ny lalana',
+  transversale: 'Tsipika mitsivalana',
+};
+---
+
+<div class="grid gap-4 sm:grid-cols-2">
+  {markings.map((marking) => (
+    <div class:list={['rounded-xl border-2 bg-white/70 p-4', borderByOrientation[marking.orientation]]}>
+      <div class="illustration aspect-[3/1] overflow-hidden rounded-lg" set:html={marking.svg} />
+      <p class="mt-3 text-[0.65rem] font-plate uppercase tracking-wide text-ink-soft">
+        <span x-show="lang !== 'mg'">{labelByOrientation[marking.orientation]}</span><span x-show="lang === 'mg'" x-cloak lang="mg">{labelByOrientationMg[marking.orientation]}</span>
+      </p>
+      <h4 class="font-display text-sm font-semibold text-route leading-snug"><span x-show={marquagesMg[marking.id]?.name ? "lang !== 'mg'" : 'true'}>{marking.name}</span>{marquagesMg[marking.id]?.name && <span x-show="lang === 'mg'" x-cloak lang="mg">{marquagesMg[marking.id]?.name}</span>}</h4>
+      <p class="mt-1 text-xs text-ink-soft leading-relaxed"><span x-show={marquagesMg[marking.id]?.description ? "lang !== 'mg'" : 'true'}>{marking.description}</span>{marquagesMg[marking.id]?.description && <span x-show="lang === 'mg'" x-cloak lang="mg">{marquagesMg[marking.id]?.description}</span>}</p>
+    </div>
+  ))}
+</div>

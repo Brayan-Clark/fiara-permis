@@ -17,7 +17,7 @@ interface SignCredit {
   page: string;
 }
 
-interface RoadSign {
+export interface RoadSign {
   id: string;
   name: string;
   category: SignCategory;
@@ -934,6 +934,29 @@ const panneauxFr: RoadSign[] = [
     image: true,
     credit: { author: "Mathgb", license: "CC BY-SA 3.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0", page: "https://commons.wikimedia.org/wiki/File:France_road_sign_AK22.svg" },
   },
+  // Panneaux dessinés ajoutés avec le module « éclairage et visibilité » : pas
+  // d'équivalent dans la planche officielle utilisée ci-dessus.
+  {
+    id: 'autoroute',
+    name: 'Autoroute',
+    category: 'indication',
+    description: "Fond bleu, symbole de chaussée à deux chaussées séparées : on entre sur une route sans intersection, à sens unique et à vitesse élevée.",
+    svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="16" width="84" height="68" rx="5" fill="${BLUE}"/><path d="M20 74 L24 40 L76 40 L80 74" stroke="${WHITE}" stroke-width="5" fill="none" stroke-linejoin="round"/><line x1="20" y1="58" x2="80" y2="58" stroke="${WHITE}" stroke-width="4"/></svg>`,
+  },
+  {
+    id: 'fin-autoroute',
+    name: 'Fin d’autoroute',
+    category: 'indication',
+    description: "Même symbole barré de rouge : les règles de l'autoroute s'arrêtent ici, y compris la vitesse maximale qui y était autorisée.",
+    svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="8" y="16" width="84" height="68" rx="5" fill="${BLUE}"/><path d="M20 74 L24 40 L76 40 L80 74" stroke="${WHITE}" stroke-width="5" fill="none" stroke-linejoin="round"/><line x1="20" y1="58" x2="80" y2="58" stroke="${WHITE}" stroke-width="4"/><line x1="16" y1="80" x2="84" y2="20" stroke="${RED}" stroke-width="7"/></svg>`,
+  },
+  {
+    id: 'aire-de-repos',
+    name: 'Aire de repos',
+    category: 'indication',
+    description: "Espace aménagé pour s'arrêter, se détendre et repartir reposé — la seule réponse efficace à la fatigue au volant.",
+    svg: `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="80" height="80" rx="8" fill="${BLUE}"/><polygon points="50,30 70,68 30,68" fill="${WHITE}"/><rect x="46" y="66" width="8" height="14" fill="${WHITE}"/><rect x="24" y="84" width="52" height="4" fill="${WHITE}"/></svg>`,
+  },
   {
     id: 'feu-rouge',
     name: 'Feu rouge',
@@ -974,3 +997,7 @@ const panneauxFr: RoadSign[] = [
 export const panneaux: RoadSign[] = panneauxFr.map((p) => ({ ...p, mg: panneauxMg[p.id] }));
 
 export { signCategoryLabelMg };
+
+export function signsByCategory(category: SignCategory) {
+  return panneaux.filter((sign) => sign.category === category);
+}

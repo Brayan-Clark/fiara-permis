@@ -1,0 +1,21 @@
+---
+import { schemas as allSchemas, type Schema } from '../data/schemas';
+import { schemasMg } from '../data/mg/visuels';
+
+interface Props {
+  /** Sous-ensemble de schémas. Par défaut : tous. */
+  schemas?: Schema[];
+}
+
+const { schemas = allSchemas } = Astro.props;
+---
+
+<div class="grid gap-4 sm:grid-cols-2">
+  {schemas.map((schema) => (
+    <div class="break-inside-avoid rounded-xl border-2 border-signal/25 bg-white/70 p-4">
+      <div class="illustration aspect-[3/2] overflow-hidden rounded-lg bg-sisal-dark/30" set:html={schema.svg} />
+      <h4 class="mt-3 font-display text-sm font-semibold text-route leading-snug"><span x-show={schemasMg[schema.id]?.name ? "lang !== 'mg'" : 'true'}>{schema.name}</span>{schemasMg[schema.id]?.name && <span x-show="lang === 'mg'" x-cloak lang="mg">{schemasMg[schema.id]?.name}</span>}</h4>
+      <p class="mt-1 text-xs text-ink-soft leading-relaxed"><span x-show={schemasMg[schema.id]?.description ? "lang !== 'mg'" : 'true'}>{schema.description}</span>{schemasMg[schema.id]?.description && <span x-show="lang === 'mg'" x-cloak lang="mg">{schemasMg[schema.id]?.description}</span>}</p>
+    </div>
+  ))}
+</div>

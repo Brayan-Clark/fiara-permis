@@ -13,7 +13,12 @@ Ny mpamily dia mandany ampahany betsaka amin'ny fiainany amin'ny fijanonana fa t
 | Faharetana | Ny fotoana ilaina, **2 minitra farafahabetsany** | **15 andro farafahabetsany** amin'ny toerana iray |
 | Fepetra | Ny mpamily dia **vonona foana hamindra** ny fiara | Afaka miala ny mpamily, rehefa vita ny fitandremana ilaina |
 
-Ny fiara avela mihoatra ny 15 andro eny amin'ny lalam-bahoaka dia mety ho gadraina any amin'ny fourrière (jereo ny PK 7).
+Ny fijanonana fohy dia atao hampiakarana na hampidinana mpandeha, na hampidirana na hamoahana entana : afaka mivoaka ny fiara ianao, saingy mijanona **eo akaiky** mba hahafahana mamindra azy avy hatrany. Izay rehetra maharitra mihoatra ny fihetsika dia fiantsonana. Vokany roa azo ampiharina :
+
+- Ny **toerana fijanonana fohy** dia mamela ny fijanonana fohy, fa tsy ny fiantsonana. Manatitra entana eny, mandeha misakafo tsia.
+- Ny toerana iray ihany dia mety mamela ny fijanonana fohy nefa mandrara ny fiantsonana — io no mahazatra indrindra.
+
+Ny fiara avela mihoatra ny 15 andro eny amin'ny lalam-bahoaka dia fiantsonana tafahoatra (stationnement abusif) : mety hampidirina any amin'ny fourrière izy (jereo ny PK 7).
 
 ### Aiza no tsy azo ijanonana fohy
 
@@ -21,7 +26,22 @@ Ny fiara avela mihoatra ny 15 andro eny amin'ny lalam-bahoaka dia mety ho gadrai
 - Manaraka **tsipika mitohy** ;
 - Amin'ny **lalana tery** na eo amin'ny **tetezana** ;
 - Eo **afovoan'ny lalana** ;
-- Eo amin'ny **tampon'ny fiakarana**.
+- Eo amin'ny **tampon'ny fiakarana** sy **alohan'ny fiolahana** ;
+- Ao anaty **tionelina**, eo amin'ny **sampanan-dalana** ary rehefa manakaiky **fiampitana lalamby** ;
+- Eo amin'ny **lalankely natokana** (bus, bisikileta, mpandeha an-tongotra) sy ny **lalankely fijanonana vonjy taitra** ;
+- Eo amin'ny **fiantsonan'ny bus** na **taxi** ;
+- Manoloana takelaka izay **hanakona** ;
+- **Mifanohitra amin'ny lalan-kalehana** amin'ny lalana mandroso sy miverina ;
+- Eo amin'ny **lalana ivelan'ny tanàna**, amin'ny alina na rehefa misy zavona ;
+- Amin'izay **manery ny hafa handika tsipika mitohy** na hivily amin'ny fomba mampidi-doza.
+
+Ohatra mivaingana mamintina ny zava-drehetra : **raha triatra ny kodiarana**, afaka mijanona eo amin'ny sisin-dalana tany ianao — fa **tsy eo amin'ny fisarahana afovoan'ny lalana**.
+
+### Aiza no azo ijanonana fohy, fa tsy azo iantsonana
+
+- Manaraka **tsipika mavo tapatapaka** ;
+- **Mifanila amin'ny fiara efa mijanona** (double file) — na dia mirehitra aza ny jiro fampitandremana : manambara loza ny jiro fampitandremana, fa tsy manome zo ;
+- Manoloana **vavahady** na **fidirana garazy** : mandritra ny fidirana na fivoahana, eny ; tontolo andro, tsia.
 
 ## Aiza no tsy azo iantsonana
 
@@ -62,6 +82,25 @@ Amin'ny lalana sens unique, azo atao ny miantsona **amin'ny ilany ankavia** amin
 1. Hamarino fa **tsy misy fandrarana** ;
 2. Alefaso ny **clignotant ankavia** ;
 3. Miantsona **manaraka ny sisiny ankavia** amin'ny lalana.
+
+## Miantsona ao an-tanàna, miantsona any ambanivohitra
+
+**Ao an-tanàna**, miantsona **eo ankavanana**, manaraka ny lalan-kalehana. Azo iantsonana ny ankavanana *sy* ny ankavia amin'ny lalana sens unique (jereo etsy ambony) na amin'izay voalamina hiantsonana amin'ny andaniny roa, ary eo amin'ny **trottoir voalamina** ho amin'izany — ambany noho ny lalana, tsy manelingelina ny mpandeha an-tongotra.
+
+**Any ambanivohitra**, miantsona **eo amin'ny sisin-dalana tany ankavanana**, raha azo aleha. Raha tsy milamina na mampidi-doza izy, azo ampiasaina ny ankavia — raha **tsy misy tsipika mitohy**. Fa raha azo atao ny miantsona eo ankavanana, dia **voarara ny mankany ankavia**.
+
+## Ny fiantsonana voafehy
+
+Rehefa **azo atao amin'ny fepetra** ny fiantsonana, ny famantarana no milaza hoe inona avy izany.
+
+| Rafitra | Izay takiany |
+|---|---|
+| **Faritra manga / kapila** (zone bleue) | Fotoana voafetra sy maimaim-poana. Tsy maintsy **afindra ny fiara** rehefa lany ny fotoana — fa tsy ovaina fotsiny ny kapila. Voamarika **manga** amin'ny tany ny toerana. |
+| **Mandoa vola** (horodateur, tapakila) | Vola aloa araka ny fotoana kasaina. Tsy mahavaha ny olana ny fanampiana vola rehefa lany ny fotoana. |
+| **Mifandimby, ilany iray** | Araka ny **daty** : ilany iray ihany no iantsonana, ary miova io ilany io eo afovoan'ny volana. |
+| **Mifandimby, andaniny roa** | Araka ny daty **sy** ny laharan'ny trano : 1 hatramin'ny 15 amin'ny ilany iray, 16 hatramin'ny 31 amin'ny ilany iray. |
+
+Tsy misy hatraiza hatraiza ireo rafitra ireo : **jereo ny famantarana eo an-toerana**, izy no manan-kery, fa tsy izay tadidinao tany amin'ny tanàna hafa.
 
 ## Ireo karazana fiantsonana telo
 
@@ -119,3 +158,13 @@ Alohan'ny dia tsirairay, ny fanamarinana haingana amin'ny teboka telo dia manala
 - Jiro sy clignotant miasa tsara, indrindra alohan'ny dia amin'ny alina
 
 Fanamarinana telopolo segondra monja ireo, nefa manala anao amin'ny olana maharitra ora maro.
+
+## Ny tokony ho tadidiana
+
+- **Fijanonana fohy = ny fotoanan'ny fihetsika**, 2 minitra farafahabetsany, eo akaiky ny mpamily. Fiantsonana avokoa ny hafa rehetra.
+- Ny fiara **tsy mihetsika mihoatra ny 15 andro amin'ny toerana iray** dia fiantsonana tafahoatra.
+- **Ny fahazoan-dalana hijanona fohy dia tsy midika hoe azo iantsonana.**
+- **Double file sy jiro fampitandremana** dia tsy manome zo hiantsona.
+- **10 m** amin'ny sampanan-dalana ao an-tanàna, **50 m** ivelan'ny tanàna.
+- Ao an-tanàna : **ankavanana**. Any ambanivohitra : **sisin-dalana tany ankavanana**, ny ankavia raha tsy azo aleha ny ankavanana ary tsy misy tsipika mitohy ihany.
+- **Taratasy, fehikibo, jiro** : telopolo segondra alohan'ny fiaingana tsirairay.

@@ -1,5 +1,15 @@
 ---
-import { panneaux, signCategoryLabel, signCategoryLabelMg, signCategoryOrder, signHtml } from '../data/panneaux';
+import { panneaux, signCategoryLabel, signCategoryLabelMg, signCategoryOrder, signHtml, type RoadSign } from '../data/panneaux';
+
+interface Props {
+  /**
+   * Sous-ensemble de panneaux à afficher (panneaux cités par un module).
+   * Par défaut : la planche complète, groupée par famille.
+   */
+  signs?: RoadSign[];
+}
+
+const { signs } = Astro.props;
 
 const accentByCategory: Record<string, string> = {
   danger: 'border-laterite/30',
@@ -12,21 +22,26 @@ const accentByCategory: Record<string, string> = {
   special: 'border-route/15',
 };
 
-const groups = signCategoryOrder
-  .map((category) => ({ category, signs: panneaux.filter((s) => s.category === category) }))
-  .filter((g) => g.signs.length > 0);
+// Un sous-ensemble s'affiche d'un bloc ; la planche complète, par famille.
+const groups = signs
+  ? [{ category: null, signs }]
+  : signCategoryOrder
+      .map((category) => ({ category, signs: panneaux.filter((s) => s.category === category) }))
+      .filter((g) => g.signs.length > 0);
 ---
 
 <div class="space-y-8">
   {groups.map(({ category, signs }) => (
     <section>
-      <h3 class="mb-3 font-plate text-xs uppercase tracking-widest text-ink-soft">
-        <span x-show="lang !== 'mg'">{signCategoryLabel[category]}</span><span x-show="lang === 'mg'" x-cloak lang="mg">{signCategoryLabelMg[category]}</span> <span class="text-ink-soft/60">· {signs.length}</span>
-      </h3>
+      {category && (
+        <h3 class="mb-3 font-plate text-xs uppercase tracking-widest text-ink-soft">
+          <span x-show="lang !== 'mg'">{signCategoryLabel[category]}</span><span x-show="lang === 'mg'" x-cloak lang="mg">{signCategoryLabelMg[category]}</span> <span class="text-ink-soft/60">· {signs.length}</span>
+        </h3>
+      )}
       <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {signs.map((sign) => (
           <div class:list={['rounded-xl border-2 bg-white/70 p-4 flex gap-4 items-start', accentByCategory[sign.category]]}>
-            <div class="h-14 w-14 shrink-0" set:html={signHtml(sign)} />
+            <div class="illustration h-14 w-14 shrink-0" set:html={signHtml(sign)} />
             <div>
               <h4 class="font-display text-sm font-semibold text-route leading-snug" x-show={sign.mg ? "lang !== 'mg'" : 'true'}>{sign.name}</h4>
               <p class="mt-1 text-xs text-ink-soft leading-relaxed" x-show={sign.mg ? "lang !== 'mg'" : 'true'}>{sign.description}</p>

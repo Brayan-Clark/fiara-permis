@@ -50,6 +50,23 @@ const glossaryFr: GlossaryTerm[] = [
   { term: "Retrait de la circulation", definition: "Sanction qui interdit définitivement à un véhicule de circuler : véhicule hors norme, en état de vétusté, refusé définitivement à la visite technique ou non immatriculé." },
   { term: "Échappement libre", definition: "Pot d'échappement percé, supprimé ou trafiqué, qui rend le véhicule anormalement bruyant. Motif d'immobilisation du véhicule." },
   { term: "Taxe de roulage", definition: "Taxe exigée pour faire circuler un deux-roues à moteur, y compris un cyclomoteur de moins de 50 cm³ qui ne demande pas de permis." },
+  { term: 'Signalisation horizontale', definition: "Le marquage peint sur la chaussée — lignes, bandes, flèches. Elle indique le lieu exact d'une règle (où s'arrêter, où la voie s'achève), là où le panneau en donne la règle générale." },
+  { term: 'Signalisation verticale', definition: "Les panneaux implantés sur le côté de la chaussée, à droite dans le sens de la marche — à gauche également dans un sens unique." },
+  { term: 'Signal avancé', definition: "Panneau qui annonce ce qui vient plus loin, sans que la règle s'applique encore : les panneaux de danger en sont tous. Il demande de ralentir et de se préparer." },
+  { term: 'Signal de position', definition: "Panneau dont la prescription s'applique à partir de l'endroit où il est posé : limitation de vitesse, stationnement interdit, sens interdit. Par opposition au signal avancé." },
+  { term: 'Ligne d’effet', definition: "La ligne des feux : la bande blanche transversale devant laquelle un véhicule doit s'être arrêté quand le feu passe au rouge. S'arrêter dessus, c'est s'arrêter trop tard." },
+  { term: 'Bande d’arrêt d’urgence', definition: "Voie latérale réservée à une immobilisation d'urgence — panne ou malaise. Le stationnement et même l'arrêt y sont interdits : on peut y changer une roue, pas s'y garer." },
+  { term: 'Ligne de dissuasion', definition: "Marquage axial continu d'un côté et à pointillés très serrés de l'autre. Il dissuade de dépasser : seuls les véhicules très lents restent dépassables du côté des pointillés." },
+  { term: 'Voie réservée', definition: "Voie affectée à une catégorie d'usagers précise (bus, cyclistes, véhicules lents), signalée par des rectangles rapprochés. On peut la traverser pour tourner, pas y circuler." },
+  { term: 'Panonceau', definition: "Le petit panneau rectangulaire posé sous un panneau principal. Il ne s'applique qu'au panneau situé au-dessus de lui, jamais à ceux qui suivent." },
+  { term: 'Cartouche', definition: "La petite étiquette colorée qui accompagne un nom de ville et indique le type de route emprunté. Se fier à celui qui est réellement posé plutôt qu'à une couleur mémorisée." },
+  { term: 'Passage à niveau', definition: "Croisement entre une route et une voie ferrée. Le train ne peut ni freiner assez tôt ni s'écarter : le dépassement y est interdit et le feu rouge clignotant impose l'arrêt même barrière levée." },
+  { term: 'Feux de détresse', definition: "Clignotants simultanés signalant un danger : panne, immobilisation sur la chaussée ou la bande d'arrêt d'urgence, bout de bouchon, véhicule très lent. À ne pas confondre avec un droit de stationner." },
+  { term: 'Feux de croisement', definition: "Les feux avant de tous les jours, portée utile d'environ 30 m. Obligatoires la nuit et par mauvais temps, et à rabattre dès qu'ils peuvent gêner un autre usager." },
+  { term: 'Aquaplaning', definition: "Perte d'adhérence quand les pneus glissent sur une pellicule d'eau au lieu de l'évacuer. Le véhicule ne répond plus à la direction : on lève le pied sans freiner ni braquer, et on sèche les freins après la flaque." },
+  { term: 'Éco-conduite', definition: "Conduite souple et anticipée, qui réduit la consommation, l'usure et la fatigue. Elle recoupe les règles de sécurité : anticiper plutôt que freiner, c'est aussi freiner moins fort." },
+  { term: 'Disque de stationnement', definition: "Disque horaire utilisé dans les zones à stationnement limité et gratuit : il faut déplacer le véhicule une fois le temps écoulé, pas seulement changer l'heure affichée." },
+  { term: 'Carte violette', definition: "Document qui fixe le nombre maximal de voyageurs qu'un véhicule de transport de personnes est autorisé à transporter. Le dépasser entraîne immobilisation et suspension du permis." },
 ];
 
 export const glossary: GlossaryTerm[] = glossaryFr.map((g) => ({ ...g, mg: glossaryMg[g.term] }));

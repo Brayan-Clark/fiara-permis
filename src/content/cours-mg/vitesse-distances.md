@@ -56,6 +56,25 @@ Izay asehon'ny tabilao : manomboka amin'ny 50 ka hatramin'ny 100 km/h, avo roa h
 
 Mba hanazarana ireo kajy ireo, ampiasao ny fanazaran-tena **Kajy ny halavirana ilaina hijanonana** ao amin'ny Fanazaran-tena.
 
+### Izay mampitombo ny halavirana amin'ny fihetsika
+
+Tsy ny hafainganana irery no antony. **Mihalava** ny fotoana ihetsehana noho ny :
+
+- **toaka** (PK 4),
+- **havizanana** sy ny tsy fahampian'ny torimaso,
+- **ahiahy** sy ny saina be olana,
+- **zava-mahadomelina**, ary **fanafody sasany** — tandremo ny taratasy miaraka aminy milaza fa mampatory.
+
+### Izay mampitombo ny halavirana amin'ny frein
+
+Miankina amin'ny **lanja**, ny **hafainganana**, ny **fifikirana** amin'ny lalana, ny toetry ny **kodiarana** sy ny **frein** ny fi-frein-ana. Miharatsy ny fifikirana noho ny :
+
+- **orana** — sy ny **ranomandry** (verglas), izay miforona voalohany eo amin'ny tetezana ;
+- **vato madinika**, **fasika**, **fotaka** ;
+- **gazoaly miraraka**, matetika eo afovoan'ny lalana ary tsy hita avy lavitra.
+
+Hevitra diso tokony hotadidiana : **tsy manafohy ny halavirana amin'ny frein ny ABS.** Manakana ny kodiarana tsy hihidy izy ary mampilamina ny fiara — ka ahafahana mifehy sy mitarika azy — nefa mitovy ihany ny hery tokony hatsahatra ho an'ny fiara mitovy lanja. Tsy « fohy kokoa » noho ny hafa àry ny fiara misy ABS.
+
 ## Ireo toe-javatra tsy maintsy hampihenana ny hafainganana
 
 Ny taratasy fampianarana permis B dia mitanisa ireo toe-javatra tsy maintsy hampiadanana, na dia tsy misy takelaka aza :
@@ -70,7 +89,20 @@ Ny taratasy fampianarana permis B dia mitanisa ireo toe-javatra tsy maintsy hamp
 
 Ny fitsipika azo ampiharina mora indrindra eny an-dalana : tazony **2 segondra** farafahakeliny ny elanelana amin'ny fiara eo alohanao (mifidiana zavatra tsy mihetsika — tsato-jiro, hazo — ary isao ny fotoana eo anelanelan'ny fandalovan'ny fiara eo aloha sy ny anao). Amin'ny lalam-pirenena na rehefa ratsy ny andro, tokony hitombo io elanelana io.
 
+Io ihany koa ny lojikan'ny lalàna, voalaza amin'ny segondra fa tsy amin'ny metatra : **eo amin'ny 1 segondra ny fotoana ihetsehana**, ary ny elanelana fiarovana takiana dia **avo roa heny ny halavirana amin'ny fihetsika**. Tsy fanampiny ho fiadanana ny segondra faharoa : io no fotoana ilainao hihetsika *manoloana ny fi-frein-an'ny eo alohanao*.
+
 Raha hovaina ho metatra an-tsaina : **2 segondra ≈ ampolony × 6**. Amin'ny 50 km/h, tazony 30 m farafahakeliny ; amin'ny 90 km/h, 54 m farafahakeliny — eo ho eo amin'ny halavirana amin'ny frein. Ny taratasy fampianarana koa dia mametraka elanelana farafahakeliny **10 m ao an-tanàna ary 50 m ivelan'ny tanàna** eo amin'ny fiara roa.
+
+## Midina fidinana lava
+
+Io no toe-javatra tsy iasan'ny frein intsony, ary iray amin'ireo vitsy tsy azo andrasana ara-mekanika : **tsy andrasana ny olana amin'ny frein.** Afaka miandry adiny iray ny fahasimbana hafa rehetra ; ity kosa mankany amin'ny garazy avy hatrany.
+
+- Ny **motera** no mitazona ny fiara (frein moteur), fa tsy ny pedaly.
+- Raha tsy maintsy mi-frein, ataovy **fohy sy mafy** fa aza apetraka foana eo ny tongotra : ny fi-frein-ana tsy mitsahatra dia mampafana ny frein mandra-pahatsy ilaina azy.
+- **Aza mihitsy amin'ny point mort** amin'ny fidinana : manala ny fanampian'ny motera izany.
+- Amin'ny lalana malama : frein moteur, hafainganana ambany, ary elanelana fiarovana **ampitomboina**.
+
+Farany, rehefa avy namakivaky **rano miandrona** : mi-frein kely rehefa mivoaka mba hanamainana ny frein, izay very ny heriny rehefa lena. Ary ao ambanin'ny rano no miafina ny lavaka.
 
 ## Ny tokony ho tadidiana
 
@@ -78,3 +110,6 @@ Raha hovaina ho metatra an-tsaina : **2 segondra ≈ ampolony × 6**. Amin'ny 50
 - Ny takelaka eo an-toerana no ambony foana noho ny fetra ankapobeny.
 - Ny fampiadanana akaikin'ny tsena sy ny sekoly dia tsy fahalalam-pomba fotsiny : matetika adidy voasoratra izany.
 - Tsy tsaraina irery mihitsy ny hafainganana — tsaraina araka ny toetry ny lalana, ny fahitana ary ny habetsahan'ny fiara.
+- **Tsy manafohy ny fi-frein-ana ny ABS** : mampilamina ny fiara izy, fa tsy ny halavirana.
+- **Fidinana lava** : frein moteur, frein fohy sy mafy, tsy point mort mihitsy.
+- **Toaka, havizanana, fanafody** dia mampitombo ny fotoana ihetsehana, ka ny halavirana fijanonana.

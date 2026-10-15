@@ -107,6 +107,9 @@ export const panneauxMg: Record<string, { name: string; description: string }> =
   'carburant': { name: "Toeram-pivarotana solika (station-service)", description: "Misy toeram-pivarotana solika eo akaiky eo." },
   'entree-agglomeration': { name: "Fidirana an-tanàna (entrée d'agglomération)", description: "Fiandohan'ny tanàna lehibe na kely : voafetra ho 50 km/h ny hafainganana, afa-tsy raha misy takelaka hafa." },
   'sortie-agglomeration': { name: "Fivoahana amin'ny tanàna (sortie d'agglomération)", description: "Fiafaran'ny tanàna : tapitra ny fetra 50 km/h, mihatra ny fetra ivelan'ny tanàna." },
+  'autoroute': { name: "Lalambe haingana (autoroute)", description: "Ambadika manga, sarin'ny lalana roa misaraka : miditra amin'ny lalana tsy misy sampanan-dalana, tokana ny lalan-kalehany ary haingana ny fifamoivoizana." },
+  'fin-autoroute': { name: "Fiafaran'ny autoroute", description: "Sary mitovy voatsipika mena : tapitra eto ny fitsipiky ny autoroute, ao anatin'izany ny hafainganana ambony indrindra nahazoan-dalana tao." },
+  'aire-de-repos': { name: "Toerana fialan-tsasatra (aire de repos)", description: "Toerana voalamina hijanonana, hiala sasatra ary hiainga indray efa tsy reraka — hany valiny mahomby amin'ny havizanana rehefa mitondra fiara." },
   // ---- Vonjimaika
   'travaux-chaussee-retrecie': { name: "Lalana tery (vonjimaika)", description: "Fihenan'ny sakan'ny lalana vonjimaika, matetika noho ny asa an-dalana. Ambadika mavo = famantarana vonjimaika." },
   'travaux-chaussee-glissante': { name: "Lalana malama (vonjimaika)", description: "Lalana lasa malama vonjimaika (fotaka avy amin'ny asa, vato madinika)." },

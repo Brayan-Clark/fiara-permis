@@ -9,6 +9,8 @@ sources:
     url: "https://www.fiarakodia.com/en/posts/code-de-la-route-a-madagascar-une-piqure-de-rappel-essentielle"
   - label: "Loi n°2017-002 portant Code de la Route à Madagascar (fiche du texte)"
     url: "https://textes.lexxika.com/lois-malagasy/loi-n2017-002-du-06-juillet-2016-portant-code-de-la-route-a-madagascar/"
+  - label: "M. Lamonerie Jean — Synthèse du code de la route (Formations O.K., 2008)"
+    url: "https://fr.scribd.com/document/140572899/Document-Code-De-La-Route-pdf"
 ---
 
 La vitesse est la variable que le conducteur contrôle le plus directement — et celle qui a le plus d'impact sur la gravité d'un accident. Une différence de 20 km/h change complètement la distance nécessaire pour s'arrêter.
@@ -64,6 +66,25 @@ Ce que le tableau montre : de 50 à 100 km/h, la vitesse double, mais la distanc
 
 Pour t'entraîner à ces calculs, utilise l'exercice **Calcul des distances d'arrêt** dans la rubrique Exercices.
 
+### Ce qui allonge la distance de réaction
+
+La vitesse n'est pas seule en cause. Le temps de réaction **s'allonge** avec :
+
+- **l'alcool** (module PK 4),
+- **la fatigue** et le manque de sommeil,
+- les **soucis** et la charge mentale,
+- les **stupéfiants**, et **certains médicaments** — attention aux notices qui parlent de somnolence.
+
+### Ce qui allonge la distance de freinage
+
+Le freinage dépend du **poids**, de la **vitesse**, de l'**adhérence**, de l'état des **pneumatiques** et des **freins**. L'adhérence, elle, se dégrade avec :
+
+- la **pluie** — et le **verglas**, qui se forme en premier sur les ponts ;
+- les **gravillons**, le **sable**, la **boue** ;
+- les **traces de gas-oil**, souvent au milieu d'une chaussée et invisibles de loin.
+
+Et une idée fausse à retenir : **l'ABS ne raccourcit pas la distance de freinage.** Il empêche les roues de se bloquer et stabilise le véhicule — ce qui permet de garder la maîtrise et de diriger — mais l'énergie à dissiper reste la même pour un véhicule de même poids. Un véhicule équipé d'ABS n'est donc pas « plus court » qu'un autre.
+
 ## Les cas où l'on doit réduire sa vitesse
 
 Le support de formation permis B liste les situations où ralentir est une obligation, même sans panneau :
@@ -78,7 +99,20 @@ Le support de formation permis B liste les situations où ralentir est une oblig
 
 La règle pratique la plus utile sur route : garder au moins **2 secondes** d'écart avec le véhicule qui précède (repérer un point fixe — poteau, arbre — et compter le temps entre son passage par le véhicule de devant et par le sien). Sur route nationale ou par mauvais temps, cet écart doit être augmenté.
 
+C'est la même logique que la loi, formulée en secondes plutôt qu'en mètres : **le temps de réaction est d'environ 1 seconde**, et la distance de sécurité imposée vaut **deux fois la distance de réaction**. La seconde supplémentaire n'est pas une marge de confort, c'est le temps qu'il te faut pour réagir *au freinage de celui qui est devant*.
+
 Pour la traduire en mètres de tête : **2 secondes ≈ dizaine × 6**. À 50 km/h, garde au moins 30 m ; à 90 km/h, au moins 54 m — soit à peu près la distance de freinage. Le support de cours fixe d'ailleurs un minimum de **10 m en ville et 50 m hors agglomération** entre deux véhicules.
+
+## Descendre une longue côte
+
+C'est la situation où les freins échouent, et c'est une des rares urgences mécaniques du code : **un problème de freins ne s'attend pas.** Toutes les autres pannes peuvent patienter une heure ; celle-là va au garage tout de suite.
+
+- On retient le véhicule avec le **frein moteur**, pas avec la pédale.
+- Si l'on doit freiner, on le fait par **actions brèves et fortes** plutôt que pied dessus en permanence : un freinage continu chauffe les freins jusqu'à les rendre inutiles.
+- **Jamais au point mort** dans une descente : ça supprime justement l'aide du moteur.
+- Sur chaussée glissante : frein moteur, allure réduite, et distances de sécurité **augmentées**.
+
+Enfin, après avoir traversé une **flaque** : un freinage léger à la sortie sèche les freins, qui ont perdu de leur mordant en étant mouillés. Et sous la flaque se cache le trou — dans la flaque se casse la roue.
 
 ## Ce qu'il faut retenir
 
@@ -86,3 +120,6 @@ Pour la traduire en mètres de tête : **2 secondes ≈ dizaine × 6**. À 50 km
 - Le panneau local prime toujours sur la limite générale.
 - Ralentir aux abords des marchés et des écoles n'est pas qu'une politesse : c'est souvent une obligation signalée.
 - La vitesse ne se juge jamais seule — elle se juge par rapport à l'état de la route, à la visibilité et à la densité de circulation.
+- **L'ABS n'écourte pas le freinage** : il stabilise le véhicule, pas la distance.
+- **Longue descente** : frein moteur, freinages brefs et forts, jamais de point mort.
+- **Alcool, fatigue, médicaments** allongent la réaction, donc l'arrêt.

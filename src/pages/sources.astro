@@ -2,8 +2,17 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 import { panneaux } from '../data/panneaux';
+import { photos } from '../data/photos';
 
 const modules = (await getCollection('cours')).sort((a, b) => a.data.order - b.data.order);
+
+// Les photos sont référencées par la page du fichier d'origine sur Commons :
+// c'est là qu'on peut vérifier l'auteur et la licence, et retrouver la version
+// pleine résolution.
+const photosByAuthor = photos.map((photo) => ({
+  ...photo,
+  moduleTitle: modules.find((m) => m.id === photo.module)?.data.title ?? photo.module,
+}));
 
 const uniqueSources = new Map<string, string>();
 for (const mod of modules) {
@@ -66,6 +75,46 @@ const signCredits = panneaux.filter((s) => s.credit);
         ))}
       </ul>
     </details>
+    <section class="mt-14">
+      <h2 class="font-display text-2xl font-semibold text-route">
+        <span x-text="t('sources.photosTitle')">Crédits photographiques</span>
+      </h2>
+      <p class="mt-3 text-sm text-ink-soft leading-relaxed">
+        <span x-text="t('sources.photosIntro')"
+          >Les photos des modules viennent de Wikimedia Commons. Elles sont publiées telles
+          quelles — aucun recadrage, aucune retouche — et leur auteur comme leur licence sont
+          affichés sous chaque image. Les schémas, les panneaux et le marquage au sol, eux, sont
+          dessinés pour ce site et ne dépendent d'aucune source extérieure.</span
+        >
+      </p>
+
+      <ul class="mt-6 space-y-3 text-sm">
+        {photosByAuthor.map((photo) => (
+          <li class="border-b border-route/10 pb-3">
+            <a
+              href={photo.sourceUrl}
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              class="text-signal underline underline-offset-2 hover:text-laterite"
+            >
+              {photo.alt}
+            </a>
+            <p class="mt-0.5 text-xs text-ink-soft">
+              {photo.author} ·{' '}
+              <a
+                href={photo.licenseUrl}
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                class="underline underline-offset-2 hover:text-laterite"
+              >
+                {photo.license}
+              </a>
+              {' '}· module « {photo.moduleTitle} »
+            </p>
+          </li>
+        ))}
+      </ul>
+    </section>
 
     <div class="mt-10 rounded-xl border-2 border-sun/40 bg-sun/10 p-5 text-sm text-route">
       <span x-text="t('sources.note')">Une information te semble dépassée ou inexacte ? Ce site n'a pas de canal de retour intégré pour le moment — recoupe toujours une règle qui te semble surprenante avec ton auto-école ou le CIM avant de t'y fier pour l'examen.</span>

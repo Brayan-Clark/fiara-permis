@@ -7,6 +7,10 @@ order: 5
 sources:
   - label: "Fiarakodia — Code de la route à Madagascar"
     url: "https://www.fiarakodia.com/en/posts/code-de-la-route-a-madagascar-une-piqure-de-rappel-essentielle"
+  - label: "M. Lamonerie Jean — Synthèse du code de la route (Formations O.K., 2008)"
+    url: "https://fr.scribd.com/document/140572899/Document-Code-De-La-Route-pdf"
+  - label: "Loi n°2017-002 portant Code de la Route à Madagascar (fiche du texte)"
+    url: "https://textes.lexxika.com/lois-malagasy/loi-n2017-002-du-06-juillet-2016-portant-code-de-la-route-a-madagascar/"
 ---
 
 Un conducteur passe une bonne partie de sa vie à l'arrêt, pas en mouvement — et le stationnement mal placé est l'une des causes les plus fréquentes d'infractions évitables.
@@ -19,7 +23,12 @@ Un conducteur passe une bonne partie de sa vie à l'arrêt, pas en mouvement —
 | Durée | Le temps nécessaire, **2 minutes au plus** | **15 jours au maximum** au même endroit |
 | Condition | Le conducteur reste **toujours prêt à déplacer** le véhicule | Le conducteur peut s'éloigner, après les précautions d'usage |
 
-Un véhicule laissé plus de 15 jours sur la voie publique peut être mis en fourrière (voir PK 7).
+L'arrêt sert à faire monter ou descendre des passagers, ou à charger et décharger : tu peux sortir du véhicule, mais tu restes **à proximité**, pour pouvoir le déplacer immédiatement. Tout ce qui dure plus longtemps que la manœuvre est un stationnement. Deux conséquences pratiques :
+
+- Une **place d'arrêt** autorise l'arrêt, pas le stationnement. Livrer un colis oui, partir déjeuner non.
+- Le même endroit peut tolérer l'arrêt et interdire le stationnement — c'est le cas le plus fréquent.
+
+Un véhicule laissé plus de 15 jours sur la voie publique est en stationnement abusif : il peut être mis en fourrière (voir PK 7).
 
 ### Où l'arrêt est interdit
 
@@ -27,7 +36,22 @@ Un véhicule laissé plus de 15 jours sur la voie publique peut être mis en fou
 - Le long d'une **ligne continue** ;
 - Sur une **chaussée rétrécie** ou sur un **pont** ;
 - Au **milieu de la route** ;
-- Au **sommet d'une côte**.
+- Au **sommet d'une côte** et **avant un virage** ;
+- Dans un **tunnel**, à une **intersection** et à l'approche d'un **passage à niveau** ;
+- Sur les **voies réservées** (bus, cyclistes, piétons) et sur une **bande d'arrêt d'urgence** ;
+- À un **arrêt de bus** ou de **taxi** ;
+- Devant un panneau que l'on **cache** ;
+- **À contre-sens** sur une route à double sens ;
+- Sur la **chaussée hors agglomération**, la nuit ou par temps de brouillard ;
+- Là où cela **oblige les autres à franchir une ligne continue** ou à se déporter dangereusement.
+
+Un cas concret qui résume tout : **en cas de crevaison**, tu peux t'immobiliser sur l'accotement — mais **pas sur le terre-plein central**.
+
+### Là où l'arrêt est permis, mais pas le stationnement
+
+- Le long d'une **ligne jaune discontinue** ;
+- En **double file** — même avec les feux de détresse allumés : les feux de détresse signalent un danger, ils ne créent pas un droit ;
+- Devant une **porte cochère** ou une **entrée de garage** : le temps d'entrer ou de sortir, oui ; la journée entière, non.
 
 ## Où le stationnement est interdit
 
@@ -68,6 +92,25 @@ Sur une rue à sens unique, on peut se garer **du côté gauche** de la chaussé
 1. Vérifier qu'il n'y a **pas d'interdiction** de stationner ;
 2. Mettre le **clignotant gauche** ;
 3. Stationner **le long du bord gauche** de la chaussée.
+
+## Stationner en ville, stationner à la campagne
+
+**En ville**, on se gare **à droite**, dans le sens de la circulation. On peut se garer à droite *et* à gauche sur les rues à sens unique (voir plus haut) ou là où le stationnement des deux côtés est aménagé, et sur les **trottoirs aménagés** pour cela — abaissés par rapport à la route, sans gêner les piétons.
+
+**À la campagne**, on se gare **sur l'accotement de droite**, s'il est praticable. S'il est instable ou dangereux, on peut utiliser celui de gauche — à condition qu'il n'y ait **pas de ligne continue**. Mais si le stationnement à droite est possible, il est **interdit d'aller se garer à gauche**.
+
+## Le stationnement réglementé
+
+Quand le stationnement est **autorisé sous conditions**, la signalisation te dit lesquelles.
+
+| Système | Ce qu'il impose |
+|---|---|
+| **Zone bleue / disque** | Un temps limité et gratuit. Il faut **déplacer le véhicule** une fois le temps écoulé — pas seulement tourner le disque. Le stationnement au sol y est signalé par un **marquage bleu**. |
+| **Payant (horodateur, ticket)** | Une redevance selon le temps prévu. Remettre de l'argent une fois le temps écoulé ne régularise pas la situation. |
+| **Alterné, unilatéral** | Selon la **date** : on stationne d'un seul côté, et ce côté change au milieu du mois. |
+| **Alterné, bilatéral** | Selon la date **et** le numéro des maisons : du 1 au 15 d'un côté, du 16 au 31 de l'autre. |
+
+Ces systèmes n'existent pas partout : **regarde la signalisation sur place**, c'est elle qui fait foi, pas un souvenir d'une autre ville.
 
 ## Les trois types de stationnement
 
@@ -125,3 +168,13 @@ Avant chaque trajet, un contrôle rapide en trois points évite le stress d'un b
 - Feux et clignotants fonctionnels, surtout avant un trajet de nuit
 
 Ce sont des vérifications qui prennent trente secondes, mais qui évitent des heures de complications.
+
+## Ce qu'il faut retenir
+
+- **Arrêt = le temps de la manœuvre**, 2 minutes au plus, conducteur à proximité. Tout le reste est un stationnement.
+- Un véhicule **immobile plus de 15 jours au même endroit** est en stationnement abusif.
+- **Arrêt autorisé n'implique pas stationnement autorisé.**
+- **Double file et feux de détresse** ne créent aucun droit de stationner.
+- **10 m** d'une intersection en ville, **50 m** hors agglomération.
+- En ville : **à droite**. À la campagne : **accotement de droite**, celui de gauche seulement s'il est impraticable et sans ligne continue.
+- **Papiers, ceinture, feux** : trente secondes avant chaque départ.
