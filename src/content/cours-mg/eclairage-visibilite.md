@@ -32,6 +32,38 @@ Tsy alefa : amin'ny antoandro mazava, amin'ny faritra efa be jiro, na rehefa man
 | **Jiron'ny takelaka laharana** | Tsy maintsy azo vakiana amin'ny **20 m** amin'ny alina ny takelaka. |
 | **Fitaovana manazava** (catadioptres) | Taratra efamira na boribory — **telozoro** ho an'ny fiara misy remorque (PK 15). |
 
+## Ireo isa angatahin'ny fanadinana
+
+Ny taratasy fampianarana any amin'ny auto-école dia mamintina ny jiro sy ny halaviran'ny hazavany :
+
+| Aiza | Jiro | Halavirana / fahitana |
+|---|---|---|
+| **Aloha** | **Phare** 2 (jiro ambony) | **100 m** farafahakeliny |
+| | **Code** 2 (jiro ambany) | **30 m** farafahabetsany |
+| | **Veilleuse** 2 (jiro kely) | hita amin'ny **150 m** |
+| | **Clignotant** 2 | hanondroana ny lalana halehana |
+| **Aoriana** | **Jiro mena** 2 | hita amin'ny **150 m** |
+| | **Feu stop** 2 | mirehitra rehefa mi-frein |
+| | **Clignotant** 2 | hanondroana ny lalana halehana |
+| | **Jiron'ny plaque** 1 na 2 (« feu de police ») | azo vakiana amin'ny **20 m** ny plaque |
+| | **Catadioptre** (« cataphote ») | mamerina ny hazavana amin'ny **100 m** |
+
+### Phare sa code ?
+
+| Ampiasaina ny **phare** | Ampiasaina ny **code** (ny mifanohitra amin'ny phare) |
+|---|---|
+| **Ivelan'ny tanàna** | **Ao an-tanàna** |
+| Rehefa **tsy misy fiara avy manoloana** | **Ao amin'ny fiolahana** |
+| Rehefa **tsy misy fiara arahina akaiky** | **Eo amin'ny tampon'ny fiakarana** |
+| Rehefa tsy misy **loza manokana** (fiolahana, tampon'ny fiakarana…) | Rehefa **mifanena** amin'ny fiara |
+| | Rehefa hita ao amin'ny fitaratra fa **efa hohoarina** ianao |
+
+**Amin'ny alina, rehefa hiditra fiolahana** : alefa ny code, mihazona ny ankavanana, mampiadana.
+
+**Amin'ny alina, avy lavitra, mankany amiko ve ny fiara iray sa miala ?** Raha mahita jiro **fotsy na mavo** aho, **manatona** ahy izy ; raha mahita jiro **mena** aho, **miala** izy.
+
+Ny **clignotant** dia hanambarana fivilihana ; alefa amin'ny **manette** eo amin'ny familiana izy. Ny **feu stop** dia mirehitra ho azy rehefa **mi-frein**. Ary amin'ny antoandro, ny **clignotant** sy ny **feu stop** ihany no ampiasaina : ho an'ny alina sy ny andro ratsy ny jiro hafa.
+
 ## Ny jiro fampitandremana (feux de détresse)
 
 Io no famantarana milaza hoe « mitandrema, misy zavatra tsy mahazatra eto ». Ampiasaina izy rehefa lasa sakana na loza ny fiara :

@@ -48,6 +48,54 @@ Raha tsy nanaraka fiofanana, ny fitsipika volamena dia : **aza mampitombo ny rat
 
 Ny fanarahana fiofanana momba ny vonjy voalohany no fameno tsara indrindra amin'ity lesona ity — tsy misy pejy an-tranonkala afaka manolo ny fihetsika nianarana tamin'ny tanana.
 
+### Izay voalazan'ny taratasy fampianarana any amin'ny auto-école
+
+Ny taratasy fampianarana permis B dia mamintina amin'ny toe-javatra roa ny tokony hatao :
+
+- **Loza ara-pitaovana** (tsy misy maratra) : manao **constat à l'amiable** mivantana eo amin'ny mpamily.
+- **Loza misy maratra** :
+  - **soritana ny toerana nisian'ny maratra** raha oharina amin'ny fiara, alohan'ny hamindrana na inona na inona ;
+  - **antsoina ny polisy** raha ao an-tanàna, ny **zandary** raha ivelan'ny tanàna ;
+  - **tsy afindra mihitsy ny fiara** — raha tsy misy mpitandro filaminana, ireo **vavolombelona any amin'ny fokontany** no manao ny fitanana an-tsoratra (PV) ;
+  - rehefa tsy afaka ho avy ny mpamonjy, milaza ny taratasy fampianarana fa **entina any amin'ny hopitaly akaiky indrindra ny maratra**.
+
+> Mifameno ireo toromarika roa ireo : **raha mbola mety ho tonga ny mpamonjy, tsy afindra ny maratra** (mety hisy ratra amin'ny hazon-damosina). Ny fitondrana azy amin'ny fitaovanao manokana no farany indrindra, rehefa tsy hisy ho avy — zavatra mahazatra lavitry ny tanàna.
+
+## Simba eo amin'ny fiampitana lalamby, tetezana na sampanan-dalana
+
+Mampidi-doza ho an'ny rehetra ny fahasimbana amin'ireo toerana ireo : tsy maintsy **ampitandremana avy lavitra** ny hafa.
+
+**Raha tsy afaka mihetsika ny fiara :**
+- eo amin'ny **fiampitana lalamby**, apetraka ny **saina mena** (fanion rouge) amin'ny antoandro, **jiro** amin'ny alina, **500 m** amin'ny andaniny roa amin'ny lalamby, **ankavia sy ankavanana** — mila izany halavirana izany ny lamasinina vao mijanona ;
+- eo amin'ny **tetezana** na any an-kafa, apetraka **100 m** eo aloha sy ao aoriana, hita tsara, ny **saina mena**, **sampan-kazo** na ny **telozoro**.
+
+**Raha afaka mihetsika ny fiara :** apetraka amin'ny **point mort** ny vitesse, **esorina ny frein à main**, ary **atosika** mba hialana.
+
+**Raha tsy misy olona hanosika :** ampidirina ny **1ʳᵉ** na ny **mihemotra**, esorina ny frein à main, ary velomina ny démarreur **tsy manindry embrayage** : mandroso tsikelikely amin'ny herin'ny démarreur ny fiara (« démarrage en vitesse »), ampy hialana amin'ny lalana.
+
+## Kodiarana vaky
+
+- **Tsy mijanona mihitsy eo ambony tetezana** hanovana kodiarana : ampitaina ary mijanona **aorian'**izany.
+- Mijanona **eo ankavanana**, maty ny motera, **voatazona ny frein à main**, misy vitesse niditra.
+- Asiana **vato fanakanana** (cale) eo aloha sy ao aorian'ny kodiarana iray mbola mipetraka amin'ny tany.
+- Amin'ny **cric**, ny **kodiarana fanampiny** ary ny **manivelle** (clé de roue) : vahana **alohan'**ny hampiakarana ny écrous, ampiakarina, ovaina ny kodiarana, hidiana, ampidinina, avy eo **atahiry** ny cric, ny kodiarana vaky, ny manivelle ary ny vato fanakanana.
+
+## Izay entin'ny mpamily rehefa hanao dia
+
+| Fitaovana | Tahiry | Fiarovana |
+|---|---|---|
+| **Cric**, **clé de roue** (manivelle), **kodiarana fanampiny**, **lakile fanamboarana** | **Menaka**, **rano**, **ranon'ny frein** (Lockheed), **jiro kely (ampoules)**, **fusibles** | **Extincteur**, **jiro azo entina (lampe baladeuse)**, **telozoro fampitandremana** |
+
+## Izay voarara eo amin'ny lalam-bahoaka
+
+Tsy fanariam-pako na garazy ny lalana :
+
+- **mandao** fiara na zavatra eo amin'ny lalam-bahoaka ;
+- **manipy entana** (fasika, vato madinika, fitaovana fanorenana) eo ;
+- **mandatsaka, manaparitaka na manary** zavatra na akora (ao anatin'izany ny setroka) manelingelina ny fiarovana amin'ny fifamoivoizana ;
+- **manasa fiara** eo amin'ny lalam-bahoaka ;
+- mametraka **jiro** manajamba na mamitaka ny mpampiasa lalana.
+
 ## Heloka ny fandosirana
 
 Ny tsy fijanonana an-kitsimpo rehefa avy niteraka lozam-pifamoivoizana, na ny fikasana handositra, dia **heloka fandosirana** (délit de fuite).

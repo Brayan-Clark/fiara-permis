@@ -131,6 +131,63 @@ Certains panneaux se ressemblent assez pour qu'on les confonde sous pression —
 
 La planche de panneaux en bas de cette page contient tous ces cas, y compris les plus retors. Le bon réflexe à l'examen : regarder **la forme et la couleur avant le dessin**, puis le dessin, puis le panonceau.
 
+## Les gestes de l'agent de circulation
+
+Les signes de l'agent sont des **signes conventionnels**, les mêmes dans tous les pays (*baiko moana iraisam-pirenena* : le « langage muet » international). Les véhicules et piétons **déjà engagés** dans le carrefour le dégagent le plus vite possible ; ceux qui ne sont **pas engagés** s'arrêtent.
+
+| Geste de l'agent | Ce qu'il veut dire |
+|---|---|
+| **Bras levé à la verticale** | Attention : **arrêt** pour tous, sauf ceux qui ne peuvent plus s'arrêter sans danger. |
+| **Bras tendus à l'horizontale**, de face ou de dos | **Stop** pour les usagers qui lui font face ou qui sont dans son dos. |
+| **De profil** | Les usagers qu'il a sur les côtés **peuvent passer**. |
+| **Bras qui monte et descend** | **Ralentir**. |
+| **Bras qui fait signe d'avancer** | **Avancer**, ou **accélérer** pour dégager. |
+
+## Les balises
+
+Les **balises** sont des signaux de position : elles se placent à l'endroit même du danger.
+
+- **Balise de virage** : des chevrons **blancs**, dans le virage lui-même, pour en dessiner la courbe.
+- **Balise de pont** ou de **rétrécissement** : chevrons blancs avec du **rouge** en tête.
+- **Balise d'intersection** : elle rend le carrefour plus visible, et se lit selon l'angle sous lequel on la voit :
+  - vue **de profil**, tu es sur la **route à grande circulation** coupée par une route secondaire : tu as la **priorité** ;
+  - vue **de face**, tu es sur la **route secondaire** qui coupe une route à grande circulation : tu **cèdes**.
+
+## Les couleurs, panneau par panneau
+
+| Panneau | Forme | Bordure | Symbole | Fond |
+|---|---|---|---|---|
+| **Danger** | Triangle pointe en haut | Rouge | Bleu foncé (ou noir) | Crème, jaune ou blanc |
+| **Interdiction** | Ronde | Rouge | Bleu foncé | Blanc ou bleu |
+| **Fin d'interdiction** | Ronde | Bleu foncé ou noir | Bleu foncé ou noir | Blanc — barré d'une diagonale noire ou bleue |
+| **Obligation** | Ronde | Blanc | Blanc | Bleu foncé |
+| **Fin d'obligation** | Ronde | Blanc | Blanc | Bleu foncé — barré d'une diagonale rouge |
+| **Indication** | Carré ou rectangle | Bleu | Blanc ou bleu foncé | Bleu ou blanc |
+| **Localisation** | Rectangle | Bleu foncé | Bleu foncé | Blanc ou crème |
+| **Direction** | Carré ou rectangle avec flèche | Bleu foncé | Bleu foncé | Blanc ou crème |
+
+Exemples : un panneau de **localisation** donne le nom d'un lieu (une rivière comme la **Sofia**, une agglomération comme **Anivorano Nord**) ; un panneau de **direction** « **Betafo 100 km — N 6** » veut dire : par la **route nationale n° 6**, il reste **100 km** jusqu'à Betafo.
+
+### Les codes des routes
+
+| Code | Route |
+|---|---|
+| **RN** | Route nationale |
+| **RA** | Autoroute |
+| **RR** | Route rurale |
+| **RD** | Route départementale |
+| **RF** | Route forestière |
+| **RC** | Route communale |
+| **RE** | Route européenne |
+
+## Trois équivalences à connaître
+
+L'examen pose parfois ces questions « d'intelligence » :
+
+- **Quel signal remplace le feu tricolore ?** L'**agent de police**.
+- **Quel marquage au sol remplace le panneau de danger ?** La **ligne continue** : elle aussi dit qu'on ne voit pas assez loin pour dépasser.
+- **Quel panneau d'indication vaut une limitation à 50 km/h ?** Le panneau de **localisation d'entrée d'agglomération** : en entrant dans une ville ou un village, on doit savoir qu'on passe à 50 km/h sans qu'un panneau rond le répète.
+
 ## La planche des panneaux
 
 Tous les panneaux de la planche, en bas de cette page, sont à reconnaître. Entraîne-toi ensuite avec l'exercice **Reconnaissance de panneaux**, qui tire au sort parmi toute la planche.

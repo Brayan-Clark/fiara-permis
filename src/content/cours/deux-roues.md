@@ -88,6 +88,40 @@ Les documents à fournir sont ceux du module PK 6 : carte d'identité scolaire, 
 
 L'épreuve comporte le **code** — les modules PK 1 à PK 11 de ce livret — et la **conduite**, où l'on regarde surtout ton équilibre à basse vitesse, tes vérifications avant manœuvre, et ton freinage.
 
+## Les questions d'examen sur la moto
+
+Le questionnaire « moto » des auto-écoles revient sur des points simples, à connaître par cœur.
+
+**Les trois types de deux-roues à moteur :**
+
+| Type | Cylindrée | Permis |
+|---|---|---|
+| **Cyclomoteur** | moins de **50 cm³** | aucun permis (dès 14 ans) |
+| **Vélomoteur** | de **50 à 125 cm³** | permis **A'** (dès 16 ans) |
+| **Motocyclette** | plus de **125 cm³** | permis **A** (dès 16 ans) |
+
+**Les accessoires obligatoires** : l'**éclairage**, **deux rétroviseurs**, l'**avertisseur sonore**, **deux freins**, et un **échappement** muni de son silencieux et de son anti-parasite.
+
+**Les protections du pilote** : **casque**, **gants**, **genouillères**, **combinaison**, **bottes**.
+
+**Les inscriptions sur la moto** : le **numéro d'immatriculation**, la **cylindrée** et le **numéro de châssis**.
+
+**Les feux** : à l'**avant**, code, phare, veilleuse et clignotants ; à l'**arrière**, feu rouge, feu stop, feu de plaque, clignotants et **catadioptre**.
+
+**Les papiers** : **taxe de roulage**, **assurance**, **carte grise** et **permis** (sauf cyclomoteur, sans permis ni carte grise).
+
+**Visite technique et visite médicale** : **ni l'une ni l'autre** ne sont exigées pour la moto.
+
+**Cinq fautes qui coûtent le permis** au motard : le **surnombre** (trop de passagers), le **franchissement d'une ligne continue**, l'**excès de vitesse**, le **non-respect du STOP** et le **dépassement dangereux**.
+
+### Le long des voitures garées
+
+En longeant une file de voitures stationnées, trois dangers guettent le motard :
+
+- une voiture qui **démarre brusquement** — on klaxonne si nécessaire (de jour) ;
+- une **portière qui s'ouvre** d'un coup — on garde **1 m d'écart** ;
+- un **piéton qui traverse** brusquement devant une voiture — on roule lentement.
+
 ## Ce qu'il faut retenir
 
 - **Casque attaché, pour toi et ton passager** — sanctionné dans les deux cas.

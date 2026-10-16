@@ -42,6 +42,38 @@ Ce module rassemble les feux, les avertisseurs et les accessoires de visibilité
 | **Éclairage de plaque** | La plaque doit rester lisible à **20 m** la nuit. |
 | **Catadioptres** | Réflecteurs carrés ou ronds — **en triangle** pour les ensembles de véhicules et les remorques (module PK 15). |
 
+## Les chiffres que l'examen demande
+
+Le support de cours d'auto-école résume l'équipement d'éclairage et sa portée :
+
+| Où | Feux | Portée / visibilité |
+|---|---|---|
+| **Avant** | 2 **phares** (feux de route) | **100 m** minimum |
+| | 2 **codes** (feux de croisement) | **30 m** maximum |
+| | 2 **veilleuses** (feux de position) | visibles à **150 m** |
+| | 2 **clignotants** | pour indiquer la direction |
+| **Arrière** | 2 **feux rouges** (position) | visibles à **150 m** |
+| | 2 **feux stop** | s'allument au frein |
+| | 2 **clignotants** | pour indiquer la direction |
+| | 1 ou 2 **feux de plaque** (« feu de police ») | plaque lisible à **20 m** |
+| | **Catadioptres** (« cataphotes ») | réfléchissent la lumière à **100 m** |
+
+### Phare ou code ?
+
+| On utilise le **phare** | On utilise le **code** (le contraire du phare) |
+|---|---|
+| **En dehors des agglomérations** | **En ville** |
+| Quand **aucun véhicule ne vient en face** | **Dans un virage** |
+| Quand **aucun véhicule n'est suivi de près** | **Au sommet d'une côte** |
+| En l'absence de **danger particulier** (virage, sommet de côte…) | **En croisant** un véhicule |
+| | Quand on voit dans le rétroviseur qu'on est **sur le point d'être dépassé** |
+
+**La nuit, à l'entrée d'un virage** : on passe en code, on serre à droite, on ralentit.
+
+**La nuit, au loin, une voiture vient-elle vers moi ou s'éloigne-t-elle ?** Si je vois des feux **blancs ou jaunes**, elle **vient** vers moi ; si je vois des feux **rouges**, elle **s'éloigne**.
+
+Le **clignotant** sert à annoncer un changement de direction ; on l'actionne avec la **manette** au volant. Le **feu stop** s'allume tout seul quand on **freine**. Et de jour, seuls les **clignotants** et les **feux stop** servent : les autres feux sont pour la nuit et le mauvais temps.
+
 ## Les feux de détresse
 
 C'est le signal qui dit « attention, quelque chose d'anormal ici ». Il s'utilise quand le véhicule devient un obstacle ou un danger :

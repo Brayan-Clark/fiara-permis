@@ -15,6 +15,13 @@ Ny fanao tokony ho raisina : rehefa misy fiara lehibe tonga manoloana amin'ny la
 
 Mba hanatonana fifanenana : **mihazona ny ankavanana**, **mifehy tsara ny hafainganana**, ary **mampihena ny hafainganana** raha ilaina. Amin'ny **lalana tery** izay tsy ahafahan'ny fiara roa mifanila, tsy mifanena : mijanona ny iray ary mamela ny iray handalo.
 
+### Iza no mamela amin'ny lalana tery ?
+
+Fitsipika roa azo ampiharina no omen'ny taratasy fampianarana :
+
+- **Fiara lehibe sy fiara kely** mifanena amin'ny lalana tery : **ny lehibe kokoa no madefitra** ary mamela ny iray handalo — izy no mahita tsara kokoa, ary matetika tsy manana toerana halehany ny kely.
+- **Amin'ny lalana tery mideza**, **ilay midina no mijanona** : ilay miakatra no eo am-panerena ny motera, ary sarotra sy mampidi-doza kokoa ny miainga indray amin'ny fiakarana.
+
 ## Fihoarana : amin'ny ankavia foana
 
 Ny fihoarana dia **fihetsika mety hiteraka loza** : atao am-pitandremana. Atao **amin'ny ankavia** izy amin'ny fifamoivoizana mahazatra. Azo atao **amin'ny ankavanana** amin'ny toe-javatra roa ihany :
@@ -34,6 +41,8 @@ Fahadisoana roa mahazatra amin'io fotoana io :
 
 - **Mivily tsy nampitandrina mialoha** — fandikan-dalàna manokana izany, voasazy lamandy sy fampiatoana ny permis. Tsy fahalalam-pomba fotsiny ny clignotant.
 - **Miverina aloha loatra**, alohan'ny nahavitana tanteraka ny fihoarana.
+
+Mba hihoarana **posiposy, sarety na bisikileta** : mijery eo aloha sy ao aoriana, mampandeha clignotant ankavia, mi-klaxon raha ilaina (amin'ny antoandro), ary mamela elanelana **1 m farafahakeliny** eo amin'ny sisiny.
 
 ## Ireo dingana telo amin'ny fihoarana
 

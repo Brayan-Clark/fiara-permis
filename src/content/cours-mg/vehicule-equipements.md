@@ -55,6 +55,19 @@ Fanao mahasoa : manodidina ny fiaranao, mirehitra ny jiro, indray mandeha isan-k
 
 Ny fiara na entana izay **manimba ny lalana na ny fotodrafitrasany** dia mitarika fampijanonana ny fiara. Ny entana tsy voafatotra tsara dia tsy loza ho anao ihany : manimba ny fotodrafitrasa an-dalana izy ary mampidi-doza izay rehetra manaraka anao.
 
+## Ny entana azo entina : ireo habe tokony ho fantatra
+
+Manome isa marina ny taratasy fampianarana any amin'ny auto-école, izay matetika ao amin'ny fanadinana :
+
+| Aiza | Fitsipika |
+|---|---|
+| **Ao aoriana** | Raha mivoaka **mihoatra ny 1 m** ny entana, asiana **fitaovana manazava** (sainam-pirenena mena kely, fanion rouge) eo amin'ny tendrony, ampiana **jiro mena** amin'ny **alina** na rehefa tsy mahita tsara. **Tsy mihoatra ny 3 m mihitsy** izy, ary tsy mitarika amin'ny tany. |
+| **Eo aloha** | **Tsy mihoatra mihitsy** ny sisin'ny fiara eo aloha ny entana. |
+| **Ny sakany** | **2,50 m** farafahabetsany, ao anatin'izany ny entana. |
+| **Eo ambony galerie** | **0,80 m** farafahabetsany ny haavony, ary tsy mihoatra ny **4 m** manomboka amin'ny tany ka hatramin'ny tampon'ny entana ny fitambarany. |
+
+Ny entana tsy voazara tsara na avo loatra dia manova ny fitondran'ny fiara ao amin'ny fiolahana : mitongilana bebe kokoa izy, ela kokoa vao mijanona, ary voadonan'ny rivotra avy amin'ny sisiny.
+
 ## Ny taratasim-piara
 
 Ankoatra ireo taratasy telo ao amin'ny PK 5, taratasy roa no miverimberina amin'ny fanaraha-maso :

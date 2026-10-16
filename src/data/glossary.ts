@@ -67,6 +67,17 @@ const glossaryFr: GlossaryTerm[] = [
   { term: 'Éco-conduite', definition: "Conduite souple et anticipée, qui réduit la consommation, l'usure et la fatigue. Elle recoupe les règles de sécurité : anticiper plutôt que freiner, c'est aussi freiner moins fort." },
   { term: 'Disque de stationnement', definition: "Disque horaire utilisé dans les zones à stationnement limité et gratuit : il faut déplacer le véhicule une fois le temps écoulé, pas seulement changer l'heure affichée." },
   { term: 'Carte violette', definition: "Document qui fixe le nombre maximal de voyageurs qu'un véhicule de transport de personnes est autorisé à transporter. Le dépasser entraîne immobilisation et suspension du permis." },
+  { term: "Civisme", definition: "Comportement du bon citoyen sur la route, résumé par la règle de base : prudence, politesse, courtoisie." },
+  { term: "Lockheed", definition: "Nom courant du liquide de frein. Son niveau se vérifie chaque matin avec l'huile, l'eau, le carburant et l'acide de batterie." },
+  { term: "Embrayage", definition: "Organe situé entre le moteur et la boîte de vitesses : il transmet la force du moteur et coupe la liaison le temps de passer une vitesse." },
+  { term: "Point mort", definition: "Position de la boîte de vitesses où le moteur n'entraîne plus les roues. Interdit en descente : on perd le frein moteur." },
+  { term: "Frein moteur", definition: "Ralentissement obtenu en rétrogradant, sans toucher la pédale. C'est lui qui retient le véhicule dans les longues descentes." },
+  { term: "Starter", definition: "Commande qui enrichit le mélange pour démarrer un moteur à essence froid ; on la baisse quand le moteur a pris un certain régime." },
+  { term: "Préchauffage", definition: "Position de la clé d'un moteur diesel qui chauffe les cylindres avant le démarrage : on attend que le témoin s'éteigne." },
+  { term: "Balise", definition: "Signal de position placé à l'endroit même du danger : chevrons blancs dans un virage, blancs et rouges sur un pont ou un rétrécissement, balise d'intersection lue de profil ou de face." },
+  { term: "Catadioptre (cataphote)", definition: "Réflecteur placé à l'arrière du véhicule, qui renvoie la lumière des phares et se voit à environ 100 m." },
+  { term: "Constat à l'amiable", definition: "Document rempli ensemble par les conducteurs après un accident matériel sans blessé, pour régler les dégâts avec les assurances." },
+  { term: "Barrière de pluie", definition: "Fermeture temporaire d'une route par temps de pluie, parce que la chaussée détrempée ne supporterait pas le passage des véhicules lourds. Ne pas la respecter est sanctionné." },
 ];
 
 export const glossary: GlossaryTerm[] = glossaryFr.map((g) => ({ ...g, mg: glossaryMg[g.term] }));

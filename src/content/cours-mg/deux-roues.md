@@ -79,6 +79,40 @@ Ny taratasy atolotra dia ireo ao amin'ny PK 6 : karapanondron'ny mpianatra, kopi
 
 Ny fanadinana dia misy ny **code** — ireo lesona PK 1 hatramin'ny PK 11 ato amin'ity boky ity — sy ny **fitondrana**, izay jerena indrindra ny fifandanjanao amin'ny hafainganana ambany, ny fanamarinanao alohan'ny fihetsika, ary ny fomba fi-frein-nao.
 
+## Ireo fanontaniana amin'ny fanadinana momba ny moto
+
+Ny fanontaniana « moto » any amin'ny auto-école dia miverina amin'ireo teboka tsotra ireo, tokony ho fantatra tsianjery.
+
+**Ireo karazana moto telo :**
+
+| Karazany | Cylindrée | Permis |
+|---|---|---|
+| **Cyclomoteur** | ambanin'ny **50 cm³** | tsy mila permis (manomboka amin'ny 14 taona) |
+| **Vélomoteur** | **50 hatramin'ny 125 cm³** | permis **A'** (manomboka amin'ny 16 taona) |
+| **Motocyclette** | mihoatra ny **125 cm³** | permis **A** (manomboka amin'ny 16 taona) |
+
+**Ireo kojakoja tsy maintsy misy** : **jiro**, **fitaratra roa**, **klaxon**, **frein roa**, ary **pot d'échappement** misy silencieux sy anti-parasite.
+
+**Ny fiarovana ny mpitondra** : **casque**, **fonon-tanana**, **fiarovana lohalika**, **akanjo iray manontolo (combinaison)**, **baoty**.
+
+**Ireo soratra eo amin'ny moto** : ny **laharana (immatriculation)**, ny **cylindrée** ary ny **laharan'ny châssis**.
+
+**Ny jiro** : **eo aloha**, code, phare, veilleuse ary clignotant ; **ao aoriana**, jiro mena, feu stop, jiron'ny plaque, clignotant ary **catadioptre**.
+
+**Ny taratasy** : **taxe de roulage**, **assurance**, **carte grise** ary **permis** (afa-tsy ny cyclomoteur, tsy mila permis na carte grise).
+
+**Visite technique sy visite médicale** : **samy tsy takiana** ho an'ny moto.
+
+**Fahadisoana dimy mahavery permis** ho an'ny mpitondra moto : ny **mpandeha mihoatra ny isa** (surnombre), ny **fanitsahana tsipika mitohy**, ny **hafainganana mihoatra ny fetra**, ny **tsy fanajana ny STOP** ary ny **fihoarana mampidi-doza**.
+
+### Manaraka fiara mijanona
+
+Rehefa manaraka filaharan'ny fiara mijanona, loza telo no miandry ny mpitondra moto :
+
+- fiara **miainga tampoka** — mi-klaxon raha ilaina (amin'ny antoandro) ;
+- **varavarana misokatra** tampoka — tazony **1 m** ny elanelana ;
+- **mpandeha an-tongotra miampita** tampoka eo anoloan'ny fiara — mandehana moramora.
+
 ## Ny tokony ho tadidiana
 
 - **Casque voafehy, ho anao sy ny mpandeha miaraka aminao** — voasazy amin'ny roa.

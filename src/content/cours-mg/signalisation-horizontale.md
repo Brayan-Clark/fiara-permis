@@ -52,11 +52,19 @@ Ny sary amin'ny tany koa dia mamaly fanontaniana tian'ny fanadinana apetraka : *
 
 > Odidinina amin'ny ankavanana ny rond-point, afa-tsy raha tsy manakana ny fandrosoanao izy.
 
-## Fanamarihana marina momba ny habe
+## Ireo habe ampianarina eto Madagasikara
 
-Mety hahita habe voafaritra ianao — tsipika 3 m, elanelana 3,5 m, tsipika mifanalavitra 10 m — avy amin'ny fenitry ny sary amin'ny tany ampiasaina amin'ny fampianarana ny fitsipi-pifamoivoizana any Frantsa.
+Ny taratasy fampianarana any amin'ny auto-école malagasy dia manavaka **karazana tsipika tapatapaka telo**, araka ny halavan'ny tsipika sy ny elanelany :
 
-Eto Madagasikara, **mitovy tanteraka ny fomba famakiana ny endrika**, fa mety hiova arakaraka ny faritra ny habe marina, ary ny tsipika efa simba antsasany dia toa miova halavana. Izay manan-danja ho an'ny fanadinana — sy ho an'ny fitondrana — dia ny **endrika** : tsipika sy elanelana mitovy, tsipika lava sy elanelana lehibe, efajoro lehibe mifanakaiky, efamira kely. Izany no vakiana amin'ny 80 km/h.
+| Tsipika / elanelana | Ny dikany |
+|---|---|
+| **3 m feno, 1,50 m foana** | **Manambara fa ho avy ny tsipika mitohy** : miomàna tsy hihoatra intsony. |
+| **3 m feno, 3 m foana** | **Manasaraka ny lalankely ao an-tanàna**. |
+| **3 m feno, 10 m foana** | **Manasaraka ny lalankely ivelan'ny tanàna**. |
+
+Ny **zana-tsipika fiverenana** dia **telo** amin'ny ankapobeny : manambara fa ho soloina tsipika mitohy ny tsipika tapatapaka. Raha vao hita ny voalohany, vitaina ny fihoarana ary miverina.
+
+Eny an-toerana, ny tsipika efa simba dia toa miova halavana : izay manan-danja dia ny mahafantatra ny **endrika** — tsipika fohy sy elanelana fohy, tsipika sy elanelana mitovy, tsipika kely sy elanelana lehibe. Izany no vakiana amin'ny 80 km/h.
 
 ## Ny tokony ho tadidiana
 

@@ -119,6 +119,63 @@ Misy takelaka mifanahaka ka mety hifangaro rehefa voatery maika — ary izany in
 
 Ny tabilaon'ny famantarana eo ambanin'ity pejy ity dia mirakitra ireo tranga ireo rehetra, na dia ireo sarotra indrindra aza. Ny fanao tsara amin'ny fanadinana : jereo **ny endrika sy ny loko aloha vao ny sary**, avy eo ny sary, avy eo ny takelaka kely.
 
+## Ny fihetsiky ny mpitandro ny fifamoivoizana
+
+Ny fihetsiky ny mpitandro dia **baiko moana iraisam-pirenena** : mitovy amin'ny firenena rehetra. Ny fiara sy mpandeha an-tongotra **efa tafiditra** ao amin'ny sampanan-dalana dia miala haingana araka izay azo atao ; ireo **mbola tsy tafiditra** dia mijanona.
+
+| Fihetsiky ny mpitandro | Ny dikany |
+|---|---|
+| **Tanana miakatra mahitsy** | Mitandrema : **mijanona** ny rehetra, afa-tsy ireo tsy afaka mijanona intsony tsy misy loza. |
+| **Tanana mivelatra mitsivalana**, manatrika na mitodika | **Mijanona** ireo manatrika azy na ao aoriany. |
+| **Mitsangana amin'ny sisiny** | **Afaka mandalo** ireo eo amin'ny sisiny. |
+| **Tanana miakatra midina** | **Ampiadano**. |
+| **Tanana manao hoe mandrosoa** | **Mandrosoa**, na **hafainganina** mba hialana. |
+
+## Ny balise
+
+Ny **balise** dia famantarana eo an-toerana : apetraka eo amin'ny toerana misy ny loza mihitsy izy.
+
+- **Balise eo amin'ny fiolahana** : zana-tsipika **fotsy**, ao amin'ny fiolahana mihitsy, mba hanehoana ny fiolahany.
+- **Balise eo amin'ny tetezana** na **lalana tery** : zana-tsipika fotsy misy **mena** eo an-tampony.
+- **Balise eo amin'ny sampanan-dalana** : mampiharihary ny sampanan-dalana, ary vakiana araka ny fomba ahitana azy :
+  - hita **amin'ny sisiny**, eo amin'ny **lalana be mpampiasa** tapahin'ny lalana kely ianao : **manan-daharam-pahamehana** ianao ;
+  - hita **manatrika**, eo amin'ny **lalana kely** manapaka lalana be mpampiasa ianao : **mamela** ianao.
+
+## Ny loko, isaky ny takelaka
+
+| Takelaka | Endrika | Sisiny | Sary | Ambadika |
+|---|---|---|---|---|
+| **Loza** | Telozoro tendrony ambony | Mena | Manga mainty (na mainty) | Mavo-fotsy, mavo na fotsy |
+| **Fandrarana** | Boribory | Mena | Manga mainty | Fotsy na manga |
+| **Fiafaran'ny fandrarana** | Boribory | Manga mainty na mainty | Manga mainty na mainty | Fotsy — voatsipika mitongilana mainty na manga |
+| **Tsy maintsy atao** | Boribory | Fotsy | Fotsy | Manga mainty |
+| **Fiafaran'ny tsy maintsy atao** | Boribory | Fotsy | Fotsy | Manga mainty — voatsipika mitongilana mena |
+| **Fampahafantarana** | Efamira na efajoro | Manga | Fotsy na manga mainty | Manga na fotsy |
+| **Toerana** | Efajoro | Manga mainty | Manga mainty | Fotsy na mavo-fotsy |
+| **Lalana halehana** | Efamira na efajoro misy zana-tsipika | Manga mainty | Manga mainty | Fotsy na mavo-fotsy |
+
+Ohatra : ny takelaka **toerana** dia manome ny anaran'ny toerana iray (renirano toy ny **Sofia**, tanàna toy an'**Anivorano Avaratra**) ; ny takelaka **lalana halehana** « **Betafo 100 km — N 6** » dia midika hoe : amin'ny **lalam-pirenena faha-6**, **100 km** sisa hahatongavana any Betafo.
+
+### Ny laharan'ny lalana
+
+| Fanafohezana | Lalana |
+|---|---|
+| **RN** | Lalam-pirenena (route nationale) |
+| **RA** | Lalambe haingana (autoroute) |
+| **RR** | Lalana any ambanivohitra (route rurale) |
+| **RD** | Lalan'ny departemanta (route départementale) |
+| **RF** | Lalana anaty ala (route forestière) |
+| **RC** | Lalan'ny kaominina (route communale) |
+| **RE** | Lalana eoropeana (route européenne) |
+
+## Fitoviana telo tokony ho fantatra
+
+Indraindray ny fanadinana dia mametraka ireto fanontaniana « fahaiza-misaina » ireto :
+
+- **Inona no famantarana manolo ny jiro telo loko ?** Ny **polisy**.
+- **Inona no sary amin'ny tany manolo ny takelaka loza ?** Ny **tsipika mitohy** : milaza koa izy fa tsy mahita lavitra ampy hihoarana.
+- **Inona no takelaka fampahafantarana mitovy lanja amin'ny fetra 50 km/h ?** Ny takelaka **toerana amin'ny fidirana an-tanàna** : rehefa miditra tanàna na vohitra, tsy maintsy fantatrao fa 50 km/h no fetra na dia tsy averin'ny takelaka boribory aza.
+
 ## Ny tabilaon'ny famantarana
 
 Tokony ho fantatra avokoa ny famantarana rehetra ao amin'ny tabilao, eo ambanin'ity pejy ity. Avy eo, manaova fanazaran-tena amin'ny **Fahalalana ny famantarana**, izay misafidy kisendrasendra amin'ny tabilao manontolo.

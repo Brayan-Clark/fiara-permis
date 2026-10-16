@@ -3,12 +3,12 @@
 // <body>), donc le choix est partagé par toutes les pages et persisté dans
 // localStorage sous 'fiara-cats', comme la progression et la langue.
 const categories = [
-  { code: 'A', label: 'Moto' },
-  { code: "A'", label: 'Moto légère' },
-  { code: 'B', label: 'Voiture' },
-  { code: 'C', label: 'Poids lourd' },
-  { code: 'D', label: 'Transport de personnes' },
-  { code: 'E', label: 'Remorque' },
+  { code: 'A', label: 'Moto', labelMg: 'Moto' },
+  { code: "A'", label: 'Moto légère', labelMg: 'Moto maivana' },
+  { code: 'B', label: 'Voiture', labelMg: 'Fiara' },
+  { code: 'C', label: 'Poids lourd', labelMg: 'Kamiao lehibe' },
+  { code: 'D', label: 'Transport de personnes', labelMg: 'Fitaterana olona' },
+  { code: 'E', label: 'Remorque', labelMg: 'Remorque' },
 ];
 ---
 
@@ -43,7 +43,7 @@ const categories = [
         :title={`isImplied("${c.code}") ? t('cat.impliedTitle') : ''`}
       >
         <span class="font-plate font-semibold">{c.code}</span>
-        <span class="text-xs opacity-80">{c.label}</span>
+        <span class="text-xs opacity-80"><span x-show="lang !== 'mg'">{c.label}</span><span x-show="lang === 'mg'" x-cloak lang="mg">{c.labelMg}</span></span>
         <span x-show={`isImplied("${c.code}")`} x-cloak class="font-plate text-[0.6rem] uppercase tracking-wide" x-text="t('cat.implied')">requis</span>
       </button>
     ))}

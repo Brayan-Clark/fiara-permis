@@ -63,6 +63,19 @@ Le réflexe utile : faire le tour de son véhicule, feux allumés, une fois par 
 
 Un véhicule ou un chargement qui **provoque des détériorations à la route ou à ses dépendances** entraîne l'immobilisation. Un chargement mal arrimé n'est pas seulement un risque pour toi : il abîme le patrimoine routier et met en danger tout ce qui te suit.
 
+## Le chargement admissible : les dimensions à connaître
+
+Le support de cours d'auto-école donne des chiffres précis, qui tombent souvent à l'examen :
+
+| Où | Règle |
+|---|---|
+| **À l'arrière** | Si le chargement dépasse de **plus d'1 m**, on accroche à son extrémité un **dispositif réfléchissant** (un fanion rouge), complété **la nuit** ou par visibilité réduite par un **feu rouge**. Il ne doit **jamais dépasser 3 m**, ni traîner sur le sol. |
+| **À l'avant** | Le chargement ne doit **jamais dépasser** le bord avant du véhicule. |
+| **En largeur** | **2,50 m** au maximum, chargement compris. |
+| **Sur la galerie** | **0,80 m** de hauteur au maximum, sans que l'ensemble dépasse **4 m** du sol au sommet du chargement. |
+
+Un chargement mal réparti ou trop haut change le comportement du véhicule en virage : il se couche plus, freine plus long, et prend le vent latéral de plein fouet.
+
 ## Les papiers du véhicule
 
 Au-delà des trois documents du module PK 5, deux pièces reviennent dans les contrôles :

@@ -58,6 +58,54 @@ Sans formation, la règle d'or est : **ne pas aggraver**.
 
 Suivre une formation aux premiers secours est le meilleur complément à ce module — aucune page web ne remplace des gestes appris avec les mains.
 
+### Ce que prévoit le support de cours d'auto-école
+
+Le support de formation permis B résume la conduite à tenir en deux cas :
+
+- **Accident matériel** (aucun blessé) : on fait un **constat à l'amiable**, directement entre conducteurs.
+- **Accident corporel** :
+  - on **trace l'emplacement du blessé** par rapport au véhicule, avant tout déplacement ;
+  - on **appelle la police** si c'est en ville, la **gendarmerie** si c'est en dehors de la ville ;
+  - on **ne déplace jamais le véhicule** — à défaut d'agent, ce sont les **témoins au fokontany** qui établissent le procès-verbal ;
+  - lorsque les secours ne peuvent pas venir, le support prévoit d'**évacuer le blessé vers l'hôpital le plus proche**.
+
+> Ces deux consignes se complètent : **tant que des secours peuvent arriver, on ne déplace pas un blessé** (risque de lésion de la colonne). L'évacuation par ses propres moyens est le dernier recours, quand personne ne viendra — ce qui arrive souvent loin des villes.
+
+## Panne sur un passage à niveau, un pont ou une intersection
+
+Une panne à ces endroits est dangereuse pour tout le monde : il faut **prévenir de loin**.
+
+**Si la voiture ne peut pas bouger :**
+- sur un **passage à niveau**, on place un **fanion rouge** le jour, un **feu** la nuit, à **500 m** de chaque côté de la voie ferrée, **à gauche et à droite** — le train a besoin de cette distance pour s'arrêter ;
+- sur un **pont** ou ailleurs, on place à **100 m** devant et derrière, bien visibles, un **fanion rouge**, une **branche** ou le **triangle**.
+
+**Si la voiture peut bouger :** on met la vitesse **au point mort**, on **desserre le frein à main**, et on **pousse** pour dégager.
+
+**S'il n'y a personne pour pousser :** on engage la **1ʳᵉ** ou la **marche arrière**, on desserre le frein à main, et on actionne le démarreur **sans débrayer** : le véhicule avance par à-coups sur la force du démarreur (« démarrage en vitesse »), juste assez pour dégager la voie.
+
+## Une roue crevée
+
+- On **ne s'arrête jamais sur un pont** pour changer une roue : on le traverse et on s'arrête **après**.
+- On se gare **à droite**, moteur coupé, **frein à main serré**, une vitesse engagée.
+- On place une **cale** devant et derrière une roue restée au sol.
+- Avec le **cric**, la **roue de secours** et la **manivelle** (ou clé de roue) : on débloque les écrous **avant** de soulever, on lève, on remplace la roue, on la serre, on redescend, puis on **range** le cric, la roue crevée, la manivelle et les cales.
+
+## Ce qu'un conducteur emporte pour un voyage
+
+| Outillage | Réserves | Sécurité |
+|---|---|---|
+| **Cric**, **clé de roue** (manivelle), **roue de secours**, **trousseau de clés de dépannage** | **Huile**, **eau**, **liquide de frein** (Lockheed), **ampoules**, **fusibles** | **Extincteur**, **lampe baladeuse**, **triangle de présignalisation** |
+
+## Ce qui est interdit sur la voie publique
+
+La route n'est ni une décharge ni un garage :
+
+- **abandonner** un véhicule ou des objets sur la voie publique ;
+- y faire des **dépôts** (sable, gravier, matériaux) ;
+- **laisser couler, répandre ou jeter** des matériaux ou des substances (fumée comprise) qui gênent la sécurité de la circulation ;
+- **laver** son véhicule sur la voie publique ;
+- installer une **source lumineuse** qui éblouit ou trompe les usagers.
+
 ## Partir est un délit
 
 Ne pas s'arrêter délibérément après avoir causé un accident, ou tenter de fuir, c'est le **délit de fuite**.

@@ -62,11 +62,19 @@ Le marquage sert aussi à répondre à une question que l'examen aime poser : *o
 
 > Un rond-point se contourne par la droite, sauf s'il ne fait pas obstacle à ta progression.
 
-## Une précision honnête sur les dimensions
+## Les dimensions enseignées à Madagascar
 
-Tu croiseras peut-être des cotes précises — un trait de 3 m, un espace de 3,5 m, des traits espacés de 10 m — issues des normes de marquage utilisées dans l'enseignement du code en France.
+Le support de cours d'auto-école malgache distingue **trois types de ligne discontinue**, selon la longueur du trait et de l'espace :
 
-À Madagascar, **les formes se lisent exactement de la même façon**, mais les cotes exactes peuvent varier d'un tronçon à l'autre, et une ligne à moitié usée change de longueur apparente. Ce qui compte pour l'examen — et pour conduire — c'est la **forme** : trait et espace égaux, trait long et grand espace, gros rectangles rapprochés, petits carrés. C'est ça qui se lit à 80 km/h.
+| Trait / espace | Ce qu'elle signifie |
+|---|---|
+| **3 m plein, 1,50 m vide** | Elle **annonce l'arrivée d'une ligne continue** : prépare-toi à ne plus dépasser. |
+| **3 m plein, 3 m vide** | Elle **sépare les voies en ville**. |
+| **3 m plein, 10 m vide** | Elle **sépare les voies hors agglomération**. |
+
+Les **flèches de rabattement** sont en général au nombre de **trois** : elles annoncent que la ligne discontinue va être remplacée par une ligne continue. Dès la première, on termine son dépassement et on se rabat.
+
+Sur le terrain, une ligne usée change de longueur apparente : ce qui compte, c'est de reconnaître la **forme** — trait court et espace court, trait et espace égaux, petit trait et grand espace. C'est ça qui se lit à 80 km/h.
 
 ## Ce qu'il faut retenir
 

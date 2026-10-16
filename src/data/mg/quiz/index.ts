@@ -13,6 +13,7 @@ import { partagerLaRouteMg } from './partager-la-route';
 import { deuxRouesMg } from './deux-roues';
 import { categoriesProMg } from './categories-pro';
 import { panneauxImagesMg } from './panneaux-images';
+import { livreCompletMg } from './livre-complet';
 
 export type { QuizMg };
 
@@ -32,6 +33,7 @@ export const quizMg: QuizMg = {
   ...deuxRouesMg,
   ...categoriesProMg,
   ...panneauxImagesMg,
+  ...livreCompletMg,
 };
 
 /** Anaran'ny fonosana quiz tsirairay. */
@@ -52,4 +54,9 @@ export const quizTitleMg: Record<string, string> = {
   'transport-personnes': 'Fitaterana olona',
   remorques: 'Remorque sy semi-remorque',
   'panneaux-images': 'Famantarana an-tsary',
+  'civisme': "Fahalalam-pomba sy fitondran-tena tsara",
+  'notions-mecaniques': "Fahalalana momba ny milina sy fikarakarana",
+  'eclairage-visibilite': "Jiro, fahitana ary feo fampitandremana",
+  'passages-a-niveau': "Fiampitana lalamby",
+  'signalisation-horizontale': "Ny sary amin'ny tany",
 };

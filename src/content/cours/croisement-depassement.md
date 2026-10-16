@@ -23,6 +23,13 @@ Le réflexe à prendre : quand un véhicule large arrive en face sur une route �
 
 Pour aborder un croisement : **serrer à droite**, **rester maître de sa vitesse**, et **réduire la vitesse** en cas de besoin. Sur une **chaussée rétrécie** où deux véhicules ne passent pas côte à côte, on ne croise pas : l'un des deux s'arrête et laisse passer l'autre.
 
+### Qui cède sur une route étroite ?
+
+Le support de cours d'auto-école donne deux règles pratiques :
+
+- **Un grand et un petit véhicule** se croisent sur une route étroite : c'est **le plus gros qui se range** et laisse passer — il a la meilleure vue, et le petit n'a souvent nulle part où aller.
+- **Sur une route étroite en pente**, c'est **celui qui descend qui s'arrête** : le véhicule qui monte est en plein effort, et un redémarrage en côte est plus difficile et plus risqué.
+
 ## Dépassement : toujours par la gauche
 
 Le dépassement est une **manœuvre accidentogène** : elle se fait avec précaution. Il se fait **par la gauche** dans la circulation normale. Il peut se faire **par la droite** dans deux cas seulement :
@@ -42,6 +49,8 @@ Deux fautes classiques à ce moment précis :
 
 - **Changer de direction sans avertissement préalable** — c'est une infraction à part entière, sanctionnée par une amende forfaitaire et la suspension du permis. Le clignotant n'est pas une politesse.
 - **Se rabattre trop tôt**, avant d'avoir dépassé complètement.
+
+Pour dépasser un **pousse-pousse, une charrette ou une bicyclette** : on regarde devant et derrière, on met le clignotant à gauche, on klaxonne si nécessaire (de jour), et on laisse **au moins 1 m** d'écart latéral.
 
 ## Les trois phases du dépassement
 
